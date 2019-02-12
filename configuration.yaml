@@ -1,0 +1,99 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 38.907089
+  longitude: -77.030274
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 31.7
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/New_York
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  ssl_certificate: /cert/fullchain.pem
+  ssl_key: /cert/privkey.pem
+  base_url: !secret base_url
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+  ignore:
+    - plex_mediaserver
+    - roku
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Enable configuration editing
+config:
+
+# Track the sun
+# sun:
+
+sensor: !include sensors.yaml
+media_player: !include media_players.yaml
+roku: !include rokus.yaml
+lock: !include locks.yaml
+light: !include lights.yaml
+climate: !include climates.yaml
+device_tracker: !include device_trackers.yaml
+rest_command: !include rest_commands.yaml
+binary_sensor: !include binary_sensors.yaml
+
+asuswrt:
+  host: !secret ip_router
+  username: !secret router_user
+  password: !secret router_pass
+
+# Text to speech
+tts:
+  - platform: google
+
+# MQTT
+mqtt: !include mqtt.yaml
+
+# Zwave
+#zwave:
+#  usb_path: /dev/zwave
+#  network_key: !secret zwave_network_key
+
+influxdb:
+  username: !secret influx_user
+  password: !secret influx_pass
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml

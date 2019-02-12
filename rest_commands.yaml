@@ -1,0 +1,3 @@
+ir_send:
+  url: !secret ir_send_url
+  method: POST

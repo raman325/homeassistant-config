@@ -1,0 +1,109 @@
+- platform: plex
+  name: "Plex Media Server"
+  server: home
+  token: !secret plex_token
+  username: !secret plex_user
+  password: !secret plex_pass
+
+# - platform: synologydsm
+#   name: "Diskstation"
+#   port: !secret ds_port
+#   host: !secret ds_host
+#   username: !secret ds_user
+#   password: !secret ds_pass
+#   monitored_conditions:
+#     - cpu_total_load
+#     - memory_real_usage
+#     - disk_smart_status
+#     - disk_exceed_bad_sector_thr
+#     - disk_below_remain_life_thr
+#     - disk_status
+#     - volume_status
+#     - volume_size_total
+#     - volume_size_used
+
+- platform: pihole
+  name: "Pi-Hole"
+  host: !secret pihole_host
+  port: !secret pihole_port
+  ssl: true
+  monitored_conditions:
+    - ads_blocked_today
+    - ads_percentage_today
+    - dns_queries_today
+    - domains_being_blocked
+    - queries_cached
+    - queries_forwarded
+    - unique_clients
+    - unique_domains
+    - clients_ever_seen
+
+- platform: mqtt
+  name: "Front Door Lock Battery"
+  unique_id: front_door_lock_battery
+  unit_of_measurement: "%"
+  device_class: "battery"
+  state_topic: "smartthings/Front Door Lock/battery/state"
+
+- platform: mqtt
+  name: "Living Room Sensor Battery"
+  unique_id: living_room_sensor_battery
+  unit_of_measurement: "%"
+  device_class: "battery"
+  state_topic: "smartthings/Living Room Sensor/battery/state"
+
+- platform: mqtt
+  name: "Master Bedroom Sensor Battery"
+  unique_id: master_bedroom_sensor_battery
+  unit_of_measurement: "%"
+  device_class: "battery"
+  state_topic: "smartthings/Master Bedroom Sensor/battery/state"
+
+- platform: mqtt
+  name: "Thermostat Humidity"
+  unique_id: thermostat_humidity
+  unit_of_measurement: "%"
+  device_class: "humidity"
+  state_topic: "smartthings/Thermostat/humidity/state"
+
+- platform: mqtt
+  name: "Living Room Humidity"
+  unique_id: living_room_sensor_humidity
+  unit_of_measurement: "%"
+  device_class: "humidity"
+  state_topic: "smartthings/Living Room Sensor/humidity/state"
+
+- platform: mqtt
+  name: "Master Bedroom Humidity"
+  unique_id: master_bedroom_sensor_humidity
+  unit_of_measurement: "%"
+  device_class: "humidity"
+  state_topic: "smartthings/Master Bedroom Sensor/humidity/state"
+
+- platform: mqtt
+  name: "Living Room Temperature"
+  unique_id: living_room_sensor_temperature
+  unit_of_measurement: "°F"
+  device_class: "temperature"
+  state_topic: "smartthings/Living Room Sensor/temperature/state"
+
+- platform: mqtt
+  name: "Master Bedroom Temperature"
+  unique_id: master_bedroom_sensor_temperature
+  unit_of_measurement: "°F"
+  device_class: "temperature"
+  state_topic: "smartthings/Master Bedroom Sensor/temperature/state"
+
+- platform: mqtt
+  name: "Living Room Illuminance"
+  unique_id: living_room_sensor_illuminance
+  unit_of_measurement: "lm"
+  device_class: "illuminance"
+  state_topic: "smartthings/Living Room Sensor/illuminance/state"
+
+- platform: mqtt
+  name: "Master Bedroom Illuminance"
+  unique_id: master_bedroom_sensor_illuminance
+  unit_of_measurement: "lm"
+  device_class: "illuminance"
+  state_topic: "smartthings/Master Bedroom Sensor/illuminance/state"
