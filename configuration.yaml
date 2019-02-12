@@ -63,15 +63,15 @@ config:
 # Track the sun
 # sun:
 
-sensor: !include sensors.yaml
-media_player: !include media_players.yaml
-roku: !include rokus.yaml
-lock: !include locks.yaml
-light: !include lights.yaml
-climate: !include climates.yaml
-device_tracker: !include device_trackers.yaml
-rest_command: !include rest_commands.yaml
-binary_sensor: !include binary_sensors.yaml
+sensor: !include components/sensors.yaml
+media_player: !include components/media_players.yaml
+roku: !include components/rokus.yaml
+lock: !include components/locks.yaml
+light: !include components/lights.yaml
+climate: !include components/climates.yaml
+device_tracker: !include components/device_trackers.yaml
+rest_command: !include components/rest_commands.yaml
+binary_sensor: !include components/binary_sensors.yaml
 
 asuswrt:
   host: !secret ip_router
@@ -83,7 +83,9 @@ tts:
   - platform: google
 
 # MQTT
-mqtt: !include mqtt.yaml
+mqtt:
+  broker: !secret mqtt_host
+  port: !secret mqtt_port
 
 # Zwave
 #zwave:

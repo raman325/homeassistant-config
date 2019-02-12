@@ -1,4 +1,0 @@
-# MQTT
-broker: !secret mqtt_host
-port: !secret mqtt_port
-
