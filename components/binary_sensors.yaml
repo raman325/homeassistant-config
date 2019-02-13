@@ -2,7 +2,7 @@
   name: "Living Room Motion"
   unique_id: living_room_sensor_motion
   device_class: "motion"
-  state_topic: "smartthings/Living Room Sensor/motion/state"
+  state_topic: "smartthings/Living Room Sensor/motion"
   payload_on: "active"
   payload_off: "inactive"
 
@@ -10,7 +10,7 @@
   name: "Bedroom Motion"
   unique_id: master_bedroom_sensor_motion
   device_class: "motion"
-  state_topic: "smartthings/Master Bedroom Sensor/motion/state"
+  state_topic: "smartthings/Master Bedroom Sensor/motion"
   payload_on: "active"
   payload_off: "inactive"
 
@@ -18,7 +18,7 @@
   name: "Front Door Smoke"
   unique_id: front_door_lock_smoke
   device_class: "smoke"
-  state_topic: "smartthings/Front Door Lock/smoke/state"
+  state_topic: "smartthings/Front Door Lock/smoke"
   payload_on: "detected"
   payload_off: "clear"
 
@@ -26,7 +26,7 @@
   name: "Raman's Home Presence"
   unique_id: raman_home
   device_class: "presence"
-  state_topic: "smartthings/Raman/presence/cmd"
+  state_topic: "smartthings/Raman/presence"
   payload_on: "present"
   payload_off: "not present"
 
@@ -34,6 +34,6 @@
   name: "Sherene's Home Presence"
   unique_id: sherene_home
   device_class: "presence"
-  state_topic: "smartthings/Sherene/presence/cmd"
+  state_topic: "smartthings/Sherene/presence"
   payload_on: "present"
   payload_off: "not present"

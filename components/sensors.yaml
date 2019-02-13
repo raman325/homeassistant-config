@@ -43,67 +43,67 @@
   unique_id: front_door_lock_battery
   unit_of_measurement: "%"
   device_class: "battery"
-  state_topic: "smartthings/Front Door Lock/battery/state"
+  state_topic: "smartthings/Front Door Lock/battery"
 
 - platform: mqtt
   name: "Living Room Sensor Battery"
   unique_id: living_room_sensor_battery
   unit_of_measurement: "%"
   device_class: "battery"
-  state_topic: "smartthings/Living Room Sensor/battery/state"
+  state_topic: "smartthings/Living Room Sensor/battery"
 
 - platform: mqtt
   name: "Master Bedroom Sensor Battery"
   unique_id: master_bedroom_sensor_battery
   unit_of_measurement: "%"
   device_class: "battery"
-  state_topic: "smartthings/Master Bedroom Sensor/battery/state"
+  state_topic: "smartthings/Master Bedroom Sensor/battery"
 
 - platform: mqtt
   name: "Thermostat Humidity"
   unique_id: thermostat_humidity
   unit_of_measurement: "%"
   device_class: "humidity"
-  state_topic: "smartthings/Thermostat/humidity/state"
+  state_topic: "smartthings/Thermostat/humidity"
 
 - platform: mqtt
   name: "Living Room Humidity"
   unique_id: living_room_sensor_humidity
   unit_of_measurement: "%"
   device_class: "humidity"
-  state_topic: "smartthings/Living Room Sensor/humidity/state"
+  state_topic: "smartthings/Living Room Sensor/humidity"
 
 - platform: mqtt
   name: "Master Bedroom Humidity"
   unique_id: master_bedroom_sensor_humidity
   unit_of_measurement: "%"
   device_class: "humidity"
-  state_topic: "smartthings/Master Bedroom Sensor/humidity/state"
+  state_topic: "smartthings/Master Bedroom Sensor/humidity"
 
 - platform: mqtt
   name: "Living Room Temperature"
   unique_id: living_room_sensor_temperature
   unit_of_measurement: "°F"
   device_class: "temperature"
-  state_topic: "smartthings/Living Room Sensor/temperature/state"
+  state_topic: "smartthings/Living Room Sensor/temperature"
 
 - platform: mqtt
   name: "Master Bedroom Temperature"
   unique_id: master_bedroom_sensor_temperature
   unit_of_measurement: "°F"
   device_class: "temperature"
-  state_topic: "smartthings/Master Bedroom Sensor/temperature/state"
+  state_topic: "smartthings/Master Bedroom Sensor/temperature"
 
 - platform: mqtt
   name: "Living Room Illuminance"
   unique_id: living_room_sensor_illuminance
   unit_of_measurement: "lm"
   device_class: "illuminance"
-  state_topic: "smartthings/Living Room Sensor/illuminance/state"
+  state_topic: "smartthings/Living Room Sensor/illuminance"
 
 - platform: mqtt
   name: "Master Bedroom Illuminance"
   unique_id: master_bedroom_sensor_illuminance
   unit_of_measurement: "lm"
   device_class: "illuminance"
-  state_topic: "smartthings/Master Bedroom Sensor/illuminance/state"
+  state_topic: "smartthings/Master Bedroom Sensor/illuminance"
