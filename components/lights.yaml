@@ -8,4 +8,4 @@
   brightness_command_topic: "smartthings/Living Room Light/level"
   brightness_state_topic: "smartthings/Living Room Light/level"
   brightness_scale: 100
-  retain: false
+  retain: true
