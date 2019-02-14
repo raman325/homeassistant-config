@@ -4,4 +4,8 @@
 
 - platform: kodi
   name: "Bedroom Kodi"
-  host: !secret ip_bedroom_kodi
+  host: !secret ip_bedroom_firetv
+
+- platform: firetv
+  name: "Bedroom FireTV"
+  host: !secret ip_bedroom_firetv

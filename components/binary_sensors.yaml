@@ -23,7 +23,7 @@
   payload_off: "clear"
 
 - platform: mqtt
-  name: "Raman's Home Presence"
+  name: "Raman Home Presence"
   unique_id: raman_home
   device_class: "presence"
   state_topic: "smartthings/Raman/presence"
@@ -31,7 +31,7 @@
   payload_off: "not present"
 
 - platform: mqtt
-  name: "Sherene's Home Presence"
+  name: "Sherene Home Presence"
   unique_id: sherene_home
   device_class: "presence"
   state_topic: "smartthings/Sherene/presence"

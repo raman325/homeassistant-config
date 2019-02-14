@@ -1,67 +1,46 @@
+frontend:
+config:
+history:
+logbook:
+map:
+
 homeassistant:
-  # Name of the location where Home Assistant is running
   name: Home
-  # Location required to calculate the time the sun rises and sets
-  latitude: 38.907089
-  longitude: -77.030274
-  # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 31.7
-  # metric for Metric, imperial for Imperial
+  latitude: !secret lat_home
+  longitude: !secret long_home
+  elevation: !secret elevation_home
   unit_system: imperial
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/New_York
-  # Customization file
   customize: !include customize.yaml
 
-# Show links to resources in log and frontend
-# introduction:
-
-# Enables the frontend
-frontend:
-
-# Enables configuration UI
-config:
-
 http:
-  # Secrets are defined in the file secrets.yaml
-  api_password: !secret http_password
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  api_password: !secret pass_api
   ssl_certificate: /cert/fullchain.pem
   ssl_key: /cert/privkey.pem
-  base_url: !secret base_url
+  base_url: !secret url_base
 
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
+  reporting: false
 
-# Discover some devices automatically
 discovery:
   ignore:
     - plex_mediaserver
     - roku
 
-# Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
 
-# Enables support for tracking state changes over time
-history:
+sun:
 
-# View all events in a logbook
-logbook:
+weather:
+  - platform: darksky
+    api_key: !secret api_darksky
+    update_interval:
+      minutes: 15
 
-# Enables a map showing the location of tracked devices
-map:
-
-# Enable configuration editing
-config:
-
-# Track the sun
-# sun:
+usps:
+  username: !secret user_usps
+  password: !secret pass_usps
+  driver: chrome
 
 sensor: !include components/sensors.yaml
 media_player: !include components/media_players.yaml
@@ -75,8 +54,8 @@ binary_sensor: !include components/binary_sensors.yaml
 
 asuswrt:
   host: !secret ip_router
-  username: !secret router_user
-  password: !secret router_pass
+  username: !secret user_router
+  password: !secret pass_router
 
 # Text to speech
 tts:
@@ -84,8 +63,8 @@ tts:
 
 # MQTT
 mqtt:
-  broker: !secret mqtt_host
-  port: !secret mqtt_port
+  broker: !secret host_mqtt
+  port: !secret port_mqtt
 
 # Zwave
 #zwave:
@@ -93,9 +72,10 @@ mqtt:
 #  network_key: !secret zwave_network_key
 
 influxdb:
-  username: !secret influx_user
-  password: !secret influx_pass
+  username: !secret user_influx
+  password: !secret pass_influx
 
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
+zone: !include zones.yaml

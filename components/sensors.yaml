@@ -1,16 +1,49 @@
+- platform: darksky
+  api_key: !secret api_darksky
+  forecast:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+  update_interval:
+    minutes: 15
+  monitored_conditions:
+    - icon
+    - precip_type
+    - precip_intensity
+    - precip_probability
+    - precip_accumulation
+    - temperature
+    - apparent_temperature
+    - wind_speed
+    - wind_gust
+    - wind_bearing
+    - cloud_cover
+    - humidity
+    - visibility
+    - temperature_high
+    - temperature_low
+    - apparent_temperature_high
+    - apparent_temperature_low
+    - precip_intensity_max
+
 - platform: plex
   name: "Plex Media Server"
   server: home
-  token: !secret plex_token
-  username: !secret plex_user
-  password: !secret plex_pass
+  token: !secret token_plex
+  username: !secret user_plex
+  password: !secret pass_plex
 
 # - platform: synologydsm
 #   name: "Diskstation"
-#   port: !secret ds_port
-#   host: !secret ds_host
-#   username: !secret ds_user
-#   password: !secret ds_pass
+#   port: !secret port_ds
+#   host: !secret host_ds
+#   username: !secret user_ds
+#   password: !secret pass_ds
 #   monitored_conditions:
 #     - cpu_total_load
 #     - memory_real_usage
@@ -22,10 +55,38 @@
 #     - volume_size_total
 #     - volume_size_used
 
-- platform: pihole
+- platform: waze_travel_time
+  name: "Raman Work Commute"
+  origin: !secret address_home
+  destination: !secret address_work_raman
+  region: "US"
+  realtime: true
+
+- platform: waze_travel_time
+  name: "Raman Home Commute"
+  origin: !secret address_work_raman
+  destination: !secret address_home
+  region: "US"
+  realtime: true
+
+- platform: waze_travel_time
+  name: "Sherene Work Commute"
+  origin: !secret address_home
+  destination: !secret address_work_sherene
+  region: "US"
+  realtime: true
+
+- platform: waze_travel_time
+  name: "Sherene Home Commute"
+  origin: !secret address_work_sherene
+  destination: !secret address_home
+  region: "US"
+  realtime: true
+
+- platform: pi_hole
   name: "Pi-Hole"
-  host: !secret pihole_host
-  port: !secret pihole_port
+  host: !secret host_pihole
+  port: !secret port_pihole
   ssl: true
   monitored_conditions:
     - ads_blocked_today
