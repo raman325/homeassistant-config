@@ -87,7 +87,6 @@
   name: "Pi-Hole"
   host: !secret host_pihole
   port: !secret port_pihole
-  ssl: true
   monitored_conditions:
     - ads_blocked_today
     - ads_percentage_today
