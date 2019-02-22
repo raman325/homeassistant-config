@@ -38,6 +38,17 @@
   username: !secret user_plex
   password: !secret pass_plex
 
+- platform: kodi_recently_added
+  host: !secret host_nas
+
+- platform: radarr_upcoming_media
+  host: !secret host_nas
+  api_key: !secret api_radarr
+
+- platform: sonarr_upcoming_media
+  host: !secret host_nas
+  api_key: !secret api_sonarr
+
 # - platform: synologydsm
 #   name: "Diskstation"
 #   port: !secret port_ds

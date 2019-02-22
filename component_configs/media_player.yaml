@@ -1,11 +1,11 @@
 - platform: kodi
   name: "Living Room Kodi"
-  host: !secret ip_living_room_kodi
+  host: !secret host_living_room_shield
 
 - platform: kodi
   name: "Bedroom Kodi"
-  host: !secret ip_bedroom_firetv
+  host: !secret host_bedroom_firetv
 
 - platform: firetv
   name: "Bedroom FireTV"
-  host: !secret ip_bedroom_firetv
+  host: !secret host_bedroom_firetv

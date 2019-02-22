@@ -7,6 +7,7 @@
 !.gitignore
 !*.md
 !components
+!component_configs
 
 # Ignore folders.
 .storage

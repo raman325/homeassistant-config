@@ -28,44 +28,23 @@ discovery:
     - roku
 
 conversation:
-
 sun:
-
-weather:
-  - platform: darksky
-    api_key: !secret api_darksky
-    update_interval:
-      minutes: 15
-
-custom_updater:
-  mode: storage
-  track:
-    - cards
-    - components
-    - python_scripts
-  show_installable: true
-  component_urls:
-    - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/custom_components.json
-  python_script_urls:
-    - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/python_scripts.json
-
 lovelace:
-#  mode: yaml
 
-sensor: !include components/sensors.yaml
-media_player: !include components/media_players.yaml
-roku: !include components/rokus.yaml
-lock: !include components/locks.yaml
-light: !include components/lights.yaml
-climate: !include components/climates.yaml
-device_tracker: !include components/device_trackers.yaml
-rest_command: !include components/rest_commands.yaml
-binary_sensor: !include components/binary_sensors.yaml
-
-asuswrt:
-  host: !secret ip_router
-  username: !secret user_router
-  password: !secret pass_router
+weather: !include component_configs/weather.yaml
+sensor: !include component_configs/sensor.yaml
+media_player: !include component_configs/media_player.yaml
+roku: !include component_configs/roku.yaml
+lock: !include component_configs/lock.yaml
+light: !include component_configs/light.yaml
+climate: !include component_configs/climate.yaml
+device_tracker: !include component_configs/device_tracker.yaml
+rest_command: !include component_configs/rest_command.yaml
+binary_sensor: !include component_configs/binary_sensor.yaml
+notify: !include component_configs/notify.yaml
+custom_updater: !include component_configs/custom_updater.yaml
+#googlehome: !include component_configs/googlehome.yaml
+asuswrt: !include component_configs/asuswrt.yaml
 
 # Text to speech
 tts:
