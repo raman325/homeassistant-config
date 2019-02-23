@@ -1,1 +1,1 @@
-- host: '!secret host_living_room_roku'
+- host: !secret host_living_room_roku

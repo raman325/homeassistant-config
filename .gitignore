@@ -10,7 +10,6 @@
 !components
 !component_configs
 !hjson
-!hjson/convertConfigs.py
 
 # Ignore folders.
 .storage

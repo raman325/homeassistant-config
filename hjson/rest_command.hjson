@@ -1,7 +1,0 @@
-{
-    ir_send:
-    {
-        url: !secret url_ir_send
-        method: POST
-    }
-}
