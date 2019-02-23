@@ -31,20 +31,20 @@ conversation:
 sun:
 lovelace:
 
-weather: !include component_configs/weather.yaml
-sensor: !include component_configs/sensor.yaml
-media_player: !include component_configs/media_player.yaml
-roku: !include component_configs/roku.yaml
-lock: !include component_configs/lock.yaml
-light: !include component_configs/light.yaml
-climate: !include component_configs/climate.yaml
-device_tracker: !include component_configs/device_tracker.yaml
-rest_command: !include component_configs/rest_command.yaml
-binary_sensor: !include component_configs/binary_sensor.yaml
-notify: !include component_configs/notify.yaml
-custom_updater: !include component_configs/custom_updater.yaml
-#googlehome: !include component_configs/googlehome.yaml
-asuswrt: !include component_configs/asuswrt.yaml
+weather: !include weather.yaml
+sensor: !include sensor.yaml
+media_player: !include media_player.yaml
+roku: !include roku.yaml
+lock: !include lock.yaml
+light: !include light.yaml
+climate: !include climate.yaml
+device_tracker: !include device_tracker.yaml
+rest_command: !include rest_command.yaml
+binary_sensor: !include binary_sensor.yaml
+notify: !include notify.yaml
+custom_updater: !include custom_updater.yaml
+#googlehome: !include googlehome.yaml
+asuswrt: !include asuswrt.yaml
 
 # Text to speech
 tts:

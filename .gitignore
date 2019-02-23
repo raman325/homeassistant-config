@@ -4,10 +4,12 @@
 
 # You can whitelist files/folders with !, these will not be ignored.
 !*.yaml
+!*.hjson
 !.gitignore
 !*.md
 !components
 !component_configs
+!hjson
 
 # Ignore folders.
 .storage
@@ -18,4 +20,7 @@ cert
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
 secrets.yaml
+known_devices.yaml
+ip_bans.hjson
+secretw.hjson
 known_devices.yaml
