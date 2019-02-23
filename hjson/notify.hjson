@@ -1,0 +1,12 @@
+[
+    {
+        platform: nfandroidtv
+        name: Living Room
+        host: !secret host_living_room_shield
+    }
+    {
+        platform: nfandroidtv
+        name: Bedroom
+        host: !secret host_bedroom_firetv
+    }
+]

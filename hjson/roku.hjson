@@ -1,0 +1,5 @@
+[
+    {
+        host: !secret host_living_room_roku
+    }
+]

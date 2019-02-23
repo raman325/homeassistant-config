@@ -1,0 +1,17 @@
+[
+    {
+        platform: kodi
+        name: Living Room Kodi
+        host: !secret host_living_room_shield
+    }
+    {
+        platform: kodi
+        name: Bedroom Kodi
+        host: !secret host_bedroom_firetv
+    }
+    {
+        platform: firetv
+        name: Bedroom FireTV
+        host: !secret host_bedroom_firetv
+    }
+]

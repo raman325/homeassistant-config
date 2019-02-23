@@ -1,27 +1,12 @@
-# id: ifttt_vacuum_control
-# alias: IFTTT Vacuum Control
-# initial_state: True
-# trigger:
-#   platform: event
-#   event_type: ifttt_webhook_received
-#   event_data:
-#     action: ir_send
-# action:
-#   service: rest_command.ir_send
-#   data_template: 
-#     blaster: '{{ trigger.event.data.blaster }}'
-#     target: '{{ trigger.event.data.target }}'
-#     command: '{{ trigger.event.data.command }}'
-
 id: ifttt_vacuum_control
 alias: IFTTT Vacuum Control
-initial_state: True
+initial_state: true
 trigger:
   platform: webhook
-  webhook_id: !secret webhook_id_ifttt
+  webhook_id: '!secret webhook_id_ifttt'
 action:
   service: rest_command.ir_send
-  data_template: 
+  data_template:
     blaster: '{{ trigger.json.blaster }}'
     target: '{{ trigger.json.target }}'
     command: '{{ trigger.json.command }}'
