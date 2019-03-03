@@ -1,9 +1,7 @@
-mode: storage
 track:
   - cards
   - components
   - python_scripts
-show_installable: true
 component_urls:
   - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/custom_components.json
 python_script_urls:

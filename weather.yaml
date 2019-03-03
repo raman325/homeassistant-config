@@ -1,4 +1,2 @@
 - platform: darksky
   api_key: !secret api_darksky
-  update_interval:
-    minutes: 15

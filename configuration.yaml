@@ -1,8 +1,10 @@
-frontend:
 config:
 history:
 logbook:
 map:
+recorder:
+  purge_keep_days: 30
+  purge_interval: 1
 
 homeassistant:
   name: Home
@@ -31,6 +33,7 @@ conversation:
 sun:
 lovelace:
 
+frontend: !include frontend.yaml
 weather: !include weather.yaml
 sensor: !include sensor.yaml
 media_player: !include media_player.yaml
@@ -43,7 +46,7 @@ rest_command: !include rest_command.yaml
 binary_sensor: !include binary_sensor.yaml
 notify: !include notify.yaml
 custom_updater: !include custom_updater.yaml
-#googlehome: !include googlehome.yaml
+googlehome: !include googlehome.yaml
 asuswrt: !include asuswrt.yaml
 
 # Text to speech

@@ -1,7 +1,6 @@
 - platform: mqtt
   name: "Thermostat Heat"
   unique_id: "thermostat_heat"
-  retain: true
   current_temperature_topic: "smartthings/Thermostat/temperature"
   mode_command_topic: "smartthings/Thermostat/thermostatMode"
   mode_state_topic: "smartthings/Thermostat/thermostatMode"
@@ -23,7 +22,6 @@
 - platform: mqtt
   name: "Thermostat Cool"
   unique_id: "thermostat_cool"
-  retain: true
   current_temperature_topic: "smartthings/Thermostat/temperature"
   mode_command_topic: "smartthings/Thermostat/thermostatMode"
   mode_state_topic: "smartthings/Thermostat/thermostatMode"
