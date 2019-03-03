@@ -14,7 +14,6 @@
   fan_modes: 
     - "auto"
     - "on"
-  current_temperature_topic: "smartthings/Thermostat/temperature"
   temperature_command_topic: "smartthings/Thermostat/heatingSetpoint"
   temperature_state_topic: "smartthings/Thermostat/heatingSetpoint"
   temp_step: 0.5
@@ -35,7 +34,6 @@
   fan_modes: 
     - "auto"
     - "on"
-  current_temperature_topic: "smartthings/Thermostat/temperature"
   temperature_command_topic: "smartthings/Thermostat/coolingSetpoint"
   temperature_state_topic: "smartthings/Thermostat/coolingSetpoint"
   temp_step: 0.5

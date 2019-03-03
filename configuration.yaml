@@ -2,6 +2,7 @@ config:
 history:
 logbook:
 map:
+system_health:
 recorder:
   purge_keep_days: 30
   purge_interval: 1

@@ -9,7 +9,7 @@
     - 5
     - 6
     - 7
-  update_interval:
+  scan_interval:
     minutes: 15
   monitored_conditions:
     - icon

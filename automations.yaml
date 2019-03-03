@@ -18,7 +18,7 @@ alias: IFTTT Vacuum Control
 initial_state: True
 trigger:
   platform: webhook
-  webhook_id: !secret webhook_id_ifttt
+  webhook_id: !secret webhook_vacuum
 action:
   service: rest_command.ir_send
   data_template: 
