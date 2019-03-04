@@ -1,0 +1,1 @@
+(echo "import config_manager" ; echo "config_manager.convertHjsonToYaml()") | python3
