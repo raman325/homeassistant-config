@@ -14,4 +14,9 @@
         name: Bedroom FireTV
         host: !secret host_bedroom_firetv
     }
+    {
+        platform: plex
+        entity_namespace: plex
+        include_non_clients: true
+    }
 ]
