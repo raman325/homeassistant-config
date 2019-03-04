@@ -33,6 +33,7 @@
 - platform: plex
   name: Plex Media Server
   server: home
+  host: !secret 'host_living_room_shield'
   token: !secret 'token_plex'
   username: !secret 'user_plex'
   password: !secret 'pass_plex'
