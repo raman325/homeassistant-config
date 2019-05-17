@@ -1,57 +1,57 @@
-config:
-history:
-logbook:
-map:
-system_health:
-recorder:
-  purge_keep_days: 30
-  purge_interval: 1
 homeassistant:
-  name: Home
+  auth_providers:
+  - type: homeassistant
   latitude: !secret 'lat_home'
-  longitude: !secret 'long_home'
+  customize: !include 'customize.yaml'
   elevation: !secret 'elevation_home'
   unit_system: imperial
+  longitude: !secret 'long_home'
+  name: Home
   time_zone: America/New_York
-  customize: !include 'customize.yaml'
-http:
-  api_password: !secret 'pass_api'
-  ssl_certificate: /cert/fullchain.pem
-  ssl_key: /cert/privkey.pem
-  base_url: !secret 'url_base'
-updater:
-  reporting: false
+sensor: !include 'sensor.yaml'
+binary_sensor: !include 'binary_sensor.yaml'
+roku: !include 'roku.yaml'
+config:
+device_tracker: !include 'device_tracker.yaml'
+recorder:
+  purge_interval: 1
+  purge_keep_days: 30
 discovery:
   ignore:
   - plex_mediaserver
   - roku
 conversation:
-sun:
-lovelace:
-frontend: !include 'frontend.yaml'
-weather: !include 'weather.yaml'
-sensor: !include 'sensor.yaml'
-media_player: !include 'media_player.yaml'
-roku: !include 'roku.yaml'
-lock: !include 'lock.yaml'
-light: !include 'light.yaml'
+map:
 climate: !include 'climate.yaml'
-device_tracker: !include 'device_tracker.yaml'
-rest_command: !include 'rest_command.yaml'
-binary_sensor: !include 'binary_sensor.yaml'
-notify: !include 'notify.yaml'
-custom_updater: !include 'custom_updater.yaml'
-googlehome: !include 'googlehome.yaml'
+automation: !include 'automations.yaml'
+light: !include 'light.yaml'
 asuswrt: !include 'asuswrt.yaml'
+zone: !include 'zones.yaml'
 tts:
-- platform: google
-mqtt:
-  broker: !secret 'host_mqtt'
-  port: !secret 'port_mqtt'
+- platform: google_translate
+history:
+media_player: !include 'media_player.yaml'
+script: !include 'scripts.yaml'
+notify: !include 'notify.yaml'
+logbook:
 influxdb:
   username: !secret 'user_influx'
   password: !secret 'pass_influx'
+weather: !include 'weather.yaml'
+frontend: !include 'frontend.yaml'
+googlehome: !include 'googlehome.yaml'
+http:
+  ssl_key: /cert/privkey.pem
+  base_url: !secret 'url_base'
+  ssl_certificate: /cert/fullchain.pem
+sun:
+lock: !include 'lock.yaml'
+updater:
 group: !include 'groups.yaml'
-automation: !include 'automations.yaml'
-script: !include 'scripts.yaml'
-zone: !include 'zones.yaml'
+custom_updater: !include 'custom_updater.yaml'
+rest_command: !include 'rest_command.yaml'
+mqtt:
+  port: !secret 'port_mqtt'
+  broker: !secret 'host_mqtt'
+lovelace:
+system_health:

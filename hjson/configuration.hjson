@@ -18,18 +18,20 @@
         unit_system: imperial
         time_zone: America/New_York
         customize: !include customize.yaml
+		auth_providers:
+		[
+			{
+				type: homeassistant
+			}
+		]
     }
     http:
     {
-        api_password: !secret pass_api
         ssl_certificate: /cert/fullchain.pem
         ssl_key: /cert/privkey.pem
         base_url: !secret url_base
     }
-    updater:
-    {
-        reporting: false
-    }
+    updater: null
     discovery:
     {
         ignore:
@@ -59,7 +61,7 @@
     tts:
     [
         {
-            platform: google
+            platform: google_translate
         }
     ]
     mqtt:

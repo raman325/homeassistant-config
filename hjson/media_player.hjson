@@ -4,19 +4,31 @@
         name: Living Room Kodi
         host: !secret host_living_room_shield
     }
+	{
+		platform: androidtv
+		name: Living Room ShieldTV
+		host: !secret host_living_room_shield
+	}
     {
         platform: kodi
         name: Bedroom Kodi
         host: !secret host_bedroom_firetv
     }
     {
-        platform: firetv
+        platform: androidtv 
         name: Bedroom FireTV
         host: !secret host_bedroom_firetv
     }
+	{
+	    platform: vizio
+		name: Living Room Sound Bar
+		host: !secret host_living_room_soundbar
+		suppress_warning: true
+		device_class: soundbar
+	}
     {
         platform: plex
-        entity_namespace: plex
+		entity_namespace: plex
         include_non_clients: true
     }
 ]

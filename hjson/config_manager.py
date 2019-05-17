@@ -52,7 +52,7 @@ def encode_ha(z):
         return ""
     else:
         type_name = z.__class__.__name__
-        raise TypeError(f"Object of type '{type_name}' is not JSON serializable")
+        raise TypeError("Object of type '{type_name}' is not JSON serializable")
 
 def decode_ha(item):
     for key in item:
