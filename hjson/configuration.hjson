@@ -31,7 +31,10 @@
         ssl_key: /cert/privkey.pem
         base_url: !secret url_base
     }
-    updater: null
+    updater:
+	{
+	    reporting: false
+	}
     discovery:
     {
         ignore:

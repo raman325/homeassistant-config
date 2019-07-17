@@ -32,7 +32,7 @@
             service: notify.slack
             data:
             {
-                message: Update for Home Assistant is available.
+                message: Update for Home Assistant is available.{{ '\n' }}{{ '\n' }}Potential Breaking Changes:{{ '\n' }}```{{ states("sensor.potential_breaking_changes") }}```
             }
         }
     }
