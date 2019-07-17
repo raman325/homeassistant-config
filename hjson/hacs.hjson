@@ -1,5 +1,5 @@
 {
-    token: !secret hacs_token
+    token: !secret token_hacs
 	appdaemon: true
 	python_script: true
 }

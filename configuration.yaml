@@ -1,60 +1,62 @@
-map:
-frontend: !include 'frontend.yaml'
-system_health:
-roku: !include 'roku.yaml'
-tts:
-- platform: google_translate
-device_tracker: !include 'device_tracker.yaml'
-sun:
-notify: !include 'notify.yaml'
-asuswrt: !include 'asuswrt.yaml'
-zeroconf:
-breaking_changes:
-climate: !include 'climate.yaml'
-lovelace:
+config:
 history:
-binary_sensor: !include 'binary_sensor.yaml'
-updater:
-lock: !include 'lock.yaml'
-googlehome: !include 'googlehome.yaml'
 logbook:
-automation: !include 'automations.yaml'
-group: !include 'groups.yaml'
+map:
+system_health:
+recorder:
+  purge_keep_days: 30
+  purge_interval: 1
+homeassistant:
+  name: Home
+  latitude: !secret 'lat_home'
+  longitude: !secret 'long_home'
+  elevation: !secret 'elevation_home'
+  unit_system: imperial
+  time_zone: America/New_York
+  customize: !include 'customize.yaml'
+  auth_providers:
+  - type: homeassistant
 http:
   ssl_certificate: /cert/fullchain.pem
   ssl_key: /cert/privkey.pem
   base_url: !secret 'url_base'
-config:
-weather: !include 'weather.yaml'
-mqtt:
-  port: !secret 'port_mqtt'
-  broker: !secret 'host_mqtt'
-recorder:
-  purge_interval: 1
-  purge_keep_days: 30
-zone: !include 'zones.yaml'
-ssdp:
-script: !include 'scripts.yaml'
-conversation:
+updater:
+  reporting: false
 discovery:
   ignore:
   - plex_mediaserver
   - roku
-light: !include 'light.yaml'
-influxdb:
-  password: !secret 'pass_influx'
-  username: !secret 'user_influx'
-hacs: !include 'hacs.yaml'
-rest_command: !include 'rest_command.yaml'
-homeassistant:
-  name: Home
-  longitude: !secret 'long_home'
-  unit_system: imperial
-  elevation: !secret 'elevation_home'
-  time_zone: America/New_York
-  customize: !include 'customize.yaml'
-  latitude: !secret 'lat_home'
-  auth_providers:
-  - type: homeassistant
+ssdp:
+zeroconf:
+conversation:
+sun:
+lovelace:
+frontend: !include 'frontend.yaml'
+weather: !include 'weather.yaml'
 sensor: !include 'sensor.yaml'
 media_player: !include 'media_player.yaml'
+roku: !include 'roku.yaml'
+lock: !include 'lock.yaml'
+light: !include 'light.yaml'
+climate: !include 'climate.yaml'
+device_tracker: !include 'device_tracker.yaml'
+rest_command: !include 'rest_command.yaml'
+binary_sensor: !include 'binary_sensor.yaml'
+notify: !include 'notify.yaml'
+hacs: !include 'hacs.yaml'
+breaking_changes:
+googlehome: !include 'googlehome.yaml'
+asuswrt: !include 'asuswrt.yaml'
+person: !include 'person.yaml'
+tts:
+- platform: google_translate
+mqtt:
+  broker: !secret 'host_mqtt'
+  port: !secret 'port_mqtt'
+influxdb:
+  username: !secret 'user_influx'
+  password: !secret 'pass_influx'
+group: !include 'groups.yaml'
+automation: !include 'automations.yaml'
+script: !include 'scripts.yaml'
+zone: !include 'zones.yaml'

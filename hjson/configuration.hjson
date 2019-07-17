@@ -64,6 +64,7 @@
     breaking_changes: null
     googlehome: !include googlehome.yaml
     asuswrt: !include asuswrt.yaml
+    person: !include person.yaml
     tts:
     [
         {
