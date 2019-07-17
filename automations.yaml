@@ -1,21 +1,21 @@
-- alias: IFTTT Vacuum Control
-  id: ifttt_vacuum_control
-  trigger:
-    webhook_id: !secret 'webhook_vacuum'
-    platform: webhook
-  initial_state: true
-  action:
-    data_template:
-      blaster: '{{ trigger.json.blaster }}'
-      target: '{{ trigger.json.target }}'
-      command: '{{ trigger.json.command }}'
+- action:
     service: rest_command.ir_send
-- alias: Update Available Notifications
-  id: notify_updates
+    data_template:
+      target: '{{ trigger.json.target }}'
+      blaster: '{{ trigger.json.blaster }}'
+      command: '{{ trigger.json.command }}'
+  initial_state: true
   trigger:
-    entity_id: updater.updater
-    platform: state
-  action:
+    platform: webhook
+    webhook_id: !secret 'webhook_vacuum'
+  id: ifttt_vacuum_control
+  alias: IFTTT Vacuum Control
+- action:
+    service: notify.slack
     data:
       message: Update for Home Assistant is available.
-    service: notify.slack
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  id: notify_updates
+  alias: Update Available Notifications

@@ -1,38 +1,38 @@
-- modes:
-  - 'off'
-  - heat
-  - cool
-  - auto
-  temperature_command_topic: smartthings/Thermostat/heatingSetpoint
-  platform: mqtt
-  current_temperature_topic: smartthings/Thermostat/temperature
-  fan_mode_state_topic: smartthings/Thermostat/thermostatFanMode
-  temperature_state_topic: smartthings/Thermostat/heatingSetpoint
+- fan_mode_state_topic: smartthings/Thermostat/thermostatFanMode
   temp_step: 0.5
-  mode_command_topic: smartthings/Thermostat/thermostatMode
-  fan_mode_command_topic: smartthings/Thermostat/thermostatFanMode
   mode_state_topic: smartthings/Thermostat/thermostatMode
-  unique_id: thermostat_heat
   name: Thermostat Heat
-  fan_modes:
-  - auto
-  - 'on'
-- modes:
+  mode_command_topic: smartthings/Thermostat/thermostatMode
+  modes:
   - 'off'
   - heat
   - cool
   - auto
-  temperature_command_topic: smartthings/Thermostat/coolingSetpoint
-  platform: mqtt
   current_temperature_topic: smartthings/Thermostat/temperature
-  fan_mode_state_topic: smartthings/Thermostat/thermostatFanMode
-  temperature_state_topic: smartthings/Thermostat/coolingSetpoint
-  temp_step: 0.5
-  mode_command_topic: smartthings/Thermostat/thermostatMode
-  fan_mode_command_topic: smartthings/Thermostat/thermostatFanMode
-  mode_state_topic: smartthings/Thermostat/thermostatMode
-  unique_id: thermostat_cool
-  name: Thermostat Cool
+  platform: mqtt
+  unique_id: thermostat_heat
+  temperature_command_topic: smartthings/Thermostat/heatingSetpoint
   fan_modes:
   - auto
   - 'on'
+  temperature_state_topic: smartthings/Thermostat/heatingSetpoint
+  fan_mode_command_topic: smartthings/Thermostat/thermostatFanMode
+- fan_mode_state_topic: smartthings/Thermostat/thermostatFanMode
+  temp_step: 0.5
+  mode_state_topic: smartthings/Thermostat/thermostatMode
+  name: Thermostat Cool
+  mode_command_topic: smartthings/Thermostat/thermostatMode
+  modes:
+  - 'off'
+  - heat
+  - cool
+  - auto
+  current_temperature_topic: smartthings/Thermostat/temperature
+  platform: mqtt
+  unique_id: thermostat_cool
+  temperature_command_topic: smartthings/Thermostat/coolingSetpoint
+  fan_modes:
+  - auto
+  - 'on'
+  temperature_state_topic: smartthings/Thermostat/coolingSetpoint
+  fan_mode_command_topic: smartthings/Thermostat/thermostatFanMode

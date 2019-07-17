@@ -40,6 +40,8 @@
             roku
         ]
     }
+	ssdp: null
+	zeroconf: null
     conversation: null
     sun: null
     lovelace: null
@@ -55,7 +57,7 @@
     rest_command: !include rest_command.yaml
     binary_sensor: !include binary_sensor.yaml
     notify: !include notify.yaml
-    custom_updater: !include custom_updater.yaml
+    hacs: !include hacs.yaml
     googlehome: !include googlehome.yaml
     asuswrt: !include asuswrt.yaml
     tts:
