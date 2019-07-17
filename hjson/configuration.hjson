@@ -58,6 +58,7 @@
     binary_sensor: !include binary_sensor.yaml
     notify: !include notify.yaml
     hacs: !include hacs.yaml
+    breaking_changes: null
     googlehome: !include googlehome.yaml
     asuswrt: !include asuswrt.yaml
     tts:
