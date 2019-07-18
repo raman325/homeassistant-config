@@ -1,3 +1,3 @@
 ir_send:
-  method: POST
   url: !secret 'url_ir_send'
+  method: POST
