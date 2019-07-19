@@ -5,9 +5,8 @@
         user_id: !secret user_id_raman
         device_trackers:
         [
-            device_tracker.ramansiphone
             # binary_sensor.raman_home_presence,
-            # device_tracker.ramansiphone
+            device_tracker.ramansiphone
         ]
     },
     {
@@ -15,9 +14,8 @@
         id: sherene
         device_trackers:
         [
-            device_tracker.sherenesiphone
             # binary_sensor.sherene_home_presence,
-            # device_tracker.sherenesiphone
+            device_tracker.sherenesiphone
         ]
     }
 ]
