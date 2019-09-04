@@ -1,11 +1,11 @@
 - host: !secret 'host_living_room_shield'
-  platform: nfandroidtv
   name: Living Room
-- host: !secret 'host_bedroom_firetv'
   platform: nfandroidtv
+- host: !secret 'host_bedroom_firetv'
   name: Bedroom
-- api_key: !secret 'api_slack'
+  platform: nfandroidtv
+- icon: ':information_source:'
   default_channel: !secret 'default_channel_slack'
-  platform: slack
-  icon: ':information_source:'
+  api_key: !secret 'api_slack'
   name: Slack
+  platform: slack

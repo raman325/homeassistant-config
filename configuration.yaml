@@ -1,62 +1,61 @@
-media_player: !include 'media_player.yaml'
-roku: !include 'roku.yaml'
-zeroconf:
-rest_command: !include 'rest_command.yaml'
-logbook:
-http:
-  ssl_certificate: /cert/fullchain.pem
-  ssl_key: /cert/privkey.pem
-  base_url: !secret 'url_base'
-history:
-person: !include 'person.yaml'
-sensor: !include 'sensor.yaml'
-climate: !include 'climate.yaml'
-frontend: !include 'frontend.yaml'
-googlehome: !include 'googlehome.yaml'
-zone: !include 'zones.yaml'
-homeassistant:
-  time_zone: America/New_York
-  latitude: !secret 'lat_home'
-  customize: !include 'customize.yaml'
-  name: Home
-  unit_system: imperial
-  longitude: !secret 'long_home'
-  auth_providers:
-  - type: homeassistant
-  elevation: !secret 'elevation_home'
-group: !include 'groups.yaml'
-device_tracker: !include 'device_tracker.yaml'
-sun:
-config:
-lock: !include 'lock.yaml'
-breaking_changes:
-weather: !include 'weather.yaml'
 tts:
 - platform: google_translate
-mqtt:
-  port: !secret 'port_mqtt'
-  broker: !secret 'host_mqtt'
-notify: !include 'notify.yaml'
-updater:
-  reporting: false
+lock: !include 'lock.yaml'
+breaking_changes:
 asuswrt: !include 'asuswrt.yaml'
-conversation:
+light: !include 'light.yaml'
 discovery:
   ignore:
   - plex_mediaserver
   - roku
-system_health:
-map:
-automation: !include 'automations.yaml'
-light: !include 'light.yaml'
-recorder:
-  purge_keep_days: 30
-  purge_interval: 1
-ssdp:
-script: !include 'scripts.yaml'
-lovelace:
-binary_sensor: !include 'binary_sensor.yaml'
 hacs: !include 'hacs.yaml'
+mqtt:
+  port: !secret 'port_mqtt'
+  broker: !secret 'host_mqtt'
+lovelace:
+frontend: !include 'frontend.yaml'
+sun:
+binary_sensor: !include 'binary_sensor.yaml'
+updater:
+  reporting: false
+zeroconf:
+homeassistant:
+  auth_providers:
+  - type: homeassistant
+  unit_system: imperial
+  time_zone: America/New_York
+  longitude: !secret 'long_home'
+  customize: !include 'customize.yaml'
+  elevation: !secret 'elevation_home'
+  latitude: !secret 'lat_home'
+  name: Home
+sensor: !include 'sensor.yaml'
+recorder:
+  purge_interval: 1
+  purge_keep_days: 30
+notify: !include 'notify.yaml'
+zone: !include 'zones.yaml'
+map:
+ssdp:
+climate: !include 'climate.yaml'
+system_health:
+person: !include 'person.yaml'
+rest_command: !include 'rest_command.yaml'
+device_tracker: !include 'device_tracker.yaml'
+group: !include 'groups.yaml'
+history:
+roku: !include 'roku.yaml'
+logbook:
+conversation:
+weather: !include 'weather.yaml'
+http:
+  ssl_key: /cert/privkey.pem
+  base_url: !secret 'url_base'
+  ssl_certificate: /cert/fullchain.pem
+script: !include 'scripts.yaml'
 influxdb:
-  password: !secret 'pass_influx'
   username: !secret 'user_influx'
+  password: !secret 'pass_influx'
+media_player: !include 'media_player.yaml'
+automation: !include 'automations.yaml'
+config:

@@ -1,9 +1,9 @@
-- device_trackers:
+- id: raman
+  device_trackers:
   - device_tracker.ramansiphone
-  id: raman
-  name: Raman
   user_id: !secret 'user_id_raman'
-- device_trackers:
+  name: Raman
+- id: sherene
+  device_trackers:
   - device_tracker.sherenesiphone
-  id: sherene
   name: Sherene

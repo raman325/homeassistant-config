@@ -2,7 +2,7 @@ track:
 - cards
 - components
 - python_scripts
-python_script_urls:
-- https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/python_scripts.json
 component_urls:
 - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/custom_components.json
+python_script_urls:
+- https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/python_scripts.json

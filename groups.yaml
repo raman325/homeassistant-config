@@ -1,3 +1,9 @@
+thermostat:
+  entities:
+  - climate.thermostat_cool
+  - climate.thermostat_heat
+  - sensor.thermostat_humidity
+  name: Thermostat
 front_door_lock:
   entities:
   - lock.front_door_lock
@@ -11,23 +17,6 @@ master_bedroom_sensor:
   - sensor.master_bedroom_sensor_illuminance
   - binary_sensor.master_bedroom_sensor_motion
   name: Master Bedroom Sensor
-all_illuminance:
-  entities:
-  - sensor.living_room_sensor_illuminance
-  - sensor.master_bedroom_sensor_illuminance
-  name: all illuminance
-all_humidity:
-  entities:
-  - sensor.thermostat_humidity
-  - sensor.living_room_sensor_humidity
-  - sensor.master_bedroom_sensor_humidity
-  name: all humidity
-all_battery:
-  entities:
-  - sensor.front_door_lock_battery
-  - sensor.living_room_sensor_battery
-  - sensor.master_bedroom_sensor_battery
-  name: all_battery
 living_room_sensor:
   entities:
   - sensor.living_room_sensor_battery
@@ -35,12 +24,23 @@ living_room_sensor:
   - sensor.living_room_sensor_illuminance
   - binary_sensor.living_room_sensor_motion
   name: Living Room Sensor
-thermostat:
+all_battery:
   entities:
-  - climate.thermostat_cool
-  - climate.thermostat_heat
+  - sensor.front_door_lock_battery
+  - sensor.living_room_sensor_battery
+  - sensor.master_bedroom_sensor_battery
+  name: all_battery
+all_humidity:
+  entities:
   - sensor.thermostat_humidity
-  name: Thermostat
+  - sensor.living_room_sensor_humidity
+  - sensor.master_bedroom_sensor_humidity
+  name: all humidity
+all_illuminance:
+  entities:
+  - sensor.living_room_sensor_illuminance
+  - sensor.master_bedroom_sensor_illuminance
+  name: all illuminance
 all_motion:
   entities:
   - sensor.living_room_sensor_motion

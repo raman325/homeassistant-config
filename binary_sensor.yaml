@@ -1,35 +1,35 @@
-- unique_id: living_room_sensor_motion
+- state_topic: smartthings/Living Room Sensor/motion
+  payload_off: inactive
+  payload_on: active
   platform: mqtt
+  device_class: motion
+  unique_id: living_room_sensor_motion
   name: Living Room Motion
-  payload_on: active
-  device_class: motion
-  state_topic: smartthings/Living Room Sensor/motion
+- state_topic: smartthings/Master Bedroom Sensor/motion
   payload_off: inactive
-- unique_id: master_bedroom_sensor_motion
+  payload_on: active
   platform: mqtt
+  device_class: motion
+  unique_id: master_bedroom_sensor_motion
   name: Bedroom Motion
-  payload_on: active
-  device_class: motion
-  state_topic: smartthings/Master Bedroom Sensor/motion
-  payload_off: inactive
-- unique_id: front_door_lock_smoke
-  platform: mqtt
-  name: Front Door Smoke
-  payload_on: detected
-  device_class: smoke
-  state_topic: smartthings/Front Door Lock/smoke
+- state_topic: smartthings/Front Door Lock/smoke
   payload_off: clear
-- unique_id: raman_home
+  payload_on: detected
   platform: mqtt
+  device_class: smoke
+  unique_id: front_door_lock_smoke
+  name: Front Door Smoke
+- state_topic: smartthings/Raman/presence
+  payload_off: not present
+  payload_on: present
+  platform: mqtt
+  device_class: presence
+  unique_id: raman_home
   name: Raman Home Presence
-  payload_on: present
-  device_class: presence
-  state_topic: smartthings/Raman/presence
+- state_topic: smartthings/Sherene/presence
   payload_off: not present
-- unique_id: sherene_home
+  payload_on: present
   platform: mqtt
-  name: Sherene Home Presence
-  payload_on: present
   device_class: presence
-  state_topic: smartthings/Sherene/presence
-  payload_off: not present
+  unique_id: sherene_home
+  name: Sherene Home Presence

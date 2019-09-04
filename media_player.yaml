@@ -1,21 +1,21 @@
 - host: !secret 'host_living_room_shield'
-  platform: kodi
   name: Living Room Kodi
+  platform: kodi
 - host: !secret 'host_living_room_shield'
-  platform: androidtv
   name: Living Room ShieldTV
+  platform: androidtv
   adbkey: /config/android/adbkey
 - host: !secret 'host_bedroom_firetv'
-  platform: kodi
   name: Bedroom Kodi
+  platform: kodi
 - host: !secret 'host_bedroom_firetv'
-  platform: androidtv
   name: Bedroom FireTV
+  platform: androidtv
   adbkey: /config/android/adbkey
 - host: !secret 'host_living_room_soundbar'
-  platform: vizio
   device_class: soundbar
   name: Living Room Sound Bar
+  platform: vizio
   suppress_warning: true
-- entity_namespace: plex
-  platform: plex
+- platform: plex
+  entity_namespace: plex
