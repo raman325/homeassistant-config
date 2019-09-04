@@ -1,81 +1,81 @@
 themes:
-  clear:
-    secondary-background-color: var(--background-color-2)
-    accent-color: '#00a1ff'
-    text-color: '#636B75'
-    background-card-color: rgba(255,255,255,1.0)
-    shadow-elevation-16dp_-_box-shadow: 0px 0px 0px 3px var(--light-color)
-    paper-toggle-button-unchecked-bar-color: var(--disabled-text-color)
-    border-color: '#EAEAEA'
-    disabled-text-color: var(--text-light-color)
-    paper-card-background-color: var(--background-card-color)
-    paper-dialog-button-color: var(--text-color)
-    paper-item-icon-color: var(--text-light-color)
-    paper-toggle-button-checked-bar-color: '#0077FF'
-    text-medium-color: '#8c96a5'
-    paper-toggle-button-unchecked-button-color: '#FFF'
-    text-primary-color: '#FFF'
-    shadow-elevation-2dp_-_box-shadow: inset 0px 0px 0px 1px var(--border-color)
-    shadow-elevation-4dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
-    shadow-elevation-10dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
-    background-color-2: '#F4F5F6'
-    light-primary-color: var(--text-light-color)
-    background-color: '#F7F8F9'
-    paper-card-header-color: var(--text-color)
-    paper-listbox-background-color: var(--background-color)
-    shadow-elevation-14dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
-    primary-text-color: var(--text-color)
-    dark-primary-color: var(--text-color)
-    shadow-elevation-6dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
+  dark:
+    text-medium-color: '#80828A'
     paper-item-icon-active-color: var(--accent-color)
-    text-light-color: '#BAC0C6'
+    dark-primary-color: var(--text-color)
+    sidebar-selected-icon-color: var(--text-medium-light-color)
+    paper-toggle-button-checked-button-color: var(--text-medium-light-color)
+    background-card-color: '#434952'
+    paper-card-header-color: var(--text-color)
+    text-medium-light-color: '#A0A2A8'
+    paper-toggle-button-checked-bar-color: '#009FFF'
+    shadow-elevation-16dp_-_box-shadow: 0px 0px 0px 3px var(--text-dark-color)
+    primary-color: '#363941'
+    primary-background-color: var(--background-color)
+    text-color: '#DADADB'
+    sidebar-selected-text-color: var(--text-color)
+    border-color: '#383C46'
+    secondary-background-color: var(--background-color-2)
+    accent-medium-color: '#2686c1'
+    text-dark-color: '#6A6B74'
+    paper-listbox-background-color: var(--background-color)
     shadow-elevation-12dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
+    primary-text-color: var(--text-color)
+    background-color-2: '#484E59'
+    shadow-elevation-2dp_-_box-shadow: inset 0px 0px 0px 1px var(--border-color)
+    paper-item-icon-color: var(--text-dark-color)
     paper-listbox-color: var(--text-color)
-    secondary-text-color: var(--text-medium-color)
+    shadow-elevation-4dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
+    disabled-text-color: var(--text-dark-color)
     shadow-elevation-8dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
+    paper-toggle-button-unchecked-button-color: var(--text-medium-light-color)
+    shadow-elevation-14dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
+    secondary-text-color: var(--text-medium-color)
+    text-primary-color: var(--text-color)
+    shadow-elevation-10dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
+    accent-color: '#008bef'
+    paper-dialog-button-color: var(--text-color)
+    mdc-theme-primary: var(--accent-medium-color)
+    light-primary-color: var(--text-dark-color)
+    background-color: '#3b4049'
+    shadow-elevation-6dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
+    sidebar-icon-color: var(--text-medium-color)
+    paper-card-background-color: var(--background-card-color)
+    paper-toggle-button-unchecked-bar-color: '#767682'
+  clear:
+    paper-item-icon-active-color: var(--accent-color)
+    dark-primary-color: var(--text-color)
+    paper-toggle-button-unchecked-button-color: '#FFF'
+    text-light-color: '#BAC0C6'
+    paper-toggle-button-checked-button-color: '#FFF'
+    paper-dialog-button-color: var(--text-color)
+    paper-card-header-color: var(--text-color)
+    paper-toggle-button-checked-bar-color: '#0077FF'
+    shadow-elevation-16dp_-_box-shadow: 0px 0px 0px 3px var(--light-color)
     primary-color: var(--text-color)
     primary-background-color: var(--background-color)
-    paper-toggle-button-checked-button-color: '#FFF'
-  dark:
-    shadow-elevation-16dp_-_box-shadow: 0px 0px 0px 3px var(--text-dark-color)
-    accent-color: '#008bef'
-    paper-card-background-color: var(--background-card-color)
-    text-color: '#DADADB'
-    sidebar-selected-icon-color: var(--text-medium-light-color)
-    paper-toggle-button-unchecked-bar-color: '#767682'
-    border-color: '#383C46'
-    disabled-text-color: var(--text-dark-color)
-    mdc-theme-primary: var(--accent-medium-color)
-    paper-dialog-button-color: var(--text-color)
-    paper-item-icon-color: var(--text-dark-color)
-    paper-toggle-button-checked-bar-color: '#009FFF'
-    shadow-elevation-14dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
-    background-color: '#3b4049'
-    text-medium-color: '#80828A'
-    sidebar-selected-text-color: var(--text-color)
-    text-primary-color: var(--text-color)
-    shadow-elevation-2dp_-_box-shadow: inset 0px 0px 0px 1px var(--border-color)
-    shadow-elevation-4dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
-    shadow-elevation-10dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
-    background-color-2: '#484E59'
-    light-primary-color: var(--text-dark-color)
-    background-card-color: '#434952'
-    accent-medium-color: '#2686c1'
-    paper-card-header-color: var(--text-color)
-    text-dark-color: '#6A6B74'
-    text-medium-light-color: '#A0A2A8'
-    paper-toggle-button-unchecked-button-color: var(--text-medium-light-color)
-    primary-text-color: var(--text-color)
-    paper-listbox-background-color: var(--background-color)
-    shadow-elevation-6dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
-    paper-item-icon-active-color: var(--accent-color)
-    sidebar-icon-color: var(--text-medium-color)
+    text-color: '#636B75'
+    light-primary-color: var(--text-light-color)
+    border-color: '#EAEAEA'
     secondary-background-color: var(--background-color-2)
+    shadow-elevation-2dp_-_box-shadow: inset 0px 0px 0px 1px var(--border-color)
+    text-medium-color: '#8c96a5'
+    paper-listbox-background-color: var(--background-color)
     shadow-elevation-12dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
+    primary-text-color: var(--text-color)
+    background-color-2: '#F4F5F6'
     paper-listbox-color: var(--text-color)
-    secondary-text-color: var(--text-medium-color)
+    shadow-elevation-4dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
+    disabled-text-color: var(--text-light-color)
     shadow-elevation-8dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
-    primary-color: '#363941'
-    dark-primary-color: var(--text-color)
-    primary-background-color: var(--background-color)
-    paper-toggle-button-checked-button-color: var(--text-medium-light-color)
+    secondary-text-color: var(--text-medium-color)
+    shadow-elevation-10dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
+    accent-color: '#00a1ff'
+    background-card-color: rgba(255,255,255,1.0)
+    text-primary-color: '#FFF'
+    paper-item-icon-color: var(--text-light-color)
+    background-color: '#F7F8F9'
+    shadow-elevation-6dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
+    shadow-elevation-14dp_-_box-shadow: var(--shadow-elevation-2dp_-_box-shadow)
+    paper-card-background-color: var(--background-card-color)
+    paper-toggle-button-unchecked-bar-color: var(--disabled-text-color)

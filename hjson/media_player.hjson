@@ -28,8 +28,4 @@
 		suppress_warning: true
 		device_class: soundbar
 	}
-    {
-        platform: plex
-		entity_namespace: plex
-    }
 ]

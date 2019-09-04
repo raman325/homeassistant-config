@@ -1,61 +1,61 @@
-tts:
-- platform: google_translate
-lock: !include 'lock.yaml'
+rest_command: !include 'rest_command.yaml'
+http:
+  ssl_certificate: /cert/fullchain.pem
+  ssl_key: /cert/privkey.pem
+  base_url: !secret 'url_base'
+lovelace:
+group: !include 'groups.yaml'
+updater:
+  reporting: false
+logbook:
+roku: !include 'roku.yaml'
+conversation:
+sensor: !include 'sensor.yaml'
+script: !include 'scripts.yaml'
 breaking_changes:
-asuswrt: !include 'asuswrt.yaml'
 light: !include 'light.yaml'
 discovery:
   ignore:
   - plex_mediaserver
   - roku
-hacs: !include 'hacs.yaml'
-mqtt:
-  port: !secret 'port_mqtt'
-  broker: !secret 'host_mqtt'
-lovelace:
-frontend: !include 'frontend.yaml'
+person: !include 'person.yaml'
+media_player: !include 'media_player.yaml'
+zone: !include 'zones.yaml'
+influxdb:
+  password: !secret 'pass_influx'
+  username: !secret 'user_influx'
+tts:
+- platform: google_translate
 sun:
+climate: !include 'climate.yaml'
+history:
+mqtt:
+  broker: !secret 'host_mqtt'
+  port: !secret 'port_mqtt'
+asuswrt: !include 'asuswrt.yaml'
+ssdp:
+map:
 binary_sensor: !include 'binary_sensor.yaml'
-updater:
-  reporting: false
-zeroconf:
-homeassistant:
-  auth_providers:
-  - type: homeassistant
-  unit_system: imperial
-  time_zone: America/New_York
-  longitude: !secret 'long_home'
-  customize: !include 'customize.yaml'
-  elevation: !secret 'elevation_home'
-  latitude: !secret 'lat_home'
-  name: Home
-sensor: !include 'sensor.yaml'
+hacs: !include 'hacs.yaml'
+frontend: !include 'frontend.yaml'
+notify: !include 'notify.yaml'
+device_tracker: !include 'device_tracker.yaml'
 recorder:
   purge_interval: 1
   purge_keep_days: 30
-notify: !include 'notify.yaml'
-zone: !include 'zones.yaml'
-map:
-ssdp:
-climate: !include 'climate.yaml'
 system_health:
-person: !include 'person.yaml'
-rest_command: !include 'rest_command.yaml'
-device_tracker: !include 'device_tracker.yaml'
-group: !include 'groups.yaml'
-history:
-roku: !include 'roku.yaml'
-logbook:
-conversation:
+zeroconf:
 weather: !include 'weather.yaml'
-http:
-  ssl_key: /cert/privkey.pem
-  base_url: !secret 'url_base'
-  ssl_certificate: /cert/fullchain.pem
-script: !include 'scripts.yaml'
-influxdb:
-  username: !secret 'user_influx'
-  password: !secret 'pass_influx'
-media_player: !include 'media_player.yaml'
 automation: !include 'automations.yaml'
 config:
+homeassistant:
+  name: Home
+  unit_system: imperial
+  time_zone: America/New_York
+  longitude: !secret 'long_home'
+  elevation: !secret 'elevation_home'
+  customize: !include 'customize.yaml'
+  auth_providers:
+  - type: homeassistant
+  latitude: !secret 'lat_home'
+lock: !include 'lock.yaml'

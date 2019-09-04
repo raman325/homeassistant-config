@@ -1,6 +1,6 @@
-- interval_seconds: 30
-  new_device_defaults:
-    hide_if_away: false
-    track_new_devices: false
-  consider_home: 600
+- consider_home: 600
   platform: asuswrt
+  new_device_defaults:
+    track_new_devices: false
+    hide_if_away: false
+  interval_seconds: 30

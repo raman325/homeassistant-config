@@ -1,11 +1,11 @@
-- brightness_state_topic: smartthings/Living Room Light/level
-  state_topic: smartthings/Living Room Light/switch
-  retain: true
-  payload_off: 'off'
+- unique_id: living_room_light
   payload_on: 'on'
-  platform: mqtt
-  brightness_scale: 100
+  retain: true
+  name: Living Room Light
+  state_topic: smartthings/Living Room Light/switch
+  brightness_state_topic: smartthings/Living Room Light/level
   command_topic: smartthings/Living Room Light/switch
   brightness_command_topic: smartthings/Living Room Light/level
-  unique_id: living_room_light
-  name: Living Room Light
+  platform: mqtt
+  payload_off: 'off'
+  brightness_scale: 100

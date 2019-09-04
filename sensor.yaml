@@ -1,4 +1,16 @@
-- monitored_conditions:
+- scan_interval:
+    minutes: 15
+  forecast:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  platform: darksky
+  monitored_conditions:
   - icon
   - precip_type
   - precip_intensity
@@ -17,61 +29,47 @@
   - apparent_temperature_high
   - apparent_temperature_low
   - precip_intensity_max
-  forecast:
-  - 0
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
   api_key: !secret 'api_darksky'
-  platform: darksky
-  scan_interval:
-    minutes: 15
-- server: home
-  platform: plex
-  token: !secret 'token_plex'
+- name: Plex Media Server
   host: !secret 'host_living_room_shield'
   username: !secret 'user_plex'
   password: !secret 'pass_plex'
-  name: Plex Media Server
-- host: !secret 'host_nas'
-  platform: kodi_recently_added
-- host: !secret 'host_nas'
+  server: home
+  token: !secret 'token_plex'
+  platform: plex
+- platform: kodi_recently_added
+  host: !secret 'host_nas'
+- platform: radarr_upcoming_media
+  host: !secret 'host_nas'
   api_key: !secret 'api_radarr'
-  platform: radarr_upcoming_media
-- host: !secret 'host_nas'
+- platform: sonarr_upcoming_media
+  host: !secret 'host_nas'
   api_key: !secret 'api_sonarr'
-  platform: sonarr_upcoming_media
-- realtime: true
+- name: Raman Work Commute
+  region: US
   platform: waze_travel_time
   destination: !secret 'address_work_raman'
   origin: !secret 'address_home'
+  realtime: true
+- name: Raman Home Commute
   region: US
-  name: Raman Work Commute
-- realtime: true
   platform: waze_travel_time
   destination: !secret 'address_home'
   origin: !secret 'address_work_raman'
+  realtime: true
+- name: Sherene Work Commute
   region: US
-  name: Raman Home Commute
-- realtime: true
   platform: waze_travel_time
   destination: !secret 'address_work_sherene'
   origin: !secret 'address_home'
+  realtime: true
+- name: Sherene Home Commute
   region: US
-  name: Sherene Work Commute
-- realtime: true
   platform: waze_travel_time
   destination: !secret 'address_home'
   origin: !secret 'address_work_sherene'
-  region: US
-  name: Sherene Home Commute
-- host: !secret 'host_pihole'
-  name: Pi-Hole
-  platform: pi_hole
+  realtime: true
+- name: Pi-Hole
   monitored_conditions:
   - ads_blocked_today
   - ads_percentage_today
@@ -82,63 +80,65 @@
   - unique_clients
   - unique_domains
   - clients_ever_seen
-- state_topic: smartthings/Front Door Lock/battery
-  platform: mqtt
-  unit_of_measurement: '%'
-  device_class: battery
-  unique_id: front_door_lock_battery
+  platform: pi_hole
+  host: !secret 'host_pihole'
+- unique_id: front_door_lock_battery
   name: Front Door Lock Battery
-- state_topic: smartthings/Living Room Sensor/battery
-  platform: mqtt
+  state_topic: smartthings/Front Door Lock/battery
   unit_of_measurement: '%'
+  platform: mqtt
   device_class: battery
-  unique_id: living_room_sensor_battery
+- unique_id: living_room_sensor_battery
   name: Living Room Sensor Battery
-- state_topic: smartthings/Master Bedroom Sensor/battery
-  platform: mqtt
+  state_topic: smartthings/Living Room Sensor/battery
   unit_of_measurement: '%'
+  platform: mqtt
   device_class: battery
-  unique_id: master_bedroom_sensor_battery
+- unique_id: master_bedroom_sensor_battery
   name: Master Bedroom Sensor Battery
-- state_topic: smartthings/Thermostat/humidity
-  platform: mqtt
+  state_topic: smartthings/Master Bedroom Sensor/battery
   unit_of_measurement: '%'
-  device_class: humidity
-  unique_id: thermostat_humidity
+  platform: mqtt
+  device_class: battery
+- unique_id: thermostat_humidity
   name: Thermostat Humidity
-- state_topic: smartthings/Living Room Sensor/humidity
-  platform: mqtt
+  state_topic: smartthings/Thermostat/humidity
   unit_of_measurement: '%'
+  platform: mqtt
   device_class: humidity
-  unique_id: living_room_sensor_humidity
+- unique_id: living_room_sensor_humidity
   name: Living Room Humidity
-- state_topic: smartthings/Master Bedroom Sensor/humidity
-  platform: mqtt
+  state_topic: smartthings/Living Room Sensor/humidity
   unit_of_measurement: '%'
+  platform: mqtt
   device_class: humidity
-  unique_id: master_bedroom_sensor_humidity
+- unique_id: master_bedroom_sensor_humidity
   name: Master Bedroom Humidity
-- state_topic: smartthings/Living Room Sensor/temperature
+  state_topic: smartthings/Master Bedroom Sensor/humidity
+  unit_of_measurement: '%'
   platform: mqtt
-  unit_of_measurement: "\xB0F"
-  device_class: temperature
-  unique_id: living_room_sensor_temperature
+  device_class: humidity
+- unique_id: living_room_sensor_temperature
   name: Living Room Temperature
-- state_topic: smartthings/Master Bedroom Sensor/temperature
-  platform: mqtt
+  state_topic: smartthings/Living Room Sensor/temperature
   unit_of_measurement: "\xB0F"
+  platform: mqtt
   device_class: temperature
-  unique_id: master_bedroom_sensor_temperature
+- unique_id: master_bedroom_sensor_temperature
   name: Master Bedroom Temperature
-- state_topic: smartthings/Living Room Sensor/illuminance
+  state_topic: smartthings/Master Bedroom Sensor/temperature
+  unit_of_measurement: "\xB0F"
   platform: mqtt
-  unit_of_measurement: lm
-  device_class: illuminance
-  unique_id: living_room_sensor_illuminance
+  device_class: temperature
+- unique_id: living_room_sensor_illuminance
   name: Living Room Illuminance
-- state_topic: smartthings/Master Bedroom Sensor/illuminance
-  platform: mqtt
+  state_topic: smartthings/Living Room Sensor/illuminance
   unit_of_measurement: lm
+  platform: mqtt
   device_class: illuminance
-  unique_id: master_bedroom_sensor_illuminance
+- unique_id: master_bedroom_sensor_illuminance
   name: Master Bedroom Illuminance
+  state_topic: smartthings/Master Bedroom Sensor/illuminance
+  unit_of_measurement: lm
+  platform: mqtt
+  device_class: illuminance
