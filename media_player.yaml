@@ -14,8 +14,8 @@
   adbkey: /config/android/adbkey
 - host: !secret 'host_living_room_soundbar'
   platform: vizio
+  device_class: soundbar
   name: Living Room Sound Bar
   suppress_warning: true
-  device_class: soundbar
 - entity_namespace: plex
   platform: plex

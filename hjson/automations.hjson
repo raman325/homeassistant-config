@@ -25,7 +25,7 @@
         trigger:
         {
             platform: state
-            entity_id: updater.updater
+            entity_id: binary_sensor.updater
         }
         action:
         {

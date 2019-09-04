@@ -1,48 +1,48 @@
-all_motion:
-  name: all motion
+front_door_lock:
   entities:
-  - sensor.living_room_sensor_motion
-  - sensor.master_bedroom_sensor_motion
-all_illuminance:
-  name: all illuminance
-  entities:
-  - sensor.living_room_sensor_illuminance
-  - sensor.master_bedroom_sensor_illuminance
-living_room_sensor:
-  name: Living Room Sensor
-  entities:
-  - sensor.living_room_sensor_battery
-  - sensor.living_room_sensor_humidity
-  - sensor.living_room_sensor_illuminance
-  - binary_sensor.living_room_sensor_motion
-thermostat:
-  name: Thermostat
-  entities:
-  - climate.thermostat_cool
-  - climate.thermostat_heat
-  - sensor.thermostat_humidity
+  - lock.front_door_lock
+  - binary_sensor.front_door_lock_smoke
+  - sensor.front_door_lock_battery
+  name: Front Door Lock
 master_bedroom_sensor:
-  name: Master Bedroom Sensor
   entities:
   - sensor.master_bedroom_sensor_battery
   - sensor.master_bedroom_sensor_humidity
   - sensor.master_bedroom_sensor_illuminance
   - binary_sensor.master_bedroom_sensor_motion
-front_door_lock:
-  name: Front Door Lock
+  name: Master Bedroom Sensor
+all_illuminance:
   entities:
-  - lock.front_door_lock
-  - binary_sensor.front_door_lock_smoke
-  - sensor.front_door_lock_battery
-all_battery:
-  name: all_battery
-  entities:
-  - sensor.front_door_lock_battery
-  - sensor.living_room_sensor_battery
-  - sensor.master_bedroom_sensor_battery
+  - sensor.living_room_sensor_illuminance
+  - sensor.master_bedroom_sensor_illuminance
+  name: all illuminance
 all_humidity:
-  name: all humidity
   entities:
   - sensor.thermostat_humidity
   - sensor.living_room_sensor_humidity
   - sensor.master_bedroom_sensor_humidity
+  name: all humidity
+all_battery:
+  entities:
+  - sensor.front_door_lock_battery
+  - sensor.living_room_sensor_battery
+  - sensor.master_bedroom_sensor_battery
+  name: all_battery
+living_room_sensor:
+  entities:
+  - sensor.living_room_sensor_battery
+  - sensor.living_room_sensor_humidity
+  - sensor.living_room_sensor_illuminance
+  - binary_sensor.living_room_sensor_motion
+  name: Living Room Sensor
+thermostat:
+  entities:
+  - climate.thermostat_cool
+  - climate.thermostat_heat
+  - sensor.thermostat_humidity
+  name: Thermostat
+all_motion:
+  entities:
+  - sensor.living_room_sensor_motion
+  - sensor.master_bedroom_sensor_motion
+  name: all motion

@@ -1,2 +1,2 @@
-- platform: darksky
-  api_key: !secret 'api_darksky'
+- api_key: !secret 'api_darksky'
+  platform: darksky

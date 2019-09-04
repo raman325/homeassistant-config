@@ -1,3 +1,0 @@
-devices:
-- host: !secret 'host_kitchen_googlehome'
-- host: !secret 'host_bathroom_googlehome'

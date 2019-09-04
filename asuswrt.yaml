@@ -1,3 +1,3 @@
-host: !secret 'host_router'
 password: !secret 'pass_router'
+host: !secret 'host_router'
 username: !secret 'user_router'
