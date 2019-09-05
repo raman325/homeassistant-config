@@ -13,7 +13,7 @@
   platform: androidtv
   host: !secret 'host_bedroom_firetv'
 - name: Living Room Sound Bar
+  device_class: soundbar
   suppress_warning: true
   platform: vizio
   host: !secret 'host_living_room_soundbar'
-  device_class: soundbar

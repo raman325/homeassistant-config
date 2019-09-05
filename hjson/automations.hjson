@@ -32,7 +32,7 @@
             service: notify.slack
             data:
             {
-                message: Update for Home Assistant is available.{{ '\n' }}{{ '\n' }}Potential Breaking Changes:{{ '\n' }}```{{ states("sensor.potential_breaking_changes") }}```
+                message: New HA version {{ state_attr('binary_sensor.updater','newest_version') }} is available.{{ '\n' }}{{ '\n' }}{% if states("sensor.potential_breaking_changes")|int > 0 %}{{ states("sensor.potential_breaking_changes") }} possible breaking changes:{{ '\n' }}```{% for k, v in states.sensor.potential_breaking_changes.attributes.items() %}{% if k not in ["friendly_name", "icon"] %}{{ k }}:{{ v }}{{ '\n' }}{% endif %}{% endfor %}```{% else %}No breaking changes detected.{% endif %}{{ '\n' }}{{ '\n' }}Raw: ```{{ states.sensor.potential_breaking_changes.attributes }}```
             }
         }
     }

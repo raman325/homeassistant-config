@@ -1,8 +1,8 @@
-- unique_id: front_door_lock
-  payload_lock: locked
+- command_topic: smartthings/Front Door Lock/lock
+  state_topic: smartthings/Front Door Lock/lock
+  retain: true
   payload_unlock: unlocked
   name: Front Door Lock
-  state_topic: smartthings/Front Door Lock/lock
-  command_topic: smartthings/Front Door Lock/lock
+  payload_lock: locked
   platform: mqtt
-  retain: true
+  unique_id: front_door_lock

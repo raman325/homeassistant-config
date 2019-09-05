@@ -1,16 +1,16 @@
-- name: Home
-  longitude: !secret 'long_home'
+- icon: mdi:home
   elevation: !secret 'elevation_home'
+  name: Home
   radius: 25
+  longitude: !secret 'long_home'
   latitude: !secret 'lat_home'
-  icon: mdi:home
-- radius: 150
-  name: Raman Work
-  longitude: !secret 'long_work_raman'
+- name: Raman Work
+  radius: 150
+  icon: mdi:worker
   latitude: !secret 'lat_work_raman'
+  longitude: !secret 'long_work_raman'
+- name: Sherene Work
+  radius: 100
   icon: mdi:worker
-- radius: 100
-  name: Sherene Work
-  longitude: !secret 'long_work_sherene'
   latitude: !secret 'lat_work_sherene'
-  icon: mdi:worker
+  longitude: !secret 'long_work_sherene'

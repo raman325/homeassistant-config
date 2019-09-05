@@ -5,7 +5,7 @@
   platform: nfandroidtv
   host: !secret 'host_bedroom_firetv'
 - name: Slack
-  platform: slack
-  default_channel: !secret 'default_channel_slack'
   icon: ':information_source:'
+  platform: slack
   api_key: !secret 'api_slack'
+  default_channel: !secret 'default_channel_slack'
