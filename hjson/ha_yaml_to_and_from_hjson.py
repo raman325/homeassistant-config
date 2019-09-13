@@ -89,7 +89,6 @@ def decode_tag(value):
         tag_len = len(o.yaml_tag)
         if value[0:tag_len] == o.yaml_tag:
             return o(value[(tag_len + 1) :])
-
     return None
 
 
