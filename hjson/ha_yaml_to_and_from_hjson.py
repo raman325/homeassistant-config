@@ -18,11 +18,11 @@ class BaseTag(yaml.YAMLObject):
 
     @classmethod
     def from_yaml(cls, loader, node):
-        return BaseTag(node.value)
+        return cls(node.value)
 
     @classmethod
     def to_yaml(cls, dumper, data):
-        return dumper.represent_scalar(cls.yaml_tag, u"%s" % data)
+        return dumper.represent_scalar(cls.yaml_tag, u"%s" % data.data)
 
 
 class Secret(BaseTag):
@@ -67,7 +67,7 @@ tag_obj_list = [
 def encode_tag(item):
     for o in tag_obj_list:
         if isinstance(item, o):
-            return o.yaml_tag + " " + o.data
+            return o.yaml_tag + " " + item.data
     return None
 
 
@@ -151,7 +151,7 @@ def convertYamltoHjson():
             os.makedirs(basePath)
 
         with open(srcFile, "r") as src:
-            config = yaml.load(src.read())
+            config = yaml.safe_load(src.read())
 
             with open(destFile, "w") as dest:
                 dest.write(hjson.dumps(config, default=encode_ha, indent=4))
@@ -175,7 +175,9 @@ def convertHjsonToYaml():
             config = hjson.loads(src.read(), object_pairs_hook=decode_ha)
 
             with open(destFile, "w") as dest:
-                newYAML = yaml.dump(config, default_flow_style=False, sort_keys=False)
+                newYAML = yaml.safe_dump(
+                    config, default_flow_style=False, sort_keys=False
+                )
                 if newYAML == "...\n":
                     dest.write("")
                 else:
@@ -186,10 +188,10 @@ def convertHjsonToYaml():
 
 for o in tag_obj_list:
     yaml.SafeLoader.add_constructor(o.yaml_tag, o.from_yaml)
-    yaml.add_representer(o, o.to_yaml)
+    yaml.SafeDumper.add_representer(o, o.to_yaml)
 
-yaml.add_representer(type(None), represent_none)
-yaml.add_representer(
+yaml.SafeDumper.add_representer(type(None), represent_none)
+yaml.SafeDumper.add_representer(
     OrderedDict,
     lambda self, data: yaml.representer.SafeRepresenter.represent_dict(
         self, data.items()
