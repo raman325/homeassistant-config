@@ -8,7 +8,7 @@ from collections import OrderedDict
 
 # YAML Tag Objects
 class BaseTag(yaml.YAMLObject):
-    yaml_tag = u'!'
+    yaml_tag = u"!"
 
     def __init__(self, data):
         self.data = data
@@ -22,32 +22,43 @@ class BaseTag(yaml.YAMLObject):
 
     @classmethod
     def to_yaml(cls, dumper, data):
-        return dumper.represent_scalar(cls.yaml_tag, u'%s' % data)
+        return dumper.represent_scalar(cls.yaml_tag, u"%s" % data)
+
 
 class Secret(BaseTag):
-    yaml_tag = u'!secret'
+    yaml_tag = u"!secret"
+
 
 class Include(BaseTag):
-    yaml_tag = u'!include'
+    yaml_tag = u"!include"
+
 
 class EnvVar(BaseTag):
-    yaml_tag = u'!env_var'
+    yaml_tag = u"!env_var"
+
 
 class IncludeDirList(BaseTag):
-    yaml_tag = u'!include_dir_list'
+    yaml_tag = u"!include_dir_list"
+
 
 class IncludeDirMergeList(BaseTag):
-    yaml_tag = u'!include_dir_merge_list'
+    yaml_tag = u"!include_dir_merge_list"
+
 
 class IncludeDirNamed(BaseTag):
-    yaml_tag = u'!include_dir_named'
+    yaml_tag = u"!include_dir_named"
+
 
 class IncludeDirMergeNamed(BaseTag):
-    yaml_tag = u'!include_dir_merge_named'
+    yaml_tag = u"!include_dir_merge_named"
+
 
 # generate list of special tag classes
 tag_obj_list = []
-for name, value in inspect.getmembers(sys.modules[__name__], lambda member: inspect.isclass(member) and member.__module__ == __name__):
+for name, value in inspect.getmembers(
+    sys.modules[__name__],
+    lambda member: inspect.isclass(member) and member.__module__ == __name__,
+):
     if name != "BaseTag":
         tag_obj_list.append(value)
 
@@ -57,6 +68,7 @@ def encode_tag(item):
         if isinstance(item, o):
             return o.yaml_tag + " " + o.data
     return None
+
 
 def encode_ha(z):
     tag = encode_tag(z)
@@ -70,13 +82,15 @@ def encode_ha(z):
         type_name = z.__class__.__name__
         raise TypeError("Object of type '{type_name}' is not JSON serializable")
 
+
 def decode_tag(value):
     for o in tag_obj_list:
         tag_len = len(o.yaml_tag)
         if value[0:tag_len] == o.yaml_tag:
-            return o(value[(tag_len+1):])
+            return o(value[(tag_len + 1) :])
 
     return None
+
 
 def decode_ha(pairs):
     new_pairs = []
@@ -106,9 +120,11 @@ def decode_ha(pairs):
     else:
         return new_pairs
 
+
 # YAML representer to ensure that nulls don't get added to YAML files
 def represent_none(self, _):
-    return self.represent_scalar('tag:yaml.org,2002:null', '')
+    return self.represent_scalar("tag:yaml.org,2002:null", "")
+
 
 def findFiles(path, ext):
     list = []
@@ -118,8 +134,10 @@ def findFiles(path, ext):
                 list.append(os.path.join(root, file))
     return list
 
+
 def convertFileName(file, fromExt, toExt):
-    return file[:(0-len(fromExt))] + toExt
+    return file[: (0 - len(fromExt))] + toExt
+
 
 def convertYamltoHjson():
     srcFiles = findFiles("..", "yaml")
@@ -127,18 +145,19 @@ def convertYamltoHjson():
         # hack to get source files one folder below but place destination files in current directory by removing one '.'
         destFile = convertFileName(srcFile, "yaml", "hjson")[1:]
 
-        #create destination path if needed
+        # create destination path if needed
         basePath = os.path.dirname(destFile)
         if not os.path.exists(basePath):
             os.makedirs(basePath)
 
-        with open(srcFile, 'r') as src:
+        with open(srcFile, "r") as src:
             config = yaml.load(src.read())
 
-            with open(destFile, 'w') as dest:
+            with open(destFile, "w") as dest:
                 dest.write(hjson.dumps(config, default=encode_ha, indent=4))
                 dest.close()
             src.close()
+
 
 def convertHjsonToYaml():
     srcFiles = findFiles(".", "hjson")
@@ -146,16 +165,16 @@ def convertHjsonToYaml():
         # hack to get source files in current directory but place destination files one directory below by adding one '.'
         destFile = "." + convertFileName(srcFile, "hjson", "yaml")
         # destFile = convertFileName(srcFile, "hjson", "yaml")
-        
-        #create destination path if needed
+
+        # create destination path if needed
         basePath = os.path.dirname(destFile)
         if not os.path.exists(basePath):
             os.makedirs(basePath)
 
-        with open(srcFile, 'r') as src:
+        with open(srcFile, "r") as src:
             config = hjson.loads(src.read(), object_pairs_hook=decode_ha)
 
-            with open(destFile, 'w') as dest:
+            with open(destFile, "w") as dest:
                 newYAML = yaml.dump(config, default_flow_style=False, sort_keys=False)
                 if newYAML == "...\n":
                     dest.write("")
@@ -164,12 +183,18 @@ def convertHjsonToYaml():
                 dest.close()
             src.close()
 
+
 for o in tag_obj_list:
     yaml.SafeLoader.add_constructor(o.yaml_tag, o.from_yaml)
     yaml.add_representer(o, o.to_yaml)
 
 yaml.add_representer(type(None), represent_none)
-yaml.add_representer(OrderedDict, lambda self, data: yaml.representer.SafeRepresenter.represent_dict(self, data.items()))
+yaml.add_representer(
+    OrderedDict,
+    lambda self, data: yaml.representer.SafeRepresenter.represent_dict(
+        self, data.items()
+    ),
+)
 
 # convertYamlToHjson()
 # convertHjsonToYaml()
