@@ -1,6 +1,6 @@
 - name: Raman
   id: raman
-  user_id: '!secret user_id_raman'
+  user_id: !secret 'user_id_raman'
   device_trackers:
   - device_tracker.ramansiphone
 - name: Sherene

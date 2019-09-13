@@ -3,7 +3,7 @@
   initial_state: true
   trigger:
     platform: webhook
-    webhook_id: '!secret webhook_vacuum'
+    webhook_id: !secret 'webhook_vacuum'
   action:
     service: rest_command.ir_send
     data_template:

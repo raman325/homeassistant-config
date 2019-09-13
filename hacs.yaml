@@ -1,3 +1,3 @@
-token: '!secret token_hacs'
+token: !secret 'token_hacs'
 appdaemon: true
 python_script: true

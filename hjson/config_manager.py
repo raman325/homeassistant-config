@@ -54,16 +54,34 @@ def encode_ha(z):
         type_name = z.__class__.__name__
         raise TypeError("Object of type '{type_name}' is not JSON serializable")
 
-def decode_ha(item):
-    for key in item:
-        if isinstance(item[key], str):
-            if item[key][0:7] == "!secret":
-                item[key] = Secret(item[key][8:])
-            elif item[key][0:8] == "!include":
-                item[key] = Include(item[key][9:])
-            elif item == "":
-                item[key] = None
-    return item
+def decode_ha(pairs):
+    new_pairs = []
+    has_tuple = False
+    for pair in pairs:
+        if isinstance(pair, tuple):
+            has_tuple = True
+            key = pair[0]
+            value = pair[1]
+            if isinstance(value, list):
+                new_pairs.append((key, decode_ha(value)))
+            elif isinstance(value, str):
+                if value[0:7] == "!secret":
+                    new_pairs.append((key, Secret(value[8:])))
+                elif value[0:8] == "!include":
+                    new_pairs.append((key, Include(value[9:])))
+                elif value == "":
+                    new_pairs.append((key, None))
+                else:
+                    new_pairs.append((key, value))
+            else:
+                new_pairs.append((key, value))
+        else:
+            new_pairs.append(pair)
+
+    if has_tuple:
+        return OrderedDict(new_pairs)
+    else:
+        return new_pairs
 
 # YAML representer to ensure that nulls don't get added to YAML files
 def represent_none(self, _):
@@ -112,7 +130,7 @@ def convertHjsonToYaml():
             os.makedirs(basePath)
 
         with open(srcFile, 'r') as src:
-            config = hjson.loads(src.read(), object_hook=decode_ha, object_pairs_hook=OrderedDict)
+            config = hjson.loads(src.read(), object_pairs_hook=decode_ha)
 
             with open(destFile, 'w') as dest:
                 newYAML = yaml.dump(config, default_flow_style=False, sort_keys=False)

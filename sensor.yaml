@@ -1,5 +1,5 @@
 - platform: darksky
-  api_key: '!secret api_darksky'
+  api_key: !secret 'api_darksky'
   forecast:
   - 0
   - 1
@@ -33,45 +33,45 @@
 - platform: plex
   name: Plex Media Server
   server: home
-  host: '!secret host_living_room_shield'
-  token: '!secret token_plex'
-  username: '!secret user_plex'
-  password: '!secret pass_plex'
+  host: !secret 'host_living_room_shield'
+  token: !secret 'token_plex'
+  username: !secret 'user_plex'
+  password: !secret 'pass_plex'
 - platform: kodi_recently_added
-  host: '!secret host_nas'
+  host: !secret 'host_nas'
 - platform: radarr_upcoming_media
-  host: '!secret host_nas'
-  api_key: '!secret api_radarr'
+  host: !secret 'host_nas'
+  api_key: !secret 'api_radarr'
 - platform: sonarr_upcoming_media
-  host: '!secret host_nas'
-  api_key: '!secret api_sonarr'
+  host: !secret 'host_nas'
+  api_key: !secret 'api_sonarr'
 - platform: waze_travel_time
   name: Raman Work Commute
-  origin: '!secret address_home'
-  destination: '!secret address_work_raman'
+  origin: !secret 'address_home'
+  destination: !secret 'address_work_raman'
   region: US
   realtime: true
 - platform: waze_travel_time
   name: Raman Home Commute
-  origin: '!secret address_work_raman'
-  destination: '!secret address_home'
+  origin: !secret 'address_work_raman'
+  destination: !secret 'address_home'
   region: US
   realtime: true
 - platform: waze_travel_time
   name: Sherene Work Commute
-  origin: '!secret address_home'
-  destination: '!secret address_work_sherene'
+  origin: !secret 'address_home'
+  destination: !secret 'address_work_sherene'
   region: US
   realtime: true
 - platform: waze_travel_time
   name: Sherene Home Commute
-  origin: '!secret address_work_sherene'
-  destination: '!secret address_home'
+  origin: !secret 'address_work_sherene'
+  destination: !secret 'address_home'
   region: US
   realtime: true
 - platform: pi_hole
   name: Pi-Hole
-  host: '!secret host_pihole'
+  host: !secret 'host_pihole'
   monitored_conditions:
   - ads_blocked_today
   - ads_percentage_today

@@ -1,15 +1,15 @@
 - platform: nfandroidtv
   name: Living Room
-  host: '!secret host_living_room_shield'
+  host: !secret 'host_living_room_shield'
 - platform: nfandroidtv
   name: Bedroom
-  host: '!secret host_bedroom_firetv'
+  host: !secret 'host_bedroom_firetv'
 - platform: rest
   name: slack
-  resource: '!secret webhook_slack'
+  resource: !secret 'webhook_slack'
   method: POST_JSON
   message_param_name: text
   data:
     username: HomeAssistant
     icon_url: https://www.home-assistant.io/images/favicon-192x192-full.png
-    channel: '!secret channel_slack'
+    channel: !secret 'channel_slack'
