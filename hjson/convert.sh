@@ -1,1 +1,1 @@
-(echo "import config_manager" ; echo "config_manager.convertHjsonToYaml()") | python3
+(echo "import ha_yaml_to_and_from_hjson" ; echo "ha_yaml_to_and_from_hjson.convertHjsonToYaml()") | python3

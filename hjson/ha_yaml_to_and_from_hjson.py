@@ -1,51 +1,67 @@
 #!/usr/local/bin/python3
 
 import os, hjson, yaml
+import sys, inspect
 from collections import OrderedDict
 
-# https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/util/yaml.py#L319-L331 for tags to support
+# https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/util/yaml/loader.py#L318-L331 for tags to support
 
-# YAML Objects
-class Secret(yaml.YAMLObject):
+# YAML Tag Objects
+class BaseTag(yaml.YAMLObject):
+    yaml_tag = u'!'
+
+    def __init__(self, data):
+        self.data = data
+
+    def __repr__(self):
+        return self.data
+
+    @classmethod
+    def from_yaml(cls, loader, node):
+        return BaseTag(node.value)
+
+    @classmethod
+    def to_yaml(cls, dumper, data):
+        return dumper.represent_scalar(cls.yaml_tag, u'%s' % data)
+
+class Secret(BaseTag):
     yaml_tag = u'!secret'
 
-    def __init__(self, secret):
-        self.secret = secret
-
-    def __repr__(self):
-        return self.secret
-
-    @classmethod
-    def from_yaml(cls, loader, node):
-        return Secret(node.value)
-
-    @classmethod
-    def to_yaml(cls, dumper, data):
-        return dumper.represent_scalar(cls.yaml_tag, u'%s' % data)
-
-class Include(yaml.YAMLObject):
+class Include(BaseTag):
     yaml_tag = u'!include'
 
-    def __init__(self, include):
-        self.include = include
+class EnvVar(BaseTag):
+    yaml_tag = u'!env_var'
 
-    def __repr__(self):
-        return self.include
+class IncludeDirList(BaseTag):
+    yaml_tag = u'!include_dir_list'
 
-    @classmethod
-    def from_yaml(cls, loader, node):
-        return Include(node.value)
+class IncludeDirMergeList(BaseTag):
+    yaml_tag = u'!include_dir_merge_list'
 
-    @classmethod
-    def to_yaml(cls, dumper, data):
-        return dumper.represent_scalar(cls.yaml_tag, u'%s' % data)
+class IncludeDirNamed(BaseTag):
+    yaml_tag = u'!include_dir_named'
 
-# Hjson object hooks to handle tags
+class IncludeDirMergeNamed(BaseTag):
+    yaml_tag = u'!include_dir_merge_named'
+
+# generate list of special tag classes
+tag_obj_list = []
+for name, value in inspect.getmembers(sys.modules[__name__], lambda member: inspect.isclass(member) and member.__module__ == __name__):
+    if name != "BaseTag":
+        tag_obj_list.append(value)
+
+# Hjson object hooks to handle special tags
+def encode_tag(item):
+    for o in tag_obj_list:
+        if isinstance(item, o):
+            return o.yaml_tag + " " + o.data
+    return None
+
 def encode_ha(z):
-    if isinstance(z, Secret):
-        return "!secret " + z.secret
-    elif isinstance(z, Include):
-        return "!include " + z.include
+    tag = encode_tag(z)
+    if tag:
+        return tag
     elif isinstance(z, None):
         return ""
     elif z is None:
@@ -53,6 +69,14 @@ def encode_ha(z):
     else:
         type_name = z.__class__.__name__
         raise TypeError("Object of type '{type_name}' is not JSON serializable")
+
+def decode_tag(value):
+    for o in tag_obj_list:
+        tag_len = len(o.yaml_tag)
+        if value[0:tag_len] == o.yaml_tag:
+            return o(value[(tag_len+1):])
+
+    return None
 
 def decode_ha(pairs):
     new_pairs = []
@@ -65,10 +89,9 @@ def decode_ha(pairs):
             if isinstance(value, list):
                 new_pairs.append((key, decode_ha(value)))
             elif isinstance(value, str):
-                if value[0:7] == "!secret":
-                    new_pairs.append((key, Secret(value[8:])))
-                elif value[0:8] == "!include":
-                    new_pairs.append((key, Include(value[9:])))
+                tag_value = decode_tag(value)
+                if tag_value:
+                    new_pairs.append((key, tag_value))
                 elif value == "":
                     new_pairs.append((key, None))
                 else:
@@ -141,10 +164,10 @@ def convertHjsonToYaml():
                 dest.close()
             src.close()
 
-yaml.SafeLoader.add_constructor('!secret', Secret.from_yaml)
-yaml.SafeLoader.add_constructor('!include', Include.from_yaml)
-yaml.add_representer(Secret, Secret.to_yaml)
-yaml.add_representer(Include, Include.to_yaml)
+for o in tag_obj_list:
+    yaml.SafeLoader.add_constructor(o.yaml_tag, o.from_yaml)
+    yaml.add_representer(o, o.to_yaml)
+
 yaml.add_representer(type(None), represent_none)
 yaml.add_representer(OrderedDict, lambda self, data: yaml.representer.SafeRepresenter.represent_dict(self, data.items()))
 
