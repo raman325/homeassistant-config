@@ -59,7 +59,7 @@ for name, value in inspect.getmembers(
     sys.modules[__name__],
     lambda member: inspect.isclass(member) and member.__module__ == __name__,
 ):
-    if name != "BaseTag":
+    if issubclass(value, BaseTag) and name != "BaseTag":
         tag_obj_list.append(value)
 
 # Hjson object hooks to handle special tags
