@@ -54,13 +54,14 @@ class IncludeDirMergeNamed(BaseTag):
 
 
 # generate list of special tag classes
-tag_obj_list = []
-for name, value in inspect.getmembers(
-    sys.modules[__name__],
-    lambda member: inspect.isclass(member) and member.__module__ == __name__,
-):
-    if issubclass(value, BaseTag) and name != "BaseTag":
-        tag_obj_list.append(value)
+tag_obj_list = [
+    value
+    for name, value in inspect.getmembers(
+        sys.modules[__name__],
+        lambda member: inspect.isclass(member) and member.__module__ == __name__,
+    )
+    if issubclass(value, BaseTag) and name != "BaseTag"
+]
 
 # Hjson object hooks to handle special tags
 def encode_tag(item):
