@@ -21,6 +21,13 @@
         database: !secret db_influx
         default_measurement: state
 		tags_attributes: friendly_name
+        exclude:
+        {
+            domains:
+            [
+                "group"
+            ]
+        }
     }
     homeassistant:
     {
