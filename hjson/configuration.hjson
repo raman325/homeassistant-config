@@ -3,11 +3,24 @@
     history: null
     logbook: null
     map: null
+    mobile_app: null
+    system_log: null
     system_health: null
     recorder:
     {
         purge_keep_days: 30
         purge_interval: 1
+        db_url: !secret recorder_conn_str
+    }
+    influxdb:
+    {
+        host: !secret host_nas
+        port: 8086
+        username: !secret user_influx
+        password: !secret pass_influx
+        database: !secret db_influx
+        default_measurement: state
+		tags_attributes: friendly_name
     }
     homeassistant:
     {
@@ -80,11 +93,6 @@
     //     usb_path: /dev/zwave
     //     network_key: !secret zwave_network_key
     // }
-    influxdb:
-    {
-        username: !secret user_influx
-        password: !secret pass_influx
-    }
     group: !include groups.yaml
     automation: !include automations.yaml
     script: !include scripts.yaml

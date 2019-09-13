@@ -1,21 +1,23 @@
-- temp_step: 0.5
-  temperature_high_command_topic: smartthings/Thermostat/coolingSetpoint
+- platform: mqtt
+  name: Thermostat
+  unique_id: thermostat
+  current_temperature_topic: smartthings/Thermostat/temperature
+  mode_command_topic: smartthings/Thermostat/thermostatMode
   mode_state_topic: smartthings/Thermostat/thermostatMode
-  fan_mode_command_topic: smartthings/Thermostat/thermostatFanMode
   modes:
   - 'off'
   - heat
   - cool
   - auto
+  fan_mode_command_topic: smartthings/Thermostat/thermostatFanMode
   fan_mode_state_topic: smartthings/Thermostat/thermostatFanMode
-  temperature_low_command_topic: smartthings/Thermostat/heatingSetpoint
-  current_temperature_topic: smartthings/Thermostat/temperature
-  temperature_high_state_topic: smartthings/Thermostat/coolingSetpoint
-  mode_command_topic: smartthings/Thermostat/thermostatMode
-  platform: mqtt
-  unique_id: thermostat
-  name: Thermostat
-  temperature_low_state_topic: smartthings/Thermostat/heatingSetpoint
   fan_modes:
   - auto
   - 'on'
+  temperature_low_command_topic: smartthings/Thermostat/heatingSetpoint
+  temperature_low_state_topic: smartthings/Thermostat/heatingSetpoint
+  temperature_high_command_topic: smartthings/Thermostat/coolingSetpoint
+  temperature_high_state_topic: smartthings/Thermostat/coolingSetpoint
+  temp_step: 0.5
+  min_temp: 60
+  max_temp: 80

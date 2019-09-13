@@ -112,10 +112,10 @@ def convertHjsonToYaml():
             os.makedirs(basePath)
 
         with open(srcFile, 'r') as src:
-            config = hjson.loads(src.read(), object_hook=decode_ha)
+            config = hjson.loads(src.read(), object_hook=decode_ha, object_pairs_hook=OrderedDict)
 
             with open(destFile, 'w') as dest:
-                newYAML = yaml.dump(config, default_flow_style=False)
+                newYAML = yaml.dump(config, default_flow_style=False, sort_keys=False)
                 if newYAML == "...\n":
                     dest.write("")
                 else:
@@ -129,7 +129,6 @@ yaml.add_representer(Secret, Secret.to_yaml)
 yaml.add_representer(Include, Include.to_yaml)
 yaml.add_representer(type(None), represent_none)
 yaml.add_representer(OrderedDict, lambda self, data: yaml.representer.SafeRepresenter.represent_dict(self, data.items()))
-yaml.add_representer(dict, lambda self, data: yaml.representer.SafeRepresenter.represent_dict(self, data.items()))
 
 # convertYamlToHjson()
 # convertHjsonToYaml()

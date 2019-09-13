@@ -211,4 +211,9 @@
         device_class: illuminance
         state_topic: smartthings/Master Bedroom Sensor/illuminance
     }
+    {
+        platform: version
+        name: version
+        source: local
+    }
 ]

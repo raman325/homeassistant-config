@@ -1,21 +1,43 @@
 - id: ifttt_vacuum_control
-  initial_state: true
   alias: IFTTT Vacuum Control
-  action:
-    data_template:
-      target: '{{ trigger.json.target }}'
-      command: '{{ trigger.json.command }}'
-      blaster: '{{ trigger.json.blaster }}'
-    service: rest_command.ir_send
+  initial_state: true
   trigger:
     platform: webhook
-    webhook_id: !secret 'webhook_vacuum'
+    webhook_id: '!secret webhook_vacuum'
+  action:
+    service: rest_command.ir_send
+    data_template:
+      blaster: '{{ trigger.json.blaster }}'
+      target: '{{ trigger.json.target }}'
+      command: '{{ trigger.json.command }}'
 - id: notify_updates
   alias: Update Available Notifications
-  action:
-    data:
-      message: 'New HA version {{ state_attr(''binary_sensor.updater'',''newest_version'') }} is available.{{ ''\n'' }}{{ ''\n'' }}{% if states("sensor.potential_breaking_changes")|int > 0 %}{{ states("sensor.potential_breaking_changes") }} possible breaking changes:{{ ''\n'' }}```{% for k, v in states.sensor.potential_breaking_changes.attributes.items() %}{% if k not in ["friendly_name", "icon"] %}{{ k }}:{{ v }}{{ ''\n'' }}{% endif %}{% endfor %}```{% else %}No breaking changes detected.{% endif %}{{ ''\n'' }}{{ ''\n'' }}Raw: ```{{ states.sensor.potential_breaking_changes.attributes }}```'
-    service: notify.slack
   trigger:
     platform: state
     entity_id: binary_sensor.updater
+  condition:
+    condition: template
+    value_template: '{% if state_attr("binary_sensor.updater", "newest_version") %}{%
+      set curr_ver = states("sensor.version").split(".") %}{% set new_ver = state_attr("binary_sensor.updater",
+      "newest_version").split(".") %}{{ new_ver[0]|int > curr_ver[0]|int or new_ver[1]|int
+      > curr_ver[1]|int or (new_ver[0]|int == curr_ver[0]|int and new_ver[1]|int ==
+      curr_ver[1]|int and new_ver[2]|int > curr_ver[2]|int) }}{% else %}false{% endif
+      %}'
+  action:
+    service: notify.slack
+    data:
+      message: '<{{ state_attr("binary_sensor.updater","release_notes") }}|New HA
+        version {{ state_attr("binary_sensor.updater","newest_version") }} is available>.
+
+
+        {% if states("sensor.potential_breaking_changes")|int > 0 %}{{ states("sensor.potential_breaking_changes")
+        }} possible breaking changes:
+
+        ```{% for k, v in states.sensor.potential_breaking_changes.attributes.items()
+        %}{% if k not in ["friendly_name", "icon"] %}{{ k }}:{{ v }}
+
+        {% endif %}{% endfor %}```{% else %}No breaking changes detected.{% endif
+        %}
+
+
+        Raw Details: ```{{ states.sensor.potential_breaking_changes.attributes }}```'

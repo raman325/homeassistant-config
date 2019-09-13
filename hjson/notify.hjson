@@ -10,10 +10,15 @@
         host: !secret host_bedroom_firetv
     }
     {
-        platform: slack
-        name: Slack
-        api_key: !secret api_slack
-        default_channel: !secret default_channel_slack
-        icon: ":information_source:"
+        platform: rest
+        name: slack
+        resource: !secret webhook_slack
+        method: POST_JSON
+        message_param_name: text
+        data: {
+            username: HomeAssistant
+            icon_url: https://www.home-assistant.io/images/favicon-192x192-full.png
+            channel: !secret channel_slack
+        }
     }
 ]
