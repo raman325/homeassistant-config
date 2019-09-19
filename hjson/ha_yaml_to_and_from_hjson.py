@@ -65,6 +65,7 @@ tag_obj_list = [
 ]
 
 # Hjson object hooks to handle special tags
+# if value is a special tag, convert it appropriately
 def encode_tag(item):
     for o in tag_obj_list:
         if isinstance(item, o):
@@ -72,6 +73,7 @@ def encode_tag(item):
     return None
 
 
+# If value is a special tag, convert it appropriately. Also check for null cases
 def encode_ha(z):
     tag = encode_tag(z)
     if tag:
@@ -85,6 +87,7 @@ def encode_ha(z):
         raise TypeError("Object of type '{type_name}' is not JSON serializable")
 
 
+# If value is a special tag, convert it to an object appropriately
 def decode_tag(value):
     for o in tag_obj_list:
         tag_len = len(o.yaml_tag)
@@ -93,6 +96,7 @@ def decode_tag(value):
     return None
 
 
+# For each key/value pair returned by PyYAML, check if value is a special tag. Build new dictionary based on response.
 def decode_ha(pairs):
     new_pairs = []
     has_tuple = False
@@ -155,9 +159,11 @@ def convertYamltoHjson():
         if not os.path.exists(basePath):
             os.makedirs(basePath)
 
+        # read file into dict
         with open(srcFile, "r") as src:
             config = yaml.safe_load(src.read())
 
+            # dump object to hjson while encoding tags
             with open(destFile, "w") as dest:
                 dest.write(hjson.dumps(config, default=encode_ha, indent=4))
                 dest.close()

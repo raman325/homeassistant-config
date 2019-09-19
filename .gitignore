@@ -22,5 +22,5 @@ ip_bans.yaml
 secrets.yaml
 known_devices.yaml
 ip_bans.hjson
-secretw.hjson
+secrets.hjson
 known_devices.yaml
