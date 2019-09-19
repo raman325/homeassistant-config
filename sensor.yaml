@@ -38,7 +38,6 @@
   username: !secret 'user_plex'
   password: !secret 'pass_plex'
 - platform: sonarr
-  name: sonarr
   api_key: !secret 'api_sonarr'
   host: !secret 'host_nas'
   monitored_conditions:
@@ -47,7 +46,6 @@
   - wanted
   - queue
 - platform: radarr
-  name: radarr
   api_key: !secret 'api_radarr'
   host: !secret 'host_nas'
   monitored_conditions:
