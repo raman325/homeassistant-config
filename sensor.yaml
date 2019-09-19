@@ -37,6 +37,44 @@
   token: !secret 'token_plex'
   username: !secret 'user_plex'
   password: !secret 'pass_plex'
+- platform: sonarr
+  name: sonarr
+  api_key: !secret 'api_sonarr'
+  host: !secret 'host_nas'
+  monitored_conditions:
+  - series
+  - upcoming
+  - wanted
+  - queue
+- platform: radarr
+  name: radarr
+  api_key: !secret 'api_radarr'
+  host: !secret 'host_nas'
+  monitored_conditions:
+  - movies
+  - upcoming
+- platform: transmission
+  name: transmission
+  host: !secret 'host_nas'
+  turtle_mode: true
+  monitored_conditions:
+  - current_status
+  - download_speed
+  - upload_speed
+  - active_torrents
+  - paused_torrents
+  - total_torrents
+- platform: nzbget
+  name: nzbget
+  host: !secret 'host_nas'
+  monitored_variables:
+  - article_cache
+  - average_download_rate
+  - download_paused
+  - download_rate
+  - download_size
+  - post_paused
+  - remaining_size
 - platform: kodi_recently_added
   host: !secret 'host_nas'
 - platform: radarr_upcoming_media
