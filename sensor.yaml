@@ -68,19 +68,6 @@
   monitored_conditions:
   - movies
   - upcoming
-- platform: transmission
-  name: transmission
-  host: !secret 'host_nas'
-  username: !secret 'user_transmission'
-  password: !secret 'pass_transmission'
-  turtle_mode: true
-  monitored_conditions:
-  - current_status
-  - download_speed
-  - upload_speed
-  - active_torrents
-  - paused_torrents
-  - total_torrents
 - platform: nzbget
   name: nzbget
   host: !secret 'host_nas'

@@ -61,6 +61,7 @@ hacs: !include 'hacs.yaml'
 breaking_changes:
 asuswrt: !include 'asuswrt.yaml'
 person: !include 'person.yaml'
+transmission: !include 'transmission.yaml'
 tts:
 - platform: google_translate
 mqtt:

@@ -84,6 +84,7 @@
     breaking_changes: null
     asuswrt: !include asuswrt.yaml
     person: !include person.yaml
+    transmission: !include transmission.yaml
     tts:
     [
         {
