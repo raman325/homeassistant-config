@@ -148,7 +148,7 @@ def convertFileName(file, fromExt, toExt):
 
 # Converts YAML files to HJSON. Expects source YAML files to be in the parent directory and target directory to be the current directory
 # TODO: Make source and target paths configurable and more generic
-def convertYamltoHjson():
+def convertYamlToHjson():
     srcFiles = findFiles("..", "yaml")
     for srcFile in srcFiles:
         # hack to get source files one folder below but place destination files in current directory by removing one '.'
