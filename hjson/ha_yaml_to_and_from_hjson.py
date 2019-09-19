@@ -6,7 +6,7 @@ from collections import OrderedDict
 
 # https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/util/yaml/loader.py#L318-L331 for tags to support
 
-# YAML Tag Objects
+# YAML Tag Objects (base object)
 class BaseTag(yaml.YAMLObject):
     yaml_tag = u"!"
 
@@ -25,6 +25,7 @@ class BaseTag(yaml.YAMLObject):
         return dumper.represent_scalar(cls.yaml_tag, u"%s" % data.data)
 
 
+# YAML tag objects (overwrite yaml_tag for each special case)
 class Secret(BaseTag):
     yaml_tag = u"!secret"
 
@@ -53,7 +54,7 @@ class IncludeDirMergeNamed(BaseTag):
     yaml_tag = u"!include_dir_merge_named"
 
 
-# generate list of special tag classes
+# generate list of special tag classes by reading this file. This should not have to be changed to support new tag types.
 tag_obj_list = [
     value
     for name, value in inspect.getmembers(
@@ -126,6 +127,7 @@ def represent_none(self, _):
     return self.represent_scalar("tag:yaml.org,2002:null", "")
 
 
+# Return a list of files in `path` that match the extension `ext`. Hacked to ensure that files in hjson/ are not found when searching parent directory
 def findFiles(path, ext):
     list = []
     for root, dirs, files in os.walk(path):
@@ -135,10 +137,13 @@ def findFiles(path, ext):
     return list
 
 
+# Convert file extention from fromExt to toExt
 def convertFileName(file, fromExt, toExt):
     return file[: (0 - len(fromExt))] + toExt
 
 
+# Converts YAML files to HJSON. Expects source YAML files to be in the parent directory and target directory to be the current directory
+# TODO: Make source and target paths configurable and more generic
 def convertYamltoHjson():
     srcFiles = findFiles("..", "yaml")
     for srcFile in srcFiles:
@@ -159,6 +164,8 @@ def convertYamltoHjson():
             src.close()
 
 
+# Converts HJSON files to YAML. Expects source HJSON files to be in the current directory and target directory to be the parent directory
+# TODO: Make source and target paths configurable and more generic
 def convertHjsonToYaml():
     srcFiles = findFiles(".", "hjson")
     for srcFile in srcFiles:
@@ -186,11 +193,15 @@ def convertHjsonToYaml():
             src.close()
 
 
+# add constructor and representer for every tag that HA uses
 for o in tag_obj_list:
     yaml.SafeLoader.add_constructor(o.yaml_tag, o.from_yaml)
     yaml.SafeDumper.add_representer(o, o.to_yaml)
 
+# add null representer so that null values don't get added to YAML files
 yaml.SafeDumper.add_representer(type(None), represent_none)
+
+# respect order of dictionary to make output deterministic
 yaml.SafeDumper.add_representer(
     OrderedDict,
     lambda self, data: yaml.representer.SafeRepresenter.represent_dict(
