@@ -75,7 +75,6 @@
         host: !secret host_nas
         monitored_conditions:
         [
-            series
             upcoming
             wanted
             queue
@@ -87,7 +86,6 @@
         host: !secret host_nas
         monitored_conditions:
         [
-            movies
             upcoming
         ]
     }

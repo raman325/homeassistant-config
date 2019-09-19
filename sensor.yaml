@@ -58,7 +58,6 @@
   api_key: !secret 'api_sonarr'
   host: !secret 'host_nas'
   monitored_conditions:
-  - series
   - upcoming
   - wanted
   - queue
@@ -66,7 +65,6 @@
   api_key: !secret 'api_radarr'
   host: !secret 'host_nas'
   monitored_conditions:
-  - movies
   - upcoming
 - platform: nzbget
   name: nzbget
