@@ -1,0 +1,5 @@
+{
+    ssl_certificate: /cert/fullchain.pem
+    ssl_key: /cert/privkey.pem
+    base_url: !secret url_base
+}

@@ -5,21 +5,8 @@ map:
 mobile_app:
 system_log:
 system_health:
-recorder:
-  purge_keep_days: 30
-  purge_interval: 1
-  db_url: !secret 'recorder_conn_str'
-influxdb:
-  host: !secret 'host_nas'
-  port: 8086
-  username: !secret 'user_influx'
-  password: !secret 'pass_influx'
-  database: !secret 'db_influx'
-  default_measurement: state
-  tags_attributes: friendly_name
-  exclude:
-    domains:
-    - group
+recorder: !include 'recorder.yaml'
+influxdb: !include 'influxdb.yaml'
 homeassistant:
   name: Home
   latitude: !secret 'lat_home'
@@ -30,16 +17,9 @@ homeassistant:
   customize: !include 'customize.yaml'
   auth_providers:
   - type: homeassistant
-http:
-  ssl_certificate: /cert/fullchain.pem
-  ssl_key: /cert/privkey.pem
-  base_url: !secret 'url_base'
-updater:
-  reporting: false
-discovery:
-  ignore:
-  - plex_mediaserver
-  - roku
+http: !include 'http.yaml'
+updater: !include 'updater.yaml'
+discovery: !include 'discovery.yaml'
 ssdp:
 zeroconf:
 conversation:
@@ -62,17 +42,8 @@ breaking_changes:
 asuswrt: !include 'asuswrt.yaml'
 person: !include 'person.yaml'
 transmission: !include 'transmission.yaml'
-tts:
-- platform: google_translate
-mqtt:
-  broker: !secret 'host_mqtt'
-  port: !secret 'port_mqtt'
-  birth_message:
-    topic: hass/status
-    payload: online
-  will_message:
-    topic: hass/status
-    payload: offline
+tts: !include 'tts.yaml'
+mqtt: !include 'mqtt.yaml'
 group: !include 'groups.yaml'
 automation: !include 'automations.yaml'
 script: !include 'scripts.yaml'

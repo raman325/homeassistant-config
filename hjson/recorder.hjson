@@ -1,0 +1,5 @@
+{
+    purge_keep_days: 30
+    purge_interval: 1
+    db_url: !secret recorder_conn_str
+}
