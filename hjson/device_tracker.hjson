@@ -19,6 +19,6 @@
         unit_of_measurement: mi
         distance_method: waze
         waze_realtime: true
-        waze_region: na
+        waze_region: US
     }
 ]
