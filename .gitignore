@@ -10,6 +10,7 @@
 !hjson/*.hjson
 !hjson/*.py
 !hjson/*.sh
+!*.sh
 
 # Ignore folders.
 .storage

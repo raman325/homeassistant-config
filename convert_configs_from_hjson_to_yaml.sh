@@ -1,0 +1,1 @@
+cd hjson && (echo "import ha_yaml_to_and_from_hjson" ; echo "ha_yaml_to_and_from_hjson.convertHjsonToYaml()") | python3
