@@ -4,6 +4,7 @@
   current_temperature_topic: smartthings/Thermostat/temperature
   mode_command_topic: smartthings/Thermostat/thermostatMode
   mode_state_topic: smartthings/Thermostat/thermostatMode
+  action_topic: smartthings/Thermostat/thermostatOperatingState
   modes:
   - 'off'
   - heat
