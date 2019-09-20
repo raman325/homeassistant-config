@@ -18,11 +18,11 @@
   condition:
     condition: template
     value_template: '{% if state_attr("binary_sensor.updater", "newest_version") %}{%
-      set curr_ver = states("sensor.version").split(".") %}{% set new_ver = state_attr("binary_sensor.updater",
-      "newest_version").split(".") %}{{ new_ver[0]|int > curr_ver[0]|int or new_ver[1]|int
-      > curr_ver[1]|int or (new_ver[0]|int == curr_ver[0]|int and new_ver[1]|int ==
-      curr_ver[1]|int and new_ver[2]|int > curr_ver[2]|int) }}{% else %}false{% endif
-      %}'
+      set curr_ver = states("sensor.local_ha_version").split(".") %}{% set new_ver
+      = state_attr("binary_sensor.updater", "newest_version").split(".") %}{{ new_ver[0]|int
+      > curr_ver[0]|int or new_ver[1]|int > curr_ver[1]|int or (new_ver[0]|int ==
+      curr_ver[0]|int and new_ver[1]|int == curr_ver[1]|int and new_ver[2]|int > curr_ver[2]|int)
+      }}{% else %}false{% endif %}'
   action:
     service: notify.slack
     data:
