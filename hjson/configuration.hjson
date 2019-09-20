@@ -95,6 +95,16 @@
     {
         broker: !secret host_mqtt
         port: !secret port_mqtt
+        birth_message:
+        {
+            topic: "hass/status"
+            payload: "online"
+        }
+        will_message:
+        {
+            topic: "hass/status"
+            payload: "offline"
+        }
     }
     // zwave:
     // {
