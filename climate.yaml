@@ -5,6 +5,8 @@
   mode_command_topic: smartthings/Thermostat/thermostatMode
   mode_state_topic: smartthings/Thermostat/thermostatMode
   action_topic: smartthings/Thermostat/thermostatOperatingState
+  action_template: '{%- if value|string() == "cooling" -%}cool{%- elif value|string()
+    == "heating" -%}heat{%- else -%}idle{%- endif -%}'
   modes:
   - 'off'
   - heat
@@ -20,5 +22,6 @@
   temperature_high_command_topic: smartthings/Thermostat/coolingSetpoint
   temperature_high_state_topic: smartthings/Thermostat/coolingSetpoint
   temp_step: 0.5
+  precision: 0.1
   min_temp: 60
   max_temp: 80
