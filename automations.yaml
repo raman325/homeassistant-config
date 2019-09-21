@@ -6,10 +6,7 @@
     webhook_id: !secret 'webhook_vacuum'
   action:
     service: rest_command.ir_send
-    data_template:
-      blaster: '{{ trigger.json.blaster }}'
-      target: '{{ trigger.json.target }}'
-      command: '{{ trigger.json.command }}'
+    data_template: '{{ trigger.json }}'
 - id: ifttt_kodi_control
   alias: IFTTT Kodi Control
   initial_state: true
@@ -18,10 +15,7 @@
     webhook_id: !secret 'webhook_ghkodi'
   action:
     service: rest_command.kodi_send
-    data_template:
-      token: '{{ trigger.json.token }}'
-      kodiid: '{{ trigger.json.kodiid }}'
-      phrase: '{{ trigger.json.phrase }}'
+    data_template: '{{ trigger.json }}'
 - id: notify_updates
   alias: Update Available Notifications
   trigger:
