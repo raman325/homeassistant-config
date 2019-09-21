@@ -1,6 +1,6 @@
 {
     config: null
-    history: null
+    history: !include history.yaml
     logbook: null
     map: null
     mobile_app: null

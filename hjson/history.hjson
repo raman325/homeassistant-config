@@ -1,11 +1,4 @@
 {
-    host: !secret host_nas
-    port: 8086
-    username: !secret user_influx
-    password: !secret pass_influx
-    database: !secret db_influx
-    default_measurement: state
-    tags_attributes: friendly_name
     exclude:
     {
         entities:
