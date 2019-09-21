@@ -55,7 +55,6 @@
   username: !secret 'user_plex'
   password: !secret 'pass_plex'
 - platform: sonarr
-  name: Sonarr
   api_key: !secret 'api_sonarr'
   host: !secret 'host_nas'
   monitored_conditions:
@@ -63,7 +62,6 @@
   - wanted
   - queue
 - platform: radarr
-  name: Radarr
   api_key: !secret 'api_radarr'
   host: !secret 'host_nas'
   monitored_conditions:
@@ -80,14 +78,11 @@
   - post_paused
   - remaining_size
 - platform: kodi_recently_added
-  name: Kodi Recently Added
   host: !secret 'host_nas'
 - platform: radarr_upcoming_media
-  name: Radarr Upcoming_media
   host: !secret 'host_nas'
   api_key: !secret 'api_radarr'
 - platform: sonarr_upcoming_media
-  name: Sonarr Upcoming Media
   host: !secret 'host_nas'
   api_key: !secret 'api_sonarr'
 - platform: waze_travel_time
