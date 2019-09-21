@@ -33,9 +33,9 @@
             service: rest_command.kodi_send
             data_template:
             {
-                token: !secret webhook_ghkodi
-                kodiid: "{{ trigger.json.id }}"
-                phrase: "{{ trigger.json.command }}"
+                token: "{{ trigger.json.token }}"
+                kodiid: "{{ trigger.json.kodiid }}"
+                phrase: "{{ trigger.json.phrase }}"
             }
         }
     }
