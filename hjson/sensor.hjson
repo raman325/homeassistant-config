@@ -113,7 +113,6 @@
         host: !secret host_nas
         api_key: !secret api_radarr
     }
-    
     {
         platform: sonarr_upcoming_media
         host: !secret host_nas
