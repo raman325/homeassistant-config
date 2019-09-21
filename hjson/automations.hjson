@@ -20,6 +20,26 @@
         }
     }
     {
+        id: ifttt_kodi_control
+        alias: IFTTT Kodi Control
+        initial_state: true
+        trigger:
+        {
+            platform: webhook
+            webhook_id: !secret webhook_ghkodi
+        }
+        action:
+        {
+            service: rest_command.kodi_send
+            data_template:
+            {
+                token: !secret webhook_ghkodi
+                kodiid: "{{ trigger.json.id }}"
+                phrase: "{{ trigger.json.command }}"
+            }
+        }
+    }
+    {
         id: notify_updates
         alias: Update Available Notifications
         trigger:
