@@ -4,5 +4,5 @@ ir_send:
 kodi_send:
   url: !secret 'url_kodi_send'
   method: POST
-  payload: '{"kodiid":"{{ kodiid }}","token":"{{ token }}"}'
+  payload: '{"kodiid":"{{ data.kodiid }}","token":"{{ data.token }}"}'
   content_type: application/json

@@ -4,6 +4,26 @@
   trigger:
     platform: webhook
     webhook_id: !secret 'webhook_vacuum'
+  action:
+    service: rest_command.ir_send
+    data_template:
+      data: '{{ trigger.json }}'
+- id: ifttt_kodi_control
+  alias: IFTTT Kodi Control
+  initial_state: true
+  trigger:
+    platform: webhook
+    webhook_id: !secret 'webhook_ghkodi'
+  action:
+    service: rest_command.kodi_send
+    data_template:
+      data: '{{ trigger.json }}'
+- id: ifttt_vacuum_control
+  alias: IFTTT Vacuum Control
+  initial_state: true
+  trigger:
+    platform: webhook
+    webhook_id: !secret 'webhook_vacuum'
   condition:
     condition: template
     value_template: !secret 'webhook_auth_check'
