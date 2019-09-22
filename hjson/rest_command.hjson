@@ -8,7 +8,7 @@
     {
         url: !secret url_kodi_send
         method: POST
-        payload: '{"kodiid":"{{ data.kodiid }}","token":"{{ data.token }}"}'
+        payload: '{"kodiid":"{{ kodiid }}","token":"{{ token }}"}'
         content_type:  'application/json'
     }
 }
