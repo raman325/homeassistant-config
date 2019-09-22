@@ -1,38 +1,22 @@
 [
     {
-        id: ifttt_vacuum_control
-        alias: IFTTT Vacuum Control
+        id: resume_icloud_updates
+        alias: Resume iCloud Updates
         initial_state: true
         trigger:
         {
-            platform: webhook
-            webhook_id: !secret webhook_vacuum
+            platform: state
+            entity_id: device_tracker.router_ramansiphone, device_tracker.router_sherenesiphone
+            from: "home"
+            to: "not_home"
+            for:
+            {
+                minutes: 10
+            }
         }
         action:
         {
-            service: rest_command.ir_send
-            data_template:
-            {
-                data: "{{ trigger.json }}"
-            }
-        }
-    }
-    {
-        id: ifttt_kodi_control
-        alias: IFTTT Kodi Control
-        initial_state: true
-        trigger:
-        {
-            platform: webhook
-            webhook_id: !secret webhook_ghkodi
-        }
-        action:
-        {
-            service: rest_command.kodi_send
-            data_template:
-            {
-                data: "{{ trigger.json }}"
-            }
+            service: device_tracker.icloud_update
         }
     }
     // {
@@ -44,19 +28,12 @@
     //         platform: webhook
     //         webhook_id: !secret webhook_vacuum
     //     }
-    //     condition:
-    //     {
-    //         condition: template
-    //         value_template: !secret webhook_auth_check
-    //     }
     //     action:
     //     {
     //         service: rest_command.ir_send
     //         data_template:
     //         {
-    //             blaster: "{{ trigger.json.blaster }}"
-    //             target: "{{ trigger.json.target }}"
-    //             command: "{{ trigger.json.command }}"
+    //             data: "{{ trigger.json }}"
     //         }
     //     }
     // }
@@ -69,22 +46,65 @@
     //         platform: webhook
     //         webhook_id: !secret webhook_ghkodi
     //     }
-    //     condition:
-    //     {
-    //         condition: template
-    //         value_template: !secret webhook_auth_check
-    //     }
     //     action:
     //     {
     //         service: rest_command.kodi_send
     //         data_template:
     //         {
-    //             token: "{{ trigger.json.token }}"
-    //             kodiid: "{{ trigger.json.kodiid }}"
-    //             phrase: "{{ trigger.json.phrase }}"
+    //             data: "{{ trigger.json }}"
     //         }
     //     }
     // }
+    {
+        id: ifttt_vacuum_control
+        alias: IFTTT Vacuum Control
+        initial_state: true
+        trigger:
+        {
+            platform: webhook
+            webhook_id: !secret webhook_vacuum
+        }
+        condition:
+        {
+            condition: template
+            value_template: !secret webhook_auth_check
+        }
+        action:
+        {
+            service: rest_command.ir_send
+            data_template:
+            {
+                blaster: "{{ trigger.json.blaster }}"
+                target: "{{ trigger.json.target }}"
+                command: "{{ trigger.json.command }}"
+            }
+        }
+    }
+    {
+        id: ifttt_kodi_control
+        alias: IFTTT Kodi Control
+        initial_state: true
+        trigger:
+        {
+            platform: webhook
+            webhook_id: !secret webhook_ghkodi
+        }
+        condition:
+        {
+            condition: template
+            value_template: !secret webhook_auth_check
+        }
+        action:
+        {
+            service: rest_command.kodi_send
+            data_template:
+            {
+                token: "{{ trigger.json.token }}"
+                kodiid: "{{ trigger.json.kodiid }}"
+                phrase: "{{ trigger.json.phrase }}"
+            }
+        }
+    }
     {
         id: notify_updates
         alias: Update Available Notifications
