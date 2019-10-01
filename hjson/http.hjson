@@ -1,5 +1,11 @@
 {
-    ssl_certificate: /cert/fullchain.pem
-    ssl_key: /cert/privkey.pem
+    // ssl_certificate: /cert/fullchain.pem
+    // ssl_key: /cert/privkey.pem
     base_url: !secret url_base
+    use_x_forwarded_for: true
+    trusted_proxies:
+    [
+        127.0.0.1
+        192.168.0.11
+    ]
 }
