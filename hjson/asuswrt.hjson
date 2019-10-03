@@ -2,7 +2,7 @@
     host: !secret host_router
     username: !secret user_router
     password: !secret pass_router
-    sensors:
+    sensor:
     [
         upload
         download
