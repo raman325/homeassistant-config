@@ -1,5 +1,4 @@
 {
-    platform: plex
     name: Plex Media Server
     server: "SHIELD Android TV"
     host: !secret host_living_room_shield
