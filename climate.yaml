@@ -23,3 +23,4 @@
   precision: 0.1
   min_temp: 60
   max_temp: 80
+  retain: true
