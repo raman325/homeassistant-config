@@ -1,0 +1,4 @@
+{
+    name: Pi-Hole
+    host: !secret host_pihole
+}

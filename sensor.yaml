@@ -47,13 +47,6 @@
   - volume_status
   - volume_size_total
   - volume_size_used
-- platform: plex
-  name: Plex Media Server
-  server: home
-  host: !secret 'host_living_room_shield'
-  token: !secret 'token_plex'
-  username: !secret 'user_plex'
-  password: !secret 'pass_plex'
 - platform: sonarr
   api_key: !secret 'api_sonarr'
   host: !secret 'host_nas'
@@ -109,19 +102,6 @@
   destination: !secret 'address_home'
   region: US
   realtime: true
-- platform: pi_hole
-  name: Pi-Hole
-  host: !secret 'host_pihole'
-  monitored_conditions:
-  - ads_blocked_today
-  - ads_percentage_today
-  - dns_queries_today
-  - domains_being_blocked
-  - queries_cached
-  - queries_forwarded
-  - unique_clients
-  - unique_domains
-  - clients_ever_seen
 - platform: mqtt
   name: Front Door Lock Battery
   unique_id: front_door_lock_battery
