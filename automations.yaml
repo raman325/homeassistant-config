@@ -10,6 +10,58 @@
       minutes: 10
   action:
     service: device_tracker.icloud_update
+- id: raman_monitor_home
+  alias: Raman Monitor Home
+  hide_entity: true
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.monitor_ramansiphone
+    above: 10
+  action:
+    service: device_tracker.see
+    data:
+      dev_id: monitor_ramansiphone
+      location_name: home
+      source_type: bluetooth
+- id: raman_monitor_not_home
+  alias: Raman Monitor Not Home
+  hide_entity: true
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.monitor_ramansiphone
+    below: 10
+  action:
+    service: device_tracker.see
+    data:
+      dev_id: monitor_ramansiphone
+      location_name: not_home
+      source_type: bluetooth
+- id: sherene_monitor_home
+  alias: Sherene Monitor Home
+  hide_entity: true
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.monitor_sherenesiphone
+    above: 10
+  action:
+    service: device_tracker.see
+    data:
+      dev_id: monitor_sherenesiphone
+      location_name: home
+      source_type: bluetooth
+- id: sherene_monitor_not_home
+  alias: Sherene Monitor Not Home
+  hide_entity: true
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.monitor_sherenesiphone
+    below: 10
+  action:
+    service: device_tracker.see
+    data:
+      dev_id: monitor_sherenesiphone
+      location_name: not_home
+      source_type: bluetooth
 - id: ifttt_vacuum_control
   alias: IFTTT Vacuum Control
   initial_state: true
