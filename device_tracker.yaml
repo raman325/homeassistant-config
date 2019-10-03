@@ -14,3 +14,7 @@
   distance_method: waze
   waze_realtime: true
   waze_region: US
+- platform: mqtt
+  devices:
+    monitor_ramansiphone: faketopic
+    monitor_sherenesiphone: faketopic
