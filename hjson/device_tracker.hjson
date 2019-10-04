@@ -23,6 +23,7 @@
     }
     {
         platform: mqtt
+        consider_home: 600
         devices:
         {
             monitor_ramansiphone: 'monitor/monitor/raman/device_tracker'

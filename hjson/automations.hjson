@@ -15,10 +15,6 @@
             ]
             from: "home"
             to: "not_home"
-            for:
-            {
-                minutes: 10
-            }
         }
         action:
         {

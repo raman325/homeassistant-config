@@ -15,6 +15,7 @@
   waze_realtime: true
   waze_region: US
 - platform: mqtt
+  consider_home: 600
   devices:
     monitor_ramansiphone: monitor/monitor/raman/device_tracker
     monitor_sherenesiphone: monitor/monitor/sherene/device_tracker

@@ -10,8 +10,6 @@
     - device_tracker.monitor_sherenesiphone
     from: home
     to: not_home
-    for:
-      minutes: 10
   action:
     service: device_tracker.icloud_update
 - id: ifttt_vacuum_control
