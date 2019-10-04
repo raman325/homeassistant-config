@@ -91,7 +91,7 @@ def encode_ha(z):
 def decode_tag(value):
     for o in tag_obj_list:
         tag_len = len(o.yaml_tag)
-        if value[0:tag_len] == o.yaml_tag:
+        if value[0:tag_len] == o.yaml_tag and value[tag_len] != "_":
             return o(value[(tag_len + 1) :])
     return None
 
