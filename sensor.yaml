@@ -78,6 +78,9 @@
 - platform: sonarr_upcoming_media
   host: !secret 'host_nas'
   api_key: !secret 'api_sonarr'
+- platform: personalcapital
+  email: !secret 'email_raman'
+  password: !secret 'pass_personalcapital_raman'
 - platform: waze_travel_time
   name: Raman Work Commute
   origin: !secret 'address_home'
