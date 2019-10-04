@@ -1,3 +1,6 @@
 token: !secret 'token_hacs'
 appdaemon: true
 python_script: true
+theme: true
+options:
+  country: US
