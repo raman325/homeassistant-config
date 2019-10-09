@@ -8,6 +8,7 @@ tags_attributes: friendly_name
 exclude:
   entities:
   - sensor.available_ha_version
+  - sensor.potential_breaking_changes
   - sensor.icloud3_event_log
   - sensor.kodi_recently_added_movies
   - sensor.kodi_recently_added_tv
@@ -36,6 +37,11 @@ exclude:
   - sensor.sonarr_upcoming
   - sensor.sonarr_wanted
   - sensor.version
+  - sensor.nzbget
+  - sensor.radarr
+  - sensor.sonarr
+  - binary_sensor.updater
+  - sensor.hacs
   domains:
   - media_player
   - remote
@@ -46,3 +52,5 @@ exclude:
   - breaking_changes
   - asuswrt
   - transmission
+  - pihole
+  - plex

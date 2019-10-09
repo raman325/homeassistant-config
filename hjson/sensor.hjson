@@ -244,11 +244,6 @@
     }
     {
         platform: version
-        name: version
-        source: local
-    }
-    {
-        platform: version
         name: local_ha_version
         source: local
     }

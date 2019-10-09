@@ -1,5 +1,5 @@
 config:
-history: !include 'history.yaml'
+history:
 logbook:
 map:
 mobile_app:
