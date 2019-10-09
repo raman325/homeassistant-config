@@ -226,22 +226,22 @@
         device_class: illuminance
         state_topic: smartthings/Master Bedroom Sensor/illuminance
     }
-    {
-        platform: mqtt
-        name: Monitor - Sherene
-        unique_id: monitor_sherenesiphone
-        state_topic: 'monitor/monitor/sherene'
-        value_template: '{{ value_json.confidence }}'
-        unit_of_measurement: '%'
-    }
-    {
-        platform: mqtt
-        name: Monitor - Raman
-        unique_id: monitor_ramansiphone
-        state_topic: 'monitor/monitor/raman'
-        value_template: '{{ value_json.confidence }}'
-        unit_of_measurement: '%'
-    }
+    // {
+    //     platform: mqtt
+    //     name: Monitor - Sherene
+    //     unique_id: monitor_sherenesiphone
+    //     state_topic: 'monitor/monitor/sherene'
+    //     value_template: '{{ value_json.confidence }}'
+    //     unit_of_measurement: '%'
+    // }
+    // {
+    //     platform: mqtt
+    //     name: Monitor - Raman
+    //     unique_id: monitor_ramansiphone
+    //     state_topic: 'monitor/monitor/raman'
+    //     value_template: '{{ value_json.confidence }}'
+    //     unit_of_measurement: '%'
+    // }
     {
         platform: version
         name: local_ha_version
