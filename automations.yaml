@@ -58,7 +58,7 @@
     service: notify.slack
     data:
       message: '<{{ state_attr("binary_sensor.updater","release_notes") }}|New HA
-        version {{ state_attr("binary_sensor.updater","newest_version") }} is available>.
+        version {{ states("sensor.available_ha_version") }} is available>.
 
 
         {% if states("sensor.potential_breaking_changes")|int > 0 %}{{ states("sensor.potential_breaking_changes")
