@@ -42,6 +42,7 @@ notify: !include 'notify.yaml'
 hacs: !include 'hacs.yaml'
 breaking_changes:
 asuswrt: !include 'asuswrt.yaml'
+nzbget: !include 'nzbget.yaml'
 person: !include 'person.yaml'
 transmission: !include 'transmission.yaml'
 tts: !include 'tts.yaml'

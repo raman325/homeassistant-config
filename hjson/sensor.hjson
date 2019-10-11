@@ -81,21 +81,6 @@
         ]
     }
     {
-        platform: nzbget
-        name: nzbget
-        host: !secret host_nas
-        monitored_variables:
-        [
-            article_cache
-            average_download_rate
-            download_paused
-            download_rate
-            download_size
-            post_paused
-            remaining_size
-        ]
-    }
-    {
         platform: kodi_recently_added
         host: !secret host_nas
     }
