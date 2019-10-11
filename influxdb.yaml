@@ -37,7 +37,6 @@ exclude:
   - sensor.sonarr_upcoming
   - sensor.sonarr_wanted
   - sensor.version
-  - sensor.nzbget
   - sensor.radarr
   - sensor.sonarr
   - binary_sensor.updater
@@ -54,3 +53,4 @@ exclude:
   - transmission
   - pihole
   - plex
+  - nzbget
