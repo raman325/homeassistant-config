@@ -215,17 +215,17 @@
     //     platform: mqtt
     //     name: Monitor - Sherene
     //     unique_id: monitor_sherenesiphone
-    //     state_topic: 'monitor/monitor/sherene'
-    //     value_template: '{{ value_json.confidence }}'
-    //     unit_of_measurement: '%'
+    //     state_topic: "monitor/monitor/sherene"
+    //     value_template: "{{ value_json.confidence }}"
+    //     unit_of_measurement: "%"
     // }
     // {
     //     platform: mqtt
     //     name: Monitor - Raman
     //     unique_id: monitor_ramansiphone
-    //     state_topic: 'monitor/monitor/raman'
-    //     value_template: '{{ value_json.confidence }}'
-    //     unit_of_measurement: '%'
+    //     state_topic: "monitor/monitor/raman"
+    //     value_template: "{{ value_json.confidence }}"
+    //     unit_of_measurement: "%"
     // }
     {
         platform: version
@@ -237,4 +237,10 @@
         name: available_ha_version
         source: docker
     }
+	{
+		platform: shodan
+		name: shodan
+		api_key: !secret api_shodan
+		query: "8.3.80.33"
+	}
 ]

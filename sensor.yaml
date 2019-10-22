@@ -160,3 +160,7 @@
 - platform: version
   name: available_ha_version
   source: docker
+- platform: shodan
+  name: shodan
+  api_key: !secret 'api_shodan'
+  query: 8.3.80.33
