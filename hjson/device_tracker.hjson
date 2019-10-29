@@ -16,7 +16,7 @@
         account_name: raman_icloud
         include_device_type: iphone
         sensor_name_prefix: {
-			ramans_iphone @ icloud_ramansiphone
+			"ramans_iphone @ icloud_ramansiphone"
 		}
         unit_of_measurement: mi
         distance_method: waze
