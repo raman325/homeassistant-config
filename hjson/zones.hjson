@@ -8,17 +8,17 @@
         icon: mdi:home
     }
     {
-        name: Raman Work
+        name: Cvent
         latitude: !secret lat_work_raman
         longitude: !secret long_work_raman
         radius: 150
-        icon: mdi:worker
+        icon: mdi:alpha-c
     }
     {
-        name: Sherene Work
+        name: Washingtonian
         latitude: !secret lat_work_sherene
         longitude: !secret long_work_sherene
         radius: 100
-        icon: mdi:worker
+        icon: mdi:alpha-w
     }
 ]
