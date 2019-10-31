@@ -55,7 +55,7 @@
       curr_ver[0]|int and new_ver[1]|int == curr_ver[1]|int and new_ver[2]|int > curr_ver[2]|int)
       }}'
   action:
-    service: notify.slack
+    service: notify.apprise
     data:
       message: '<{{ state_attr("binary_sensor.updater","release_notes") }}|New HA
         version {{ states("sensor.available_ha_version") }} is available>.
@@ -72,3 +72,4 @@
 
 
         Raw Details: ```{{ states.sensor.potential_breaking_changes.attributes }}```'
+      target: all
