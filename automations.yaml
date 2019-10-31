@@ -57,19 +57,14 @@
   action:
     service: notify.apprise
     data:
-      message: '<{{ state_attr("binary_sensor.updater","release_notes") }}|New HA
-        version {{ states("sensor.available_ha_version") }} is available>.
-
-
-        {% if states("sensor.potential_breaking_changes")|int > 0 %}{{ states("sensor.potential_breaking_changes")
+      title: <https://www.home-assistant.io/latest-release-notes/|New HA version {{
+        states("sensor.available_ha_version") }} is available>
+      message: '{% if states("sensor.potential_breaking_changes")|int > 0 %}{{ states("sensor.potential_breaking_changes")
         }} possible breaking changes:
 
         ```{% for k, v in states.sensor.potential_breaking_changes.attributes.items()
         %}{% if k not in ["friendly_name", "icon"] %}{{ k }}:{{ v }}
 
         {% endif %}{% endfor %}```{% else %}No breaking changes detected.{% endif
-        %}
-
-
-        Raw Details: ```{{ states.sensor.potential_breaking_changes.attributes }}```'
+        %}'
       target: all

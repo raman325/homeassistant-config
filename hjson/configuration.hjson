@@ -25,7 +25,6 @@
 		]
     }
     http: !include http.yaml
-    updater: !include updater.yaml
     discovery: !include discovery.yaml
 	ssdp: null
 	zeroconf: null

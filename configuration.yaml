@@ -18,7 +18,6 @@ homeassistant:
   auth_providers:
   - type: homeassistant
 http: !include 'http.yaml'
-updater: !include 'updater.yaml'
 discovery: !include 'discovery.yaml'
 ssdp:
 zeroconf:
