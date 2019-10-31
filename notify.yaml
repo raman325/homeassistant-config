@@ -13,3 +13,6 @@
     username: HomeAssistant
     icon_url: https://www.home-assistant.io/images/favicon-192x192-full.png
     channel: !secret 'channel_slack'
+- platform: apprise
+  name: apprise
+  config: /config/apprise.yaml

@@ -22,26 +22,9 @@
             channel: !secret channel_slack
         }
     }
-	// {
-	// 	platform: apprise
-	// 	name: apprise
-	// 	config:
-	// 	{
-	// 		version: 1
-	// 		asset:
-	// 		{
-	// 			app_id: HomeAssistant
-	// 			app_desc: HomeAssistant
-	// 			app_url: https://www.home-assistant.io/
-	// 			image_url_logo: https://www.home-assistant.io/images/favicon-192x192-full.png
-	// 		}
-	// 		urls:
-	// 		[
-	// 			!secret apprise_slack:
-	// 			[
-	// 				slack
-	// 			]
-	// 		]
-	// 	}
-	// }
+	{
+		platform: apprise
+		name: apprise
+		config: /config/apprise.yaml
+	}
 ]
