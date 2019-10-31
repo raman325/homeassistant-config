@@ -26,22 +26,4 @@
         payload_on: detected
         payload_off: clear
     }
-    {
-        platform: mqtt
-        name: Raman Home Presence
-        unique_id: raman_home
-        device_class: presence
-        state_topic: smartthings/Raman/presence
-        payload_on: present
-        payload_off: not present
-    }
-    {
-        platform: mqtt
-        name: Sherene Home Presence
-        unique_id: sherene_home
-        device_class: presence
-        state_topic: smartthings/Sherene/presence
-        payload_on: present
-        payload_off: not present
-    }
 ]

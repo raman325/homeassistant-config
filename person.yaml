@@ -3,10 +3,11 @@
   user_id: !secret 'user_id_raman'
   device_trackers:
   - device_tracker.router_ramansiphone
-  - device_tracker.ramans_iphone
+  - device_tracker.smartthings_ramansiphone
   - device_tracker.monitor_ramansiphone
 - name: Sherene
   id: sherene
   device_trackers:
   - device_tracker.router_sherenesiphone
+  - device_tracker.smartthings_sherenesiphone
   - device_tracker.monitor_sherenesiphone

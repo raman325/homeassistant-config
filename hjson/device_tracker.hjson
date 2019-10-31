@@ -32,5 +32,18 @@
             monitor_ramansiphone: 'monitor/monitor/raman/device_tracker'
             monitor_sherenesiphone: 'monitor/monitor/sherene/device_tracker'
         }
+		source_type: bluetooth_le
     }
+	{
+        platform: mqtt
+        consider_home: 600
+        devices:
+        {
+            smartthings_ramansiphone: 'monitor/monitor/raman/device_tracker'
+            smartthings_sherenesiphone: 'monitor/monitor/sherene/device_tracker'
+        }
+		source_type: gps
+		payload_home: present
+		payload_not_home: not present
+	}
 ]
