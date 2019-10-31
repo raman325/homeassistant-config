@@ -1,17 +1,3 @@
-- id: resume_icloud_updates
-  alias: Resume iCloud Updates
-  initial_state: true
-  trigger:
-    platform: state
-    entity_id:
-    - device_tracker.router_ramansiphone
-    - device_tracker.router_sherenesiphone
-    - device_tracker.monitor_ramansiphone
-    - device_tracker.monitor_sherenesiphone
-    from: home
-    to: not_home
-  action:
-    service: device_tracker.icloud_update
 - id: ifttt_vacuum_control
   alias: IFTTT Vacuum Control
   initial_state: true
