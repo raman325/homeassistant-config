@@ -9,6 +9,7 @@
             device_tracker.router_ramansiphone
             device_tracker.smartthings_ramansiphone
             device_tracker.monitor_ramansiphone
+            device_tracker.ramans_iphone
         ]
     },
     {
