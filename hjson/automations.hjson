@@ -89,7 +89,7 @@
             service: notify.apprise
             data:
             {
-                title: 'New HA version available'
+                title: 'New HA version {{ states("sensor.available_ha_version") }} available'
                 message: 'https://www.home-assistant.io/latest-release-notes/ \n {% if states("sensor.potential_breaking_changes")|int > 0 %}{{ states("sensor.potential_breaking_changes") }} possible breaking changes:\n```{% for k, v in states.sensor.potential_breaking_changes.attributes.items() %}{% if k not in ["friendly_name", "icon"] %}{{ k }}:{{ v }}\n{% endif %}{% endfor %}```{% else %}No breaking changes detected.{% endif %}'
                 target: all
             }
