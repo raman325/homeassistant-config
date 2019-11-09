@@ -7,7 +7,7 @@
 - name: Cvent
   latitude: !secret 'lat_work_raman'
   longitude: !secret 'long_work_raman'
-  radius: 150
+  radius: 250
   icon: mdi:alpha-c
 - name: Washingtonian
   latitude: !secret 'lat_work_sherene'
