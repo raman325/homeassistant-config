@@ -2,7 +2,6 @@
     {
         platform: asuswrt
         interval_seconds: 30
-        consider_home: 600
         new_device_defaults:
         {
             track_new_devices: false
@@ -26,7 +25,6 @@
     // }
     {
         platform: mqtt
-        consider_home: 600
         devices:
         {
             monitor_ramansiphone: 'monitor/monitor/raman/device_tracker'
@@ -36,7 +34,6 @@
     }
 	{
         platform: mqtt
-        consider_home: 600
         devices:
         {
             smartthings_ramansiphone: 'monitor/monitor/raman/device_tracker'
