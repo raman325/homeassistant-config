@@ -12,5 +12,5 @@
 - name: Washingtonian
   latitude: !secret 'lat_work_sherene'
   longitude: !secret 'long_work_sherene'
-  radius: 100
+  radius: 75
   icon: mdi:alpha-w
