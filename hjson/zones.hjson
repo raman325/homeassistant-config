@@ -5,7 +5,7 @@
         longitude: !secret long_home
         elevation: !secret elevation_home
         radius: 25
-        icon: mdi:family
+        icon: mdi:home-heart
     }
     {
         name: Cvent

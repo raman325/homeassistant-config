@@ -3,7 +3,7 @@
   longitude: !secret 'long_home'
   elevation: !secret 'elevation_home'
   radius: 25
-  icon: mdi:family
+  icon: mdi:home-heart
 - name: Cvent
   latitude: !secret 'lat_work_raman'
   longitude: !secret 'long_work_raman'
