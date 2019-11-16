@@ -2,6 +2,7 @@ config:
 history:
 logbook:
 map:
+ios:
 mobile_app:
 system_log:
 system_health:

@@ -3,6 +3,7 @@
     history: null
     logbook: null
     map: null
+    ios: null
     mobile_app: null
     system_log: null
     system_health: null
