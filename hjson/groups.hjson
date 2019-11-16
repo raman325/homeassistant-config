@@ -4,8 +4,7 @@
         name: Thermostat
         entities:
         [
-            climate.thermostat_cool
-            climate.thermostat_heat
+            climate.thermostat
             sensor.thermostat_humidity
         ]
     }

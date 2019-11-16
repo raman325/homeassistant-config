@@ -6,10 +6,10 @@
         device_trackers:
         [
             # binary_sensor.raman_home_presence
-            device_tracker.router_ramansiphone
-            device_tracker.smartthings_ramansiphone
-            device_tracker.monitor_ramansiphone
-            device_tracker.ramans_iphone
+            device_tracker.router_raman
+            device_tracker.smartthings_raman
+            device_tracker.monitor_raman
+            device_tracker.phone_raman
         ]
     },
     {
@@ -18,9 +18,9 @@
         device_trackers:
         [
             # binary_sensor.sherene_home_presence
-            device_tracker.router_sherenesiphone
-			device_tracker.smartthings_sherenesiphone
-            device_tracker.monitor_sherenesiphone
+            device_tracker.router_sherene
+			device_tracker.smartthings_sherene
+            device_tracker.monitor_sherene
         ]
     }
 ]

@@ -27,8 +27,8 @@
         platform: mqtt
         devices:
         {
-            monitor_ramansiphone: 'monitor/monitor/raman/device_tracker'
-            monitor_sherenesiphone: 'monitor/monitor/sherene/device_tracker'
+            monitor_raman: 'monitor/monitor/raman/device_tracker'
+            monitor_sherene: 'monitor/monitor/sherene/device_tracker'
         }
 		source_type: bluetooth_le
     }
@@ -36,8 +36,8 @@
         platform: mqtt
         devices:
         {
-            smartthings_ramansiphone: 'monitor/monitor/raman/device_tracker'
-            smartthings_sherenesiphone: 'monitor/monitor/sherene/device_tracker'
+            smartthings_raman: 'monitor/monitor/raman/device_tracker'
+            smartthings_sherene: 'monitor/monitor/sherene/device_tracker'
         }
 		source_type: gps
 		payload_home: present
