@@ -249,6 +249,13 @@
         state_topic: smartthings/_Routine.Good Night!/lastExecution
         device_class: timestamp
     }
+    {
+        platform: mqtt
+        name: Routine Last Executed
+        unique_id: routine_last_executed
+        state_topic: smartthings/_Routine/lastRoutineExecuted
+        device_class: timestamp
+    }
     // {
     //     platform: mqtt
     //     name: Monitor - Sherene

@@ -180,6 +180,11 @@
   unique_id: routine_good_night_last_execution
   state_topic: smartthings/_Routine.Good Night!/lastExecution
   device_class: timestamp
+- platform: mqtt
+  name: Routine Last Executed
+  unique_id: routine_last_executed
+  state_topic: smartthings/_Routine/lastRoutineExecuted
+  device_class: timestamp
 - platform: version
   name: local_ha_version
   source: local
