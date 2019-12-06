@@ -110,7 +110,7 @@
             data:
             {
                 payload: not present
-            topic: smartthings/ZZZ HA Raman/presence
+                topic: smartthings/ZZZ HA Raman/presence
             }
         }
     }
@@ -129,7 +129,7 @@
             data:
             {
                 payload: not present
-            topic: smartthings/ZZZ HA Sherene/presence
+                topic: smartthings/ZZZ HA Sherene/presence
             }
         }
     }
@@ -148,7 +148,7 @@
             data:
             {
                 payload: present
-            topic: smartthings/ZZZ HA Raman/presence
+                topic: smartthings/ZZZ HA Raman/presence
             }
         }
     }
@@ -167,7 +167,7 @@
             data:
             {
                 payload: present
-            topic: smartthings/ZZZ HA Sherene/presence
+                topic: smartthings/ZZZ HA Sherene/presence
             }
         }
     }
