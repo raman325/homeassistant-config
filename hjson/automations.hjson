@@ -101,9 +101,8 @@
         trigger:
         {
             entity_id: person.raman
-            event: leave
-            platform: zone
-            zone: zone.home
+            platform: state
+            from: home
         }
         action:
         {
@@ -121,9 +120,8 @@
         trigger:
         {
             entity_id: person.sherene
-            event: leave
-            platform: zone
-            zone: zone.home
+            platform: state
+            from: home
         }
         action:
         {
@@ -136,14 +134,13 @@
         }
     }
     {
-        id: update_smartthings_raman_comee_home
+        id: update_smartthings_raman_come_home
         alias: Update SmartThings when Raman comes home
         trigger:
         {
             entity_id: person.raman
-            event: enter
-            platform: zone
-            zone: zone.home
+            platform: state
+            to: home
         }
         action:
         {
@@ -161,9 +158,8 @@
         trigger:
         {
             entity_id: person.sherene
-            event: enter
-            platform: zone
-            zone: zone.home
+            platform: state
+            to: home
         }
         action:
         {
