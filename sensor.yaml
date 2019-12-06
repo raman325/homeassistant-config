@@ -156,6 +156,35 @@
   unit_of_measurement: lm
   device_class: illuminance
   state_topic: smartthings/Master Bedroom Sensor/illuminance
+- platform: mqtt
+  name: Hub Mode
+  unique_id: hub_mode
+  state_topic: smartthings/_Hub.Home/mode
+- platform: mqtt
+  name: Routine Im Back Last Execution
+  unique_id: routine_im_back_last_execution
+  state_topic: smartthings/_Routine.I'm Back!/lastExecution
+  device_class: timestamp
+- platform: mqtt
+  name: Routine Goodbye Last Execution
+  unique_id: routine_goodbye_last_execution
+  state_topic: smartthings/_Routine.Goodbye!/lastExecution
+  device_class: timestamp
+- platform: mqtt
+  name: Routine Good Morning Last Execution
+  unique_id: routine_good_morning_last_execution
+  state_topic: smartthings/_Routine.Good Morning!/lastExecution
+  device_class: timestamp
+- platform: mqtt
+  name: Routine Good Night Last Execution
+  unique_id: routine_good_night_last_execution
+  state_topic: smartthings/_Routine.Good Night!/lastExecution
+  device_class: timestamp
+- platform: mqtt
+  name: Routine Last Executed
+  unique_id: routine_last_executed
+  state_topic: smartthings/_Routine/lastRoutineExecuted
+  device_class: timestamp
 - platform: version
   name: local_ha_version
   source: local
