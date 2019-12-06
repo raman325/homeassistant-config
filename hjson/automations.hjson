@@ -95,4 +95,84 @@
             }
         }
     }
+    {
+        id: update_smartthings_raman_leave_home
+        alias: Update SmartThings when Raman leaves home
+        trigger:
+        {
+            entity_id: person.raman
+            event: leave
+            platform: zone
+            zone: zone.home
+        }
+        action:
+        {
+            service: mqtt.publish
+            data:
+            {
+                payload: not present
+            topic: smartthings/ZZZ HA Raman/presence
+            }
+        }
+    }
+    {
+        id: update_smartthings_sherene_leave_home
+        alias: Update SmartThings when Sherene leaves home
+        trigger:
+        {
+            entity_id: person.sherene
+            event: leave
+            platform: zone
+            zone: zone.home
+        }
+        action:
+        {
+            service: mqtt.publish
+            data:
+            {
+                payload: not present
+            topic: smartthings/ZZZ HA Sherene/presence
+            }
+        }
+    }
+    {
+        id: update_smartthings_raman_comee_home
+        alias: Update SmartThings when Raman comes home
+        trigger:
+        {
+            entity_id: person.raman
+            event: enter
+            platform: zone
+            zone: zone.home
+        }
+        action:
+        {
+            service: mqtt.publish
+            data:
+            {
+                payload: present
+            topic: smartthings/ZZZ HA Raman/presence
+            }
+        }
+    }
+    {
+        id: update_smartthings_sherene_come_home
+        alias: Update SmartThings when Sherene comes home
+        trigger:
+        {
+            entity_id: person.sherene
+            event: enter
+            platform: zone
+            zone: zone.home
+        }
+        action:
+        {
+            service: mqtt.publish
+            data:
+            {
+                payload: present
+            topic: smartthings/ZZZ HA Sherene/presence
+            }
+        }
+    }
 ]
