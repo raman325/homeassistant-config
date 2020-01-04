@@ -109,8 +109,8 @@
             service: mqtt.publish
             data:
             {
-                payload: not present
-                topic: smartthings/ZZZ HA Raman/presence
+                payload: "not present"
+                topic: "smartthings/ZZZ HA Raman/presence"
             }
         }
     }
@@ -128,8 +128,8 @@
             service: mqtt.publish
             data:
             {
-                payload: not present
-                topic: smartthings/ZZZ HA Sherene/presence
+                payload: "not present"
+                topic: "smartthings/ZZZ HA Sherene/presence"
             }
         }
     }
@@ -147,8 +147,8 @@
             service: mqtt.publish
             data:
             {
-                payload: present
-                topic: smartthings/ZZZ HA Raman/presence
+                payload: "present"
+                topic: "smartthings/ZZZ HA Raman/presence"
             }
         }
     }
@@ -166,8 +166,8 @@
             service: mqtt.publish
             data:
             {
-                payload: present
-                topic: smartthings/ZZZ HA Sherene/presence
+                payload: "present"
+                topic: "smartthings/ZZZ HA Sherene/presence"
             }
         }
     }
