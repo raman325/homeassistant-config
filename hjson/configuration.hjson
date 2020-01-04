@@ -63,4 +63,5 @@
     script: !include scripts.yaml
     zone: !include zones.yaml
     fontawesome: !include fontawesome.yaml
+    python_script:
 }
