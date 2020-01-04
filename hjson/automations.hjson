@@ -109,8 +109,13 @@
             service: mqtt.publish
             data:
             {
+<<<<<<< HEAD
                 payload: not present
                 topic: smartthings/ZZZ HA Raman/presence
+=======
+                payload: "not present"
+                topic: "smartthings/ZZZ HA Raman/presence"
+>>>>>>> 59d3d8f50460f3685792e3f8dc089882eb404fa4
             }
         }
     }
@@ -128,8 +133,13 @@
             service: mqtt.publish
             data:
             {
+<<<<<<< HEAD
                 payload: not present
                 topic: smartthings/ZZZ HA Sherene/presence
+=======
+                payload: "not present"
+                topic: "smartthings/ZZZ HA Sherene/presence"
+>>>>>>> 59d3d8f50460f3685792e3f8dc089882eb404fa4
             }
         }
     }
@@ -147,8 +157,13 @@
             service: mqtt.publish
             data:
             {
+<<<<<<< HEAD
                 payload: present
                 topic: smartthings/ZZZ HA Raman/presence
+=======
+                payload: "present"
+                topic: "smartthings/ZZZ HA Raman/presence"
+>>>>>>> 59d3d8f50460f3685792e3f8dc089882eb404fa4
             }
         }
     }
@@ -166,8 +181,13 @@
             service: mqtt.publish
             data:
             {
+<<<<<<< HEAD
                 payload: present
                 topic: smartthings/ZZZ HA Sherene/presence
+=======
+                payload: "present"
+                topic: "smartthings/ZZZ HA Sherene/presence"
+>>>>>>> 59d3d8f50460f3685792e3f8dc089882eb404fa4
             }
         }
     }

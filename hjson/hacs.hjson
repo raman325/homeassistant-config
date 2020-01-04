@@ -1,8 +1,11 @@
 {
     token: !secret token_hacs
 	appdaemon: true
+<<<<<<< HEAD
 	python_script: true
 	theme: true
+=======
+>>>>>>> 59d3d8f50460f3685792e3f8dc089882eb404fa4
 	options:
 	{
 		country: US
