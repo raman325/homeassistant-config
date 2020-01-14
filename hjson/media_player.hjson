@@ -6,7 +6,7 @@
     }
 	{
 		platform: androidtv
-		name: Living Room ShieldTV
+		name: Living Room NVIDIA Shield
 		host: !secret host_living_room_shield
 		adbkey: "/config/android/adbkey"
 	}
