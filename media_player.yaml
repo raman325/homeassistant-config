@@ -15,5 +15,4 @@
 - platform: vizio
   name: Living Room Sound Bar
   host: !secret 'host_living_room_soundbar'
-  suppress_warning: true
   device_class: soundbar

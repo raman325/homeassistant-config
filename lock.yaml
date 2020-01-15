@@ -3,6 +3,8 @@
   unique_id: front_door_lock
   command_topic: smartthings/Front Door Lock/lock
   state_topic: smartthings/Front Door Lock/lock
+  state_locked: LOCK
+  state_unlocked: UNLOCK
   payload_lock: locked
   payload_unlock: unlocked
   retain: true
