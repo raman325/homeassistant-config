@@ -1,7 +1,6 @@
 - name: Home
   latitude: !secret 'lat_home'
   longitude: !secret 'long_home'
-  elevation: !secret 'elevation_home'
   radius: 25
   icon: fas:heart
 - name: Cvent

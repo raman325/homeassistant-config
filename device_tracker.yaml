@@ -8,10 +8,3 @@
     monitor_raman: monitor/monitor/raman/device_tracker
     monitor_sherene: monitor/monitor/sherene/device_tracker
   source_type: bluetooth_le
-- platform: mqtt
-  devices:
-    smartthings_raman: monitor/monitor/raman/device_tracker
-    smartthings_sherene: monitor/monitor/sherene/device_tracker
-  source_type: gps
-  payload_home: present
-  payload_not_home: not present
