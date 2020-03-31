@@ -1,7 +1,6 @@
 {
     ignore:
     [
-        plex_mediaserver
         roku
     ]
 }
