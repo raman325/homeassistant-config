@@ -36,7 +36,6 @@
     sensor: !include sensor.yaml
     media_player: !include media_player.yaml
     roku: !include roku.yaml
-    plex: !include plex.yaml
     vizio: !include vizio.yaml
     pi_hole: !include pihole.yaml
     lock: !include lock.yaml

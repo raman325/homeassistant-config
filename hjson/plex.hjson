@@ -1,5 +1,0 @@
-{
-    server: "SHIELD Android TV"
-    host: !secret host_living_room_shield
-    token: !secret token_plex
-}

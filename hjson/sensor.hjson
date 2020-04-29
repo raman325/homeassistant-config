@@ -40,8 +40,7 @@
         ]
     }
     {
-        platform: synologydsm
-        name: "Diskstation"
+        platform: synology_dsm
         port: !secret port_ds
         host: !secret host_ds
         username: !secret user_ds
