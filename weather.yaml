@@ -1,2 +1,0 @@
-- platform: nws
-  api_key: !secret 'api_nws'
