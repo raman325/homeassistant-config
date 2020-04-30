@@ -32,7 +32,6 @@
     sun: null
     lovelace: null
     frontend: !include frontend.yaml
-    weather: !include weather.yaml
     sensor: !include sensor.yaml
     media_player: !include media_player.yaml
     roku: !include roku.yaml
