@@ -1,45 +1,5 @@
 [
     {
-        platform: darksky
-        api_key: !secret api_darksky
-        forecast:
-        [
-            0
-            1
-            2
-            3
-            4
-            5
-            6
-            7
-        ]
-        scan_interval:
-        {
-            minutes: 15
-        }
-        monitored_conditions:
-        [
-            icon
-            precip_type
-            precip_intensity
-            precip_probability
-            precip_accumulation
-            temperature
-            apparent_temperature
-            wind_speed
-            wind_gust
-            wind_bearing
-            cloud_cover
-            humidity
-            visibility
-            temperature_high
-            temperature_low
-            apparent_temperature_high
-            apparent_temperature_low
-            precip_intensity_max
-        ]
-    }
-    {
         platform: synology_dsm
         port: !secret port_ds
         host: !secret host_ds
