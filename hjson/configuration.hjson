@@ -52,7 +52,7 @@
     transmission: !include transmission.yaml
     tts: !include tts.yaml
     mqtt: !include mqtt.yaml
-    synology_dms: !include synology_dsm.yaml
+    synology_dsm: !include synology_dsm.yaml
     // zwave:
     // {
     //     usb_path: /dev/zwave
