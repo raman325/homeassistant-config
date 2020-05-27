@@ -1,6 +1,6 @@
 [
     {
-        name: Living Room Sound Bar
+        name: Living Room Soundbar
         host: !secret host_living_room_soundbar
         device_class: speaker
     }
