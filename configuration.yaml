@@ -22,6 +22,7 @@ http: !include 'http.yaml'
 discovery: !include 'discovery.yaml'
 ssdp:
 zeroconf:
+cast:
 conversation:
 sun:
 lovelace:

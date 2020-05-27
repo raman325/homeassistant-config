@@ -29,6 +29,7 @@
     discovery: !include discovery.yaml
 	ssdp: null
 	zeroconf: null
+    cast: null
     conversation: null
     sun: null
     lovelace: null
