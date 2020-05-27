@@ -6,3 +6,4 @@ sensors:
 - download
 - upload_speed
 - download_speed
+- devices
