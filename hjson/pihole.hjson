@@ -1,3 +1,4 @@
 {
     host: !secret host_pihole
+    api_key: !secret api_pihole
 }
