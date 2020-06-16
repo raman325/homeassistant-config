@@ -1,10 +1,6 @@
 - platform: sonarr
   api_key: !secret 'api_sonarr'
   host: !secret 'host_nas'
-  monitored_conditions:
-  - upcoming
-  - wanted
-  - queue
 - platform: radarr
   api_key: !secret 'api_radarr'
   host: !secret 'host_nas'
