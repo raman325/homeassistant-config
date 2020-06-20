@@ -40,7 +40,6 @@
             service: rest_command.ir_send
             data_template:
             {
-                blaster: "{{ trigger.json.blaster }}"
                 target: "{{ trigger.json.target }}"
                 command: "{{ trigger.json.command }}"
             }
