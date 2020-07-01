@@ -55,6 +55,7 @@
     tts: !include tts.yaml
     mqtt: !include mqtt.yaml
     synology_dsm: !include synology_dsm.yaml
+    spotify: !include spotify.yaml
     // zwave:
     // {
     //     usb_path: /dev/zwave
