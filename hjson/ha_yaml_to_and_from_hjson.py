@@ -97,7 +97,8 @@ def decode_tag(value):
 
 
 # For each key/value pair returned by PyYAML, check if value is a special tag. Build new dictionary based on response.
-def decode_ha(pairs):
+def decode_ha(pairs, from_list=False):
+    print(pairs)
     new_pairs = []
     has_tuple = False
     for pair in pairs:
@@ -118,7 +119,10 @@ def decode_ha(pairs):
             else:
                 new_pairs.append((key, value))
         else:
-            new_pairs.append(pair)
+            if isinstance(pair, str) and decode_tag(pair):
+                new_pairs.append(decode_tag(pair))
+            else:
+                new_pairs.append(pair)
 
     if has_tuple:
         return OrderedDict(new_pairs)
@@ -184,6 +188,7 @@ def convertHjsonToYaml():
         if not os.path.exists(basePath):
             os.makedirs(basePath)
 
+        print(srcFile)
         with open(srcFile, "r") as src:
             config = hjson.loads(src.read(), object_pairs_hook=decode_ha)
 

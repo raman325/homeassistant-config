@@ -1,7 +1,7 @@
 - platform: xbox_live
   api_key: !secret 'api_xbox'
   xuid:
-  - '!secret xuid_xbox'
+  - !secret 'xuid_xbox'
 - platform: sonarr
   api_key: !secret 'api_sonarr'
   host: !secret 'host_nas'
