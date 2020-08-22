@@ -84,7 +84,7 @@ def encode_ha(z):
         return ""
     else:
         type_name = z.__class__.__name__
-        raise TypeError("Object of type '{type_name}' is not JSON serializable")
+        raise TypeError(f"Object of type '{type_name}' is not JSON serializable")
 
 
 # If value is a special tag, convert it to an object appropriately
