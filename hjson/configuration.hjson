@@ -67,4 +67,5 @@
     zone: !include zones.yaml
     fontawesome: !include fontawesome.yaml
     python_script: null
+    zoom_automation: !include zoom_automation.yaml
 }

@@ -1,0 +1,3 @@
+client_id: !secret 'client_id_zoom'
+client_secret: !secret 'client_secret_zoom'
+webhook_id: !secret 'webhook_id_zoom'
