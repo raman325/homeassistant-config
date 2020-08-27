@@ -90,7 +90,7 @@
             {
                 title: 'New HA version {{ states("sensor.available_ha_version") }} available'
                 message: 'https://www.home-assistant.io/latest-release-notes/ \n {% if states("sensor.potential_breaking_changes")|int > 0 %}{{ states("sensor.potential_breaking_changes") }} possible breaking changes:\n```{% for k, v in states.sensor.potential_breaking_changes.attributes.items() %}{% if k not in ["friendly_name", "icon"] %}{{ k }}:{{ v }}\n{% endif %}{% endfor %}```{% else %}No breaking changes detected.{% endif %}'
-                target: all
+                target: system
             }
         }
     }
@@ -167,6 +167,49 @@
             {
                 payload: "present"
                 topic: "smartthings/ZZZ HA Sherene/presence"
+            }
+        }
+    }
+    {
+        id: raman_on_zoom
+        alias: Slack when Raman on Zoom
+        trigger:
+        {
+            platform: state
+            entity_id: binary_sensor.zoom_raman
+            from: off
+            to: on
+        }
+        action:
+        {
+            service: notify.apprise
+            data:
+            {
+                title: "Do Not Disturb!"
+                message: "Raman is on a Zoom call"
+                target: zoom
+            }
+        }
+    }
+    {
+        id: raman_off_zoom
+        alias: Slack when Raman off Zoom
+        trigger:
+        {
+            platform: state
+            entity_id: binary_sensor.zoom_raman
+            from: on
+            to: off
+            for: 00:05:00
+        }
+        action:
+        {
+            service: notify.apprise
+            data:
+            {
+                title: "You Can Disturb"
+                message: Raman is off a Zoom call
+                target: zoom
             }
         }
     }
