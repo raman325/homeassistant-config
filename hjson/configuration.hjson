@@ -68,4 +68,9 @@
     fontawesome: !include fontawesome.yaml
     python_script: null
     zoom_automation: !include zoom_automation.yaml
+    input_boolean: null
+    input_datetime: null
+    input_number: null
+    input_select: null
+    input_text: null
 }

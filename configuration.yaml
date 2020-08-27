@@ -56,3 +56,8 @@ zone: !include 'zones.yaml'
 fontawesome: !include 'fontawesome.yaml'
 python_script:
 zoom_automation: !include 'zoom_automation.yaml'
+input_boolean:
+input_datetime:
+input_number:
+input_select:
+input_text:
