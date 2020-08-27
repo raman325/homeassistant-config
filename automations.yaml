@@ -119,7 +119,7 @@
     entity_id: binary_sensor.zoom_raman
     from: 'on'
     to: 'off'
-    for: 00:05:00
+    for: 00:01:00
   condition:
     condition: state
     entity_id: input_boolean.zoom_dnd_raman
