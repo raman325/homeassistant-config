@@ -186,7 +186,7 @@
             data:
             {
                 title: "Do Not Disturb!"
-                message: "Raman is on a Zoom call"
+                message: "Raman is *on* a Zoom call"
                 target: zoom
             }
         }
@@ -207,8 +207,8 @@
             service: notify.apprise
             data:
             {
-                title: "You Can Disturb"
-                message: Raman is off a Zoom call
+                title: "You Can Come In Now"
+                message: Raman is *off* Zoom
                 target: zoom
             }
         }

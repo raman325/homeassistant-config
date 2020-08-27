@@ -104,7 +104,7 @@
     service: notify.apprise
     data:
       title: Do Not Disturb!
-      message: Raman is on a Zoom call
+      message: Raman is *on* a Zoom call
       target: zoom
 - id: raman_off_zoom
   alias: Slack when Raman off Zoom
@@ -117,6 +117,6 @@
   action:
     service: notify.apprise
     data:
-      title: You Can Disturb
-      message: Raman is off a Zoom call
+      title: You Can Come In Now
+      message: Raman is *off* Zoom
       target: zoom
