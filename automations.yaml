@@ -100,12 +100,18 @@
     entity_id: binary_sensor.zoom_raman
     from: 'off'
     to: 'on'
+  condition:
+    condition: state
+    entity_id: input_boolean.zoom_dnd_raman
+    state: 'off'
   action:
-    service: notify.apprise
+  - service: notify.apprise
     data:
       title: Do Not Disturb!
       message: Raman is *on* a Zoom call
       target: zoom
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.zoom_dnd_raman
 - id: raman_off_zoom
   alias: Slack when Raman off Zoom
   trigger:
@@ -114,9 +120,15 @@
     from: 'on'
     to: 'off'
     for: 00:05:00
+  condition:
+    condition: state
+    entity_id: input_boolean.zoom_dnd_raman
+    state: 'on'
   action:
-    service: notify.apprise
+  - service: notify.apprise
     data:
       title: You Can Come In Now
       message: Raman is *off* Zoom
       target: zoom
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.zoom_dnd_raman

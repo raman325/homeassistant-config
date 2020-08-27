@@ -180,16 +180,28 @@
             from: off
             to: on
         }
-        action:
+        condition:
         {
-            service: notify.apprise
-            data:
-            {
-                title: "Do Not Disturb!"
-                message: "Raman is *on* a Zoom call"
-                target: zoom
-            }
+            condition: state
+            entity_id: input_boolean.zoom_dnd_raman
+            state: off
         }
+        action:
+        [
+            {
+                service: notify.apprise
+                data:
+                {
+                    title: "Do Not Disturb!"
+                    message: "Raman is *on* a Zoom call"
+                    target: zoom
+                }
+            }
+            {
+                service: input_boolean.turn_on
+                entity_id: input_boolean.zoom_dnd_raman
+            }
+        ]
     }
     {
         id: raman_off_zoom
@@ -202,15 +214,27 @@
             to: off
             for: 00:05:00
         }
-        action:
+        condition:
         {
-            service: notify.apprise
-            data:
-            {
-                title: "You Can Come In Now"
-                message: Raman is *off* Zoom
-                target: zoom
-            }
+            condition: state
+            entity_id: input_boolean.zoom_dnd_raman
+            state: on
         }
+        action:
+        [
+            {
+                service: notify.apprise
+                data:
+                {
+                    title: "You Can Come In Now"
+                    message: Raman is *off* Zoom
+                    target: zoom
+                }
+            }
+            {
+                service: input_boolean.turn_off
+                entity_id: input_boolean.zoom_dnd_raman
+            }
+        ]
     }
 ]
