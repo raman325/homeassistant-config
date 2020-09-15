@@ -1,4 +1,4 @@
 token: !secret 'token_hacs'
 appdaemon: true
-options:
-  country: US
+netdaemon: true
+country: US
