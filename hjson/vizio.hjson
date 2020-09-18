@@ -4,4 +4,9 @@
         host: !secret host_living_room_soundbar
         device_class: speaker
     }
+    {
+        name: Bedroom Soundbar
+        host: !secret host_bedroom_soundbar
+        device_class: speaker
+    }
 ]
