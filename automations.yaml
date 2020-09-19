@@ -49,50 +49,6 @@
         \ %}{% if k not in [\"friendly_name\", \"icon\"] %}{{ k }}:{{ v }}\n{% endif\
         \ %}{% endfor %}```{% else %}No breaking changes detected.{% endif %}"
       target: system
-- id: update_smartthings_raman_leave_home
-  alias: Update SmartThings when Raman leaves home
-  trigger:
-    entity_id: person.raman
-    platform: state
-    from: home
-  action:
-    service: mqtt.publish
-    data:
-      payload: not present
-      topic: smartthings/ZZZ HA Raman/presence
-- id: update_smartthings_sherene_leave_home
-  alias: Update SmartThings when Sherene leaves home
-  trigger:
-    entity_id: person.sherene
-    platform: state
-    from: home
-  action:
-    service: mqtt.publish
-    data:
-      payload: not present
-      topic: smartthings/ZZZ HA Sherene/presence
-- id: update_smartthings_raman_come_home
-  alias: Update SmartThings when Raman comes home
-  trigger:
-    entity_id: person.raman
-    platform: state
-    to: home
-  action:
-    service: mqtt.publish
-    data:
-      payload: present
-      topic: smartthings/ZZZ HA Raman/presence
-- id: update_smartthings_sherene_come_home
-  alias: Update SmartThings when Sherene comes home
-  trigger:
-    entity_id: person.sherene
-    platform: state
-    to: home
-  action:
-    service: mqtt.publish
-    data:
-      payload: present
-      topic: smartthings/ZZZ HA Sherene/presence
 - id: raman_on_zoom
   alias: Slack when Raman on Zoom
   trigger:
