@@ -5,9 +5,7 @@
         user_id: !secret user_id_raman
         device_trackers:
         [
-            # binary_sensor.raman_home_presence
             device_tracker.router_raman
-            device_tracker.smartthings_raman
             device_tracker.monitor_raman
             device_tracker.phone_raman
         ]
@@ -17,10 +15,9 @@
         id: sherene
         device_trackers:
         [
-            # binary_sensor.sherene_home_presence
             device_tracker.router_sherene
-			device_tracker.smartthings_sherene
             device_tracker.monitor_sherene
+            device_tracker.phone_sherene
         ]
     }
 ]
