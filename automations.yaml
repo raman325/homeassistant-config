@@ -98,8 +98,8 @@
   - service: climate.set_temperature
     data:
       entity_id: climate.thermostat
-      target_temp_high: '{{ states(''input_select.away_high'' }}'
-      target_temp_low: '{{ states(''input_select.away_low'' }}'
+      target_temp_high: '{{ states(''input_select.away_high'') }}'
+      target_temp_low: '{{ states(''input_select.away_low'') }}'
 - id: home_home
   alias: 'Home Mode: Home'
   trigger:
@@ -110,8 +110,8 @@
   - service: climate.set_temperature
     data:
       entity_id: climate.thermostat
-      target_temp_high: '{{ states(''input_select.home_high'' }}'
-      target_temp_low: '{{ states(''input_select.home_low'' }}'
+      target_temp_high: '{{ states(''input_select.home_high'') }}'
+      target_temp_low: '{{ states(''input_select.home_low'') }}'
 - id: home_night
   alias: 'Home Mode: Night'
   trigger:
@@ -122,5 +122,5 @@
   - service: climate.set_temperature
     data:
       entity_id: climate.thermostat
-      target_temp_high: '{{ states(''input_select.night_high'' }}'
-      target_temp_low: '{{ states(''input_select.night_low'' }}'
+      target_temp_high: '{{ states(''input_select.night_high'') }}'
+      target_temp_low: '{{ states(''input_select.night_low'') }}'

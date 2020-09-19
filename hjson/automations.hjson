@@ -155,8 +155,8 @@
                 data:
                 {
                     entity_id: climate.thermostat
-                    target_temp_high: "{{ states('input_select.away_high' }}"
-                    target_temp_low: "{{ states('input_select.away_low' }}"
+                    target_temp_high: "{{ states('input_select.away_high') }}"
+                    target_temp_low: "{{ states('input_select.away_low') }}"
                 }
             }
         ]
@@ -177,8 +177,8 @@
                 data:
                 {
                     entity_id: climate.thermostat
-                    target_temp_high: "{{ states('input_select.home_high' }}"
-                    target_temp_low: "{{ states('input_select.home_low' }}"
+                    target_temp_high: "{{ states('input_select.home_high') }}"
+                    target_temp_low: "{{ states('input_select.home_low') }}"
                 }
             }
         ]
@@ -199,8 +199,8 @@
                 data:
                 {
                     entity_id: climate.thermostat
-                    target_temp_high: "{{ states('input_select.night_high' }}"
-                    target_temp_low: "{{ states('input_select.night_low' }}"
+                    target_temp_high: "{{ states('input_select.night_high') }}"
+                    target_temp_low: "{{ states('input_select.night_low') }}"
                 }
             }
         ]
