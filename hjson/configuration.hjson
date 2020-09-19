@@ -52,12 +52,6 @@
     mqtt: !include mqtt.yaml
     synology_dsm: !include synology_dsm.yaml
     spotify: !include spotify.yaml
-    // zwave:
-    // {
-    //     usb_path: /dev/zwave
-    //     network_key: !secret zwave_network_key
-    // }
-    group: !include groups.yaml
     automation: !include automations.yaml
     script: !include scripts.yaml
     zone: !include zones.yaml
