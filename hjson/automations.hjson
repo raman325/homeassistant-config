@@ -159,6 +159,34 @@
                     target_temp_low: '{{ states("input_number.away_low") }}'
                 }
             }
+            {
+                service: lock.lock
+                data:
+                {
+                    entity_id: lock.front_door
+                }
+            }
+            {
+                service: light.turn_off
+                data:
+                {
+                    entity_id: light.foyer
+                }
+            }
+            {
+                service: light.turn_off
+                data:
+                {
+                    entity_id: light.kitchen
+                }
+            }
+            {
+                service: light.turn_off
+                data:
+                {
+                    entity_id: light.living_room
+                }
+            }
         ]
     }
     {
@@ -203,6 +231,34 @@
                     target_temp_low: '{{ states("input_number.night_low") }}'
                 }
             }
+            {
+                service: lock.lock
+                data:
+                {
+                    entity_id: lock.front_door
+                }
+            }
+            {
+                service: light.turn_off
+                data:
+                {
+                    entity_id: light.foyer
+                }
+            }
+            {
+                service: light.turn_off
+                data:
+                {
+                    entity_id: light.kitchen
+                }
+            }
+            {
+                service: light.turn_off
+                data:
+                {
+                    entity_id: light.living_room
+                }
+            }
         ]
     }
     {
@@ -234,44 +290,14 @@
             ]
         }
         action:
-        [
+        {
+            service: input_select.select_option
+            data:
             {
-                service: input_select.select_option
-                data:
-                {
-                    entity_id: input_select.home_mode
-                    option: Away
-                }
+                entity_id: input_select.home_mode
+                option: Away
             }
-            {
-                service: lock.lock
-                data:
-                {
-                    entity_id: lock.front_door
-                }
-            }
-            {
-                service: light.turn_off
-                data:
-                {
-                    entity_id: light.foyer
-                }
-            }
-            {
-                service: light.turn_off
-                data:
-                {
-                    entity_id: light.kitchen
-                }
-            }
-            {
-                service: light.turn_off
-                data:
-                {
-                    entity_id: light.living_room
-                }
-            }
-        ]
+        }
     }
     {
         id: someone_comes_back
@@ -327,44 +353,14 @@
             ]
         }
         action:
-        [
+        {
+            service: input_select.select_option
+            data:
             {
-                service: input_select.select_option
-                data:
-                {
-                    entity_id: input_select.home_mode
-                    option: Night
-                }
+                entity_id: input_select.home_mode
+                option: Night
             }
-            {
-                service: lock.lock
-                data:
-                {
-                    entity_id: lock.front_door
-                }
-            }
-            {
-                service: light.turn_off
-                data:
-                {
-                    entity_id: light.foyer
-                }
-            }
-            {
-                service: light.turn_off
-                data:
-                {
-                    entity_id: light.kitchen
-                }
-            }
-            {
-                service: light.turn_off
-                data:
-                {
-                    entity_id: light.living_room
-                }
-            }
-        ]
+        }
     }
     {
         id: turn_on_good_night
