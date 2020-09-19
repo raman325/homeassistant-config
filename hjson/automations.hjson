@@ -1,26 +1,4 @@
 [
-    // {
-    //     id: resume_icloud_updates
-    //     alias: Resume iCloud Updates
-    //     initial_state: true
-    //     trigger:
-    //     {
-    //         platform: state
-    //         entity_id: 
-    //         [
-    //             device_tracker.router_ramansiphone
-    //             device_tracker.router_sherenesiphone
-    //             device_tracker.monitor_ramansiphone
-    //             device_tracker.monitor_sherenesiphone
-    //         ]
-    //         from: "home"
-    //         to: "not_home"
-    //     }
-    //     action:
-    //     {
-    //         service: device_tracker.icloud_update
-    //     }
-    // }
     {
         id: ifttt_vacuum_control
         alias: IFTTT Vacuum Control
@@ -158,6 +136,72 @@
             {
                 service: input_boolean.turn_off
                 entity_id: input_boolean.zoom_dnd_raman
+            }
+        ]
+    }
+    {
+        id: home_away
+        alias: Home Mode: Away
+        trigger:
+        {
+            platform: state
+            entity_id: input_select.home_mode
+            to: Away
+        }
+        action:
+        [
+            {
+                service: climate.set_temperature
+                data:
+                {
+                    entity_id: climate.thermostat
+                    target_temp_high: "{{ states('input_select.away_high' }}"
+                    target_temp_low: "{{ states('input_select.away_low' }}"
+                }
+            }
+        ]
+    }
+    {
+        id: home_home
+        alias: Home Mode: Home
+        trigger:
+        {
+            platform: state
+            entity_id: input_select.home_mode
+            to: Home
+        }
+        action:
+        [
+            {
+                service: climate.set_temperature
+                data:
+                {
+                    entity_id: climate.thermostat
+                    target_temp_high: "{{ states('input_select.home_high' }}"
+                    target_temp_low: "{{ states('input_select.home_low' }}"
+                }
+            }
+        ]
+    }
+    {
+        id: home_night
+        alias: Home Mode: Night
+        trigger:
+        {
+            platform: state
+            entity_id: input_select.home_mode
+            to: Night
+        }
+        action:
+        [
+            {
+                service: climate.set_temperature
+                data:
+                {
+                    entity_id: climate.thermostat
+                    target_temp_high: "{{ states('input_select.night_high' }}"
+                    target_temp_low: "{{ states('input_select.night_low' }}"
+                }
             }
         ]
     }
