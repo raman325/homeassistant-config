@@ -205,4 +205,165 @@
             }
         ]
     }
+    {
+        id: everyone_leaves
+        alias: Everyone Leaves
+        trigger:
+        {
+            platform: state
+            entity_id: person.raman, person.sherene
+            from: not_home
+        }
+        condition:
+        {
+            condition: and
+            conditions:
+            [
+                {
+                    condition: template
+                    value_template: '{{ not is_state("person.sherene", "home") }}'
+                }
+                {
+                    condition: template
+                    value_template: '{{ not is_state("person.sherene", "home") }}'
+                }
+                {
+                    condition: template
+                    value_template: '{{ not is_state("input_select.home_mode", "Away") }}'
+                }
+            ]
+        }
+        action:
+        [
+            {
+                service: input_select.select_option
+                data:
+                {
+                    entity_id: input_select.home_mode
+                    option: Away
+                }
+            }
+            {
+                service: lock.lock
+                data:
+                {
+                    entity_id: lock.front_door
+                }
+            }
+            {
+                service: light.turn_off
+                data:
+                {
+                    entity_id: light.foyer
+                }
+            }
+            {
+                service: light.turn_off
+                data:
+                {
+                    entity_id: light.kitchen
+                }
+            }
+            {
+                service: light.turn_off
+                data:
+                {
+                    entity_id: light.living_room
+                }
+            }
+        ]
+    }
+    {
+        id: someone_comes_back
+        alias: Someone Comes Back
+        trigger:
+        {
+            platform: state
+            entity_id: person.raman, person.sherene
+            from: home
+        }
+        condition:
+        {
+            condition: template
+            value_template: '{{ is_state("input_select.home_mode", "Away") }}'
+        }
+        action:
+        {
+            service: input_select.select_option
+            data:
+            {
+                entity_id: input_select.home_mode
+                option: Home
+            }
+        }
+    }
+    {
+        id: good_night
+        alias: Good Night
+        trigger:
+        {
+            platform: time_pattern
+            minutes: /1
+            hours: *
+        }
+        condition:
+        {
+            condition: and
+            conditions:
+            [
+                {
+                    condition: time
+                    after: '00:00:00'
+                    before: '06:00:00'
+                }
+                {
+                    condition: template
+                    value_template: '{{ is_state("binary_sensor.living_room_motion", "off") }}'
+                }
+                {
+                    condition: template
+                    value_template: '{{ not is_state("input_select.home_mode", "Night") }}'
+                }
+            ]
+        }
+        action:
+        [
+            {
+                service: input_select.select_option
+                data:
+                {
+                    entity_id: input_select.home_mode
+                    option: Night
+                }
+            }
+            {
+                service: lock.lock
+                data:
+                {
+                    entity_id: lock.front_door
+                }
+            }
+            {
+                service: light.turn_off
+                data:
+                {
+                    entity_id: light.foyer
+                }
+            }
+            {
+                service: light.turn_off
+                data:
+                {
+                    entity_id: light.kitchen
+                }
+            }
+            {
+                service: light.turn_off
+                data:
+                {
+                    entity_id: light.living_room
+                }
+            }
+        ]
+    }
 ]
