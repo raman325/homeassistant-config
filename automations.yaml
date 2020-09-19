@@ -149,7 +149,7 @@
     data:
       entity_id: light.living_room
 - id: everyone_leaves
-  alias: Everyone Leaves
+  alias: 'Routine: Everyone Leaves'
   trigger:
     platform: state
     entity_id: person.raman, person.sherene
@@ -169,7 +169,7 @@
       entity_id: input_select.home_mode
       option: Away
 - id: someone_comes_back
-  alias: Someone Comes Back
+  alias: 'Routine: Someone Comes Back'
   trigger:
     platform: state
     entity_id: person.raman, person.sherene
@@ -183,7 +183,7 @@
       entity_id: input_select.home_mode
       option: Home
 - id: good_night
-  alias: Good Night
+  alias: 'Routine: Good Night'
   trigger:
     platform: time_pattern
     minutes: /1

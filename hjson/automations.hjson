@@ -263,7 +263,7 @@
     }
     {
         id: everyone_leaves
-        alias: Everyone Leaves
+        alias: Routine: Everyone Leaves
         trigger:
         {
             platform: state
@@ -301,7 +301,7 @@
     }
     {
         id: someone_comes_back
-        alias: Someone Comes Back
+        alias: Routine: Someone Comes Back
         trigger:
         {
             platform: state
@@ -325,7 +325,7 @@
     }
     {
         id: good_night
-        alias: Good Night
+        alias: Routine: Good Night
         trigger:
         {
             platform: time_pattern
