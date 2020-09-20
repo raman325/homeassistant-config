@@ -1,0 +1,6 @@
+{
+    project_id: homeassistant-4fcce
+    service_account: !include google_assistant.json
+    report_state: true
+    expose_by_default: true
+}

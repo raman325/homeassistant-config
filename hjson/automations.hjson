@@ -363,6 +363,40 @@
         }
     }
     {
+        id: morning
+        alias: Routine: Morning
+        trigger:
+        {
+            platform: state
+            entity_id: binary_sensor.living_room_motion, light.living_room, light.foyer, light.kitchen
+            to: on
+        }
+        condition:
+        {
+            condition: and
+            conditions:
+            [
+                {
+                    condition: time
+                    after: '06:01:00'
+                    before: '23:59:59'
+                {
+                    condition: template
+                    value_template: '{{ is_state("input_select.home_mode", "Night") }}'
+                }
+            ]
+        }
+        action:
+        {
+            service: input_select.select_option
+            data:
+            {
+                entity_id: input_select.home_mode
+                option: Home
+            }
+        }
+    }
+    {
         id: turn_on_good_night
         alias: Turn On Good Night
         trigger:
