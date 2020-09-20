@@ -378,7 +378,7 @@
             [
                 {
                     condition: time
-                    after: '06:01:00'
+                    after: '06:00:01'
                     before: '23:59:59'
                 {
                     condition: template
