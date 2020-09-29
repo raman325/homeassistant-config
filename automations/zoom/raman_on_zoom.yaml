@@ -1,0 +1,19 @@
+id: raman_on_zoom
+alias: Slack when Raman on Zoom
+trigger:
+  platform: state
+  entity_id: binary_sensor.zoom_raman
+  from: 'off'
+  to: 'on'
+condition:
+  condition: state
+  entity_id: input_boolean.zoom_dnd_raman
+  state: 'off'
+action:
+- service: notify.apprise
+  data:
+    title: Do Not Disturb!
+    message: Raman is *on* a Zoom call
+    target: zoom
+- service: input_boolean.turn_on
+  entity_id: input_boolean.zoom_dnd_raman

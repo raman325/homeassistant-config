@@ -1,0 +1,39 @@
+{
+    id: everyone_leaves
+    alias: Routine: Everyone Leaves
+    trigger:
+    {
+        platform: state
+        entity_id: person.raman, person.sherene
+        to: not_home
+        for: "00:10:00"
+    }
+    condition:
+    {
+        condition: and
+        conditions:
+        [
+            {
+                condition: template
+                value_template: '{{ not is_state("person.sherene", "home") }}'
+            }
+            {
+                condition: template
+                value_template: '{{ not is_state("person.sherene", "home") }}'
+            }
+            {
+                condition: template
+                value_template: '{{ not is_state("input_select.home_mode", "Away") }}'
+            }
+        ]
+    }
+    action:
+    {
+        service: input_select.select_option
+        data:
+        {
+            entity_id: input_select.home_mode
+            option: Away
+        }
+    }
+}

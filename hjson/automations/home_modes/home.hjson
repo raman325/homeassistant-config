@@ -1,0 +1,22 @@
+{
+    id: home_home
+    alias: Home Mode: Home
+    trigger:
+    {
+        platform: state
+        entity_id: input_select.home_mode
+        to: Home
+    }
+    action:
+    [
+        {
+            service: climate.set_temperature
+            data:
+            {
+                entity_id: climate.thermostat
+                target_temp_high: '{{ states("input_number.home_high") }}'
+                target_temp_low: '{{ states("input_number.home_low") }}'
+            }
+        }
+    ]
+}

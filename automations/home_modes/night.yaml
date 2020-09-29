@@ -1,0 +1,18 @@
+id: home_night
+alias: 'Home Mode: Night'
+trigger:
+  platform: state
+  entity_id: input_select.home_mode
+  to: Night
+action:
+- service: climate.set_temperature
+  data:
+    entity_id: climate.thermostat
+    target_temp_high: '{{ states("input_number.night_high") }}'
+    target_temp_low: '{{ states("input_number.night_low") }}'
+- service: lock.lock
+  data:
+    entity_id: lock.front_door
+- service: light.turn_off
+  data:
+    entity_id: light.foyer, light.kitchen, light.living_room

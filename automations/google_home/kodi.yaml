@@ -1,0 +1,15 @@
+id: ifttt_kodi_control
+alias: IFTTT Kodi Control
+initial_state: true
+trigger:
+  platform: webhook
+  webhook_id: !secret 'webhook_ghkodi'
+condition:
+  condition: template
+  value_template: !secret 'webhook_auth_check'
+action:
+  service: rest_command.kodi_send
+  data_template:
+    token: '{{ trigger.json.token }}'
+    kodiid: '{{ trigger.json.kodiid }}'
+    phrase: '{{ trigger.json.phrase }}'

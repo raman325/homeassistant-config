@@ -1,0 +1,17 @@
+{
+    id: turn_off_good_night
+    alias: Turn Off Good Night
+    trigger:
+    {
+        platform: time
+        at: 06:00:00
+    }
+    action:
+    {
+        service: automation.turn_off
+        data:
+        {
+            entity_id: automation.good_night
+        }
+    }
+}
