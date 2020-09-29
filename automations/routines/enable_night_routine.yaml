@@ -1,0 +1,9 @@
+id: routine_enable_night_routine
+alias: 'Routine: Enable Night Routine'
+trigger:
+  platform: time
+  at: 00:00:00
+action:
+  service: automation.turn_on
+  data:
+    entity_id: automation.routine_night

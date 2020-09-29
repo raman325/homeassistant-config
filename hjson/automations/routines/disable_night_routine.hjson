@@ -1,14 +1,14 @@
 {
-    id: routine_turn_on_night_routine
-    alias: Routine: Turn On Night Routine
+    id: routine_disable_night_routine
+    alias: Routine: Disable Night Routine
     trigger:
     {
         platform: time
-        at: 00:00:00
+        at: 06:00:00
     }
     action:
     {
-        service: automation.turn_on
+        service: automation.turn_off
         data:
         {
             entity_id: automation.routine_night
