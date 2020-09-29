@@ -4,9 +4,7 @@ trigger:
   platform: state
   entity_id: person.raman, person.sherene
   to: home
-condition:
-  condition: template
-  value_template: '{{ is_state("input_select.home_mode", "Away") }}'
+condition: '{{ is_state("input_select.home_mode", "Away") }}'
 action:
   service: input_select.select_option
   data:

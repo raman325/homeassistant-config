@@ -10,8 +10,7 @@ condition:
   - condition: time
     after: 06:00:01
     before: '23:59:59'
-  - condition: template
-    value_template: '{{ is_state("input_select.home_mode", "Night") }}'
+  - '{{ is_state("input_select.home_mode", "Night") }}'
 action:
   service: input_select.select_option
   data:

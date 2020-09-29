@@ -13,18 +13,9 @@
         condition: and
         conditions:
         [
-            {
-                condition: template
-                value_template: '{{ not is_state("person.sherene", "home") }}'
-            }
-            {
-                condition: template
-                value_template: '{{ not is_state("person.raman", "home") }}'
-            }
-            {
-                condition: template
-                value_template: '{{ not is_state("input_select.home_mode", "Away") }}'
-            }
+            '{{ not is_state("person.sherene", "home") }}'
+            '{{ not is_state("person.raman", "home") }}'
+            '{{ not is_state("input_select.home_mode", "Away") }}'
         ]
     }
     action:

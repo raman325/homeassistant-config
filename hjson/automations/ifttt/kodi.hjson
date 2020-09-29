@@ -7,11 +7,7 @@
         platform: webhook
         webhook_id: !secret webhook_ghkodi
     }
-    condition:
-    {
-        condition: template
-        value_template: !secret webhook_auth_check
-    }
+    condition: !secret webhook_auth_check
     action:
     {
         service: rest_command.kodi_send
