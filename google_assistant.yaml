@@ -17,6 +17,8 @@ entity_config:
     expose: false
   media_player.bedroom_soundbar:
     expose: false
+  media_player.bedroom_soundbar_cast:
+    expose: false
   media_player.forked_daapd_output_bathroom_speaker:
     expose: false
   media_player.forked_daapd_output_computer:
@@ -31,9 +33,9 @@ entity_config:
     expose: false
   media_player.kitchen_google_home:
     expose: false
-  media_player.living_room_shieldtv_cast:
+  media_player.headless_kodi:
     expose: false
-  media_player.bedroom_soundbar_cast:
+  media_player.living_room_shieldtv_cast:
     expose: false
   media_player.living_room_soundbar:
     expose: false
