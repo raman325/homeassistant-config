@@ -320,7 +320,7 @@
                 }
                 {
                     condition: template
-                    value_template: '{{ not is_state("input_select.home_mode", "Night") }}'
+                    value_template: '{{ is_state("input_select.home_mode", "Home") }}'
                 }
             ]
         }
