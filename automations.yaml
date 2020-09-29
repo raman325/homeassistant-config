@@ -105,13 +105,7 @@
       entity_id: lock.front_door
   - service: light.turn_off
     data:
-      entity_id: light.foyer
-  - service: light.turn_off
-    data:
-      entity_id: light.kitchen
-  - service: light.turn_off
-    data:
-      entity_id: light.living_room
+      entity_id: light.foyer, light.kitchen, light.living_room
 - id: home_home
   alias: 'Home Mode: Home'
   trigger:
@@ -141,19 +135,13 @@
       entity_id: lock.front_door
   - service: light.turn_off
     data:
-      entity_id: light.foyer
-  - service: light.turn_off
-    data:
-      entity_id: light.kitchen
-  - service: light.turn_off
-    data:
-      entity_id: light.living_room
+      entity_id: light.foyer, light.kitchen, light.living_room
 - id: everyone_leaves
   alias: 'Routine: Everyone Leaves'
   trigger:
     platform: state
     entity_id: person.raman, person.sherene
-    from: not_home
+    to: not_home
   condition:
     condition: and
     conditions:
@@ -173,7 +161,7 @@
   trigger:
     platform: state
     entity_id: person.raman, person.sherene
-    from: home
+    to: home
   condition:
     condition: template
     value_template: '{{ is_state("input_select.home_mode", "Away") }}'
@@ -208,12 +196,12 @@
   trigger:
     platform: state
     entity_id: binary_sensor.living_room_motion, light.living_room, light.foyer, light.kitchen
-    to: "on"
+    to: 'on'
   condition:
     condition: and
     conditions:
     - condition: time
-      after: '06:00:01'
+      after: 06:00:01
       before: '23:59:59'
     - condition: template
       value_template: '{{ is_state("input_select.home_mode", "Night") }}'
