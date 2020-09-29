@@ -1,5 +1,5 @@
 {
-    id: home_night
+    id: home_mode_night
     alias: Home Mode: Night
     trigger:
     {

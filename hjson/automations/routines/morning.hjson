@@ -1,5 +1,5 @@
 {
-    id: morning
+    id: routine_morning
     alias: Routine: Morning
     trigger:
     {

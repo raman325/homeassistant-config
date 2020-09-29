@@ -1,4 +1,4 @@
-id: someone_comes_back
+id: routine_someone_comes_back
 alias: 'Routine: Someone Comes Back'
 trigger:
   platform: state

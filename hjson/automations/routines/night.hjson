@@ -1,6 +1,6 @@
 {
-    id: good_night
-    alias: Routine: Good Night
+    id: routine_night
+    alias: Routine: Night
     trigger:
     {
         platform: time_pattern

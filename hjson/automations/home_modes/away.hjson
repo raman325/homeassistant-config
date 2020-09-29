@@ -1,5 +1,5 @@
 {
-    id: home_away
+    id: home_mode_away
     alias: Home Mode: Away
     trigger:
     {

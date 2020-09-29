@@ -1,4 +1,4 @@
-id: home_home
+id: home_mode_home
 alias: 'Home Mode: Home'
 trigger:
   platform: state

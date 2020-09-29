@@ -1,5 +1,5 @@
 {
-    id: everyone_leaves
+    id: routine_everyone_leaves
     alias: Routine: Everyone Leaves
     trigger:
     {

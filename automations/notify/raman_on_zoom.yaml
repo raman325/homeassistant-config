@@ -1,4 +1,4 @@
-id: raman_on_zoom
+id: notify_raman_on_zoom
 alias: 'Notify: Raman on Zoom'
 trigger:
   platform: state

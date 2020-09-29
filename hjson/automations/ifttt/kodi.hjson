@@ -1,6 +1,6 @@
 {
     id: ifttt_kodi_control
-    alias: "IFTTT: Kodi Control"
+    alias: IFTTT: Kodi Control
     initial_state: true
     trigger:
     {

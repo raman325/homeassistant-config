@@ -1,6 +1,6 @@
 {
-    id: turn_on_good_night
-    alias: Routine Helper: Turn On Good Night
+    id: routine_turn_on_night_routine
+    alias: Routine: Turn On Night Routine
     trigger:
     {
         platform: time
@@ -11,7 +11,7 @@
         service: automation.turn_on
         data:
         {
-            entity_id: automation.good_night
+            entity_id: automation.routine_night
         }
     }
 }
