@@ -1,5 +1,5 @@
 id: ifttt_vacuum_control
-alias: IFTTT Vacuum Control
+alias: 'IFTTT: Vacuum Control'
 initial_state: true
 trigger:
   platform: webhook

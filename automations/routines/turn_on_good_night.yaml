@@ -1,5 +1,5 @@
 id: turn_on_good_night
-alias: Turn On Good Night
+alias: 'Routine Helper: Turn On Good Night'
 trigger:
   platform: time
   at: 00:00:00

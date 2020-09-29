@@ -1,5 +1,5 @@
 id: notify_ha_updates
-alias: 'Notifications: HA Update Available'
+alias: 'Notify: HA Update Available'
 trigger:
   platform: state
   entity_id: sensor.available_ha_version

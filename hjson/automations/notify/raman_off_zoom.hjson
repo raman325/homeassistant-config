@@ -1,6 +1,6 @@
 {
     id: raman_off_zoom
-    alias: Slack when Raman off Zoom
+    alias: Notify: Raman off Zoom
     trigger:
     {
         platform: state
