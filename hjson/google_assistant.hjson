@@ -4,4 +4,101 @@
     report_state: true
     expose_by_default: true
     secure_devices_pin: !secret pin_google_assistant
+    report_state: true
+    exposed_domains:
+    [
+        climate
+        input_select
+        light
+        lock
+        media_player
+        switch
+    ]
+    entity_config:
+    {
+        climate.general_thermostat_v2_mode_2:
+        {
+            expose: false
+        }
+        media_player.bathroom_google_home:
+        {
+            expose: false
+        }
+        media_player.bedroom_soundbar:
+        {
+            expose: false
+        }
+        media_player.forked_daapd_output_bathroom_speaker:
+        {
+            expose: false
+        }
+        media_player.forked_daapd_output_computer:
+        {
+            expose: false
+        }
+        media_player.forked_daapd_output_kitchen_speaker:
+        {
+            expose: false
+        }
+        media_player.forked_daapd_output_shield:
+        {
+            expose: false
+        }
+        media_player.forked_daapd_output_bedroom_soundbar:
+        {
+            expose: false
+        }
+        media_player.forked_daapd_server:
+        {
+            expose: false
+        }
+        media_player.kitchen_google_home:
+        {
+            expose: false
+        }
+        media_player.living_room_shieldtv_cast:
+        {
+            expose: false
+        }
+        media_player.bedroom_soundbar_cast:
+        {
+            expose: false
+        }
+        media_player.living_room_soundbar:
+        {
+            expose: false
+        }
+        media_player.living_room_soundbar_cast:
+        {
+            expose: false
+        }
+        media_player.plex_plex_for_android_tv_shield_android_tv:
+        {
+            expose: false
+        }
+        media_player.plex_plex_for_ios_ramans_iphone:
+        {
+            expose: false
+        }
+        media_player.plex_plex_for_ios_sherenes_iphone:
+        {
+            expose: false
+        }
+        media_player.spotify:
+        {
+            expose: false
+        }
+        switch.pi_hole:
+        {
+            expose: false
+        }
+        switch.transmission_switch:
+        {
+            expose: false
+        }
+        switch.transmission_turtle_mode:
+        {
+            expose: false
+        }
+    }
 }
