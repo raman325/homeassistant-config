@@ -241,6 +241,7 @@
             platform: state
             entity_id: person.raman, person.sherene
             to: not_home
+            for: "00:10:00"
         }
         condition:
         {
