@@ -1,8 +1,30 @@
 # Ignore folders.
 .storage
 .cloud
+.deps
 cert
 .google.token
+.DS_Store
+.HA_VERSION
+.pc-session
+.ps4*
+@eaDir/
+*.txt
+android/
+appdaemon/
+custom_components/
+google_assistant.json
+icloud/
+image/
+*.xml
+panels/
+*.conf
+*.sqlite
+python_scripts/
+themes/
+tts/
+www/
+*.db
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
