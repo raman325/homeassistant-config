@@ -1,6 +1,7 @@
 #!/usr/local/bin/python3
 
 import os, hjson, yaml
+from os import path
 import sys, inspect
 from collections import OrderedDict
 
@@ -8,7 +9,7 @@ from collections import OrderedDict
 
 # YAML Tag Objects (base object)
 class BaseTag(yaml.YAMLObject):
-    yaml_tag = u"!"
+    yaml_tag = "!"
 
     def __init__(self, data):
         self.data = data
@@ -22,36 +23,36 @@ class BaseTag(yaml.YAMLObject):
 
     @classmethod
     def to_yaml(cls, dumper, data):
-        return dumper.represent_scalar(cls.yaml_tag, u"%s" % data.data)
+        return dumper.represent_scalar(cls.yaml_tag, "%s" % data.data)
 
 
 # YAML tag objects (overwrite yaml_tag for each special case)
 class Secret(BaseTag):
-    yaml_tag = u"!secret"
+    yaml_tag = "!secret"
 
 
 class Include(BaseTag):
-    yaml_tag = u"!include"
+    yaml_tag = "!include"
 
 
 class EnvVar(BaseTag):
-    yaml_tag = u"!env_var"
+    yaml_tag = "!env_var"
 
 
 class IncludeDirList(BaseTag):
-    yaml_tag = u"!include_dir_list"
+    yaml_tag = "!include_dir_list"
 
 
 class IncludeDirMergeList(BaseTag):
-    yaml_tag = u"!include_dir_merge_list"
+    yaml_tag = "!include_dir_merge_list"
 
 
 class IncludeDirNamed(BaseTag):
-    yaml_tag = u"!include_dir_named"
+    yaml_tag = "!include_dir_named"
 
 
 class IncludeDirMergeNamed(BaseTag):
-    yaml_tag = u"!include_dir_merge_named"
+    yaml_tag = "!include_dir_merge_named"
 
 
 # generate list of special tag classes by reading this file. This should not have to be changed to support new tag types.
@@ -138,8 +139,15 @@ def represent_none(self, _):
 def findFiles(path, ext):
     list = []
     for root, dirs, files in os.walk(path):
+        if root != path and (
+            ("hjson" in root and "hjson" not in path)
+            or "__pycache__" in root
+            or ".git" in root
+            or ".vscode" in root
+        ):
+            continue
         for file in files:
-            if file.endswith("." + ext) and "hjson" not in root:
+            if file.endswith("." + ext):
                 list.append(os.path.join(root, file))
     return list
 
@@ -151,11 +159,18 @@ def convertFileName(file, fromExt, toExt):
 
 # Converts YAML files to HJSON. Expects source YAML files to be in the parent directory and target directory to be the current directory
 # TODO: Make source and target paths configurable and more generic
-def convertYamlToHjson():
-    srcFiles = findFiles("..", "yaml")
+def convertYamlToHjson(path_to_yaml=".", path_to_hjson="hjson"):
+    if path_to_hjson.endswith("/") or path_to_hjson.endswith("\\"):
+        path_to_hjson = path_to_hjson[:-1]
+    if path_to_yaml.endswith("/") or path_to_yaml.endswith("\\"):
+        path_to_yaml = path_to_yaml[:-1]
+
+    srcFiles = findFiles(path, "yaml")
     for srcFile in srcFiles:
-        # hack to get source files one folder below but place destination files in current directory by removing one '.'
-        destFile = convertFileName(srcFile, "yaml", "hjson")[1:]
+        destFile = (
+            path_to_hjson
+            + convertFileName(srcFile, "yaml", "hjson")[len(path_to_yaml) :]
+        )
 
         # create destination path if needed
         basePath = os.path.dirname(destFile)
@@ -175,12 +190,18 @@ def convertYamlToHjson():
 
 # Converts HJSON files to YAML. Expects source HJSON files to be in the current directory and target directory to be the parent directory
 # TODO: Make source and target paths configurable and more generic
-def convertHjsonToYaml():
-    srcFiles = findFiles(".", "hjson")
+def convertHjsonToYaml(path_to_hjson="hjson/", path_to_yaml="./"):
+    if path_to_hjson.endswith("/") or path_to_hjson.endswith("\\"):
+        path_to_hjson = path_to_hjson[:-1]
+    if path_to_yaml.endswith("/") or path_to_yaml.endswith("\\"):
+        path_to_yaml = path_to_yaml[:-1]
+
+    srcFiles = findFiles(path_to_hjson, "hjson")
     for srcFile in srcFiles:
-        # hack to get source files in current directory but place destination files one directory below by adding one '.'
-        destFile = "." + convertFileName(srcFile, "hjson", "yaml")
-        # destFile = convertFileName(srcFile, "hjson", "yaml")
+        destFile = (
+            path_to_yaml
+            + convertFileName(srcFile, "hjson", "yaml")[len(path_to_hjson) :]
+        )
 
         # create destination path if needed
         basePath = os.path.dirname(destFile)
