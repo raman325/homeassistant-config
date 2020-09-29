@@ -19,7 +19,7 @@
             }
             {
                 condition: template
-                value_template: '{{ not is_state("person.sherene", "home") }}'
+                value_template: '{{ not is_state("person.raman", "home") }}'
             }
             {
                 condition: template
