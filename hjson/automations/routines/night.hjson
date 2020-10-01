@@ -13,12 +13,21 @@
         conditions:
         [
             {
+                condition: state
+                entity_id: input_select.home_mode
+                state: Home
+            }
+            {
                 condition: time
                 after: '00:00:00'
                 before: '06:00:00'
             }
-            '{{ is_state("binary_sensor.living_room_motion", "off") }}'
-            '{{ is_state("input_select.home_mode", "Home") }}'
+            {
+                condition: state
+                entity_id: binary_sensor.living_room_motion
+                state: off
+                for: "00:10:00"
+            }
         ]
     }
     action:

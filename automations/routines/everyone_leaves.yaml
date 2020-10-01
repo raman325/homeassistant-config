@@ -8,8 +8,12 @@ trigger:
 condition:
   condition: and
   conditions:
-  - '{{ not is_state("person.sherene", "home") }}'
-  - '{{ not is_state("person.raman", "home") }}'
+  - condition: state
+    entity_id: person.sherene
+    state: not_home
+  - condition: state
+    entity_id: person.raman
+    state: not_home
   - '{{ not is_state("input_select.home_mode", "Away") }}'
 action:
   service: input_select.select_option

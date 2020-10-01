@@ -7,7 +7,12 @@
         entity_id: person.raman, person.sherene
         to: home
     }
-    condition: '{{ is_state("input_select.home_mode", "Away") }}'
+    condition:
+    {
+        condition: state
+        entity_id: input_select.home_mode
+        state: Away
+    }
     action:
     {
         service: input_select.select_option

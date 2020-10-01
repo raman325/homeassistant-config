@@ -10,7 +10,9 @@ condition:
   - condition: time
     after: 06:00:01
     before: '23:59:59'
-  - '{{ is_state("input_select.home_mode", "Night") }}'
+  - condition: state
+    entity_id: input_select.home_mode
+    state: Night
 action:
   service: input_select.select_option
   data:
