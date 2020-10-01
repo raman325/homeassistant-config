@@ -15,15 +15,22 @@
         [
             {
                 condition: state
-                entity_id: person.sherene
+                entity_id:
+                [
+                    person.sherene
+                    person.raman
+                ]
                 state: not_home
             }
             {
                 condition: state
-                entity_id: person.raman
-                state: not_home
+                entity_id: input_select.home_mode
+                state:
+                [
+                    Home
+                    Night
+                ]
             }
-            '{{ not is_state("input_select.home_mode", "Away") }}'
         ]
     }
     action:
