@@ -4,15 +4,12 @@
 - platform: nfandroidtv
   name: Bedroom
   host: !secret 'host_bedroom_firetv'
-- platform: rest
+- platform: slack
   name: slack
-  resource: !secret 'webhook_slack'
-  method: POST_JSON
-  message_param_name: text
-  data:
-    username: HomeAssistant
-    icon_url: https://www.home-assistant.io/images/favicon-192x192-full.png
-    channel: !secret 'channel_slack'
+  api_key: !secret 'token_slack'
+  default_channel: !secret 'channel_slack'
+  username: Home Assistant
+  icon: https://www.home-assistant.io/images/favicon-192x192-full.png
 - platform: apprise
   name: apprise
   config: /config/apprise.yaml
