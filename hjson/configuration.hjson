@@ -64,4 +64,5 @@
     input_select: null
     input_text: null
     google_assistant: !include google_assistant.yaml
+    pyscript: !include pyscript.yaml
 }
