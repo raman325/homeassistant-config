@@ -12,7 +12,7 @@
     {
         platform: slack
         name: slack
-        api_key: !secret token_slack
+        api_key: !secret bot_token_slack
         default_channel: !secret channel_slack
         username: Home Assistant
         icon: https://www.home-assistant.io/images/favicon-192x192-full.png

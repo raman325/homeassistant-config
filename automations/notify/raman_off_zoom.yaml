@@ -11,10 +11,10 @@ condition:
   entity_id: input_boolean.zoom_dnd_raman
   state: 'on'
 action:
-- service: notify.apprise
+- service: pyscript.set_slack_status
   data:
-    title: You Can Come In Now
-    message: Raman is *off* Zoom
-    target: zoom
+    token: !secret 'token_slack'
+    status_text:
+    status_emoji:
 - service: input_boolean.turn_off
   entity_id: input_boolean.zoom_dnd_raman

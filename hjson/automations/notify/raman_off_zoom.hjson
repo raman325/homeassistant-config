@@ -18,12 +18,12 @@
     action:
     [
         {
-            service: notify.apprise
+            service: pyscript.set_slack_status
             data:
             {
-                title: "You Can Come In Now"
-                message: Raman is *off* Zoom
-                target: zoom
+                token: !secret token_slack
+                status_text: null
+                status_emoji: null
             }
         }
         {
