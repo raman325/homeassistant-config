@@ -58,3 +58,4 @@ input_select:
 input_text:
 google_assistant: !include 'google_assistant.yaml'
 pyscript: !include 'pyscript.yaml'
+spotcast: !include 'spotcast.yaml'

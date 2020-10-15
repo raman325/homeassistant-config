@@ -1,0 +1,2 @@
+sp_dc: !secret 'sp_dc_spotify'
+sp_key: !secret 'sp_key_spotify'
