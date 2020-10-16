@@ -1,0 +1,2 @@
+client_id: !include 'client_id_netatmo'
+client_secret: !include 'client_secret_netatmo'
