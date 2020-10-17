@@ -1,2 +1,0 @@
-client_id: !secret 'client_id_netatmo'
-client_secret: !secret 'client_secret_netatmo'
