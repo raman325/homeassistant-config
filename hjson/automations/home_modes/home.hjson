@@ -10,12 +10,10 @@
     action:
     [
         {
-            service: climate.set_temperature
+            service: script.set_temperature
             data:
             {
-                entity_id: climate.thermostat
-                target_temp_high: '{{ states("input_number.home_high") }}'
-                target_temp_low: '{{ states("input_number.home_low") }}'
+                mode: home
             }
         }
     ]

@@ -1,0 +1,71 @@
+alias: Set Temperature
+description: Set the house target temperatures using either `input_select.home_mode`
+  using the `mode` parameter or arbitrary high/low values using the `low` and `high`
+  parameters
+mode: restart
+fields:
+  mode:
+    description: Used to determine which `input_number` target temperatures to use
+      [home, away, night]. Takes precedence over `low` and `high`.
+    example: away
+  low:
+    description: Target low temperature. Either this or `high` (or both) are required
+      when `mode` isn't provided.
+    example: 70
+  high:
+    description: Target high temperature. Either this or `low` (or both) are required
+      when `mode` isn't provided.
+    example: 75
+sequence:
+- choose:
+  - conditions: '{{ mode is defined }}'
+    sequence:
+    - repeat:
+        sequence:
+        - alias: Change target temperatures
+          service: climate.set_temperature
+          data:
+            entity_id: climate.thermostat
+            target_temp_high: '{{ states("input_number." + mode|lower + "_high") }}'
+            target_temp_low: '{{ states("input_number." + mode|lower + "_low") }}'
+        - delay: 2
+        until: '{{ state_attr("climate.thermostat", "target_temp_high")|int == states("input_number."
+          + mode|lower + "_high")|int and state_attr("climate.thermostat", "target_temp_low")|int
+          == states("input_number." + mode|lower + "_low")|int }}'
+  - conditions: '{{ low is defined and high is defined }}'
+    sequence:
+    - repeat:
+        sequence:
+        - alias: Change target temperatures
+          service: climate.set_temperature
+          data:
+            entity_id: climate.thermostat
+            target_temp_high: '{{ high }}'
+            target_temp_low: '{{ low }}'
+        - delay: 2
+        until: '{{ state_attr("climate.thermostat", "target_temp_high")|int == high|int
+          and state_attr("climate.thermostat", "target_temp_low")|int == low|int }}'
+  - conditions: '{{ low is defined and high is not defined }}'
+    sequence:
+    - repeat:
+        sequence:
+        - alias: Change target temperatures
+          service: climate.set_temperature
+          data:
+            entity_id: climate.thermostat
+            target_temp_low: '{{ low }}'
+        - delay: 2
+        until: '{{ state_attr("climate.thermostat", "target_temp_low")|int == low|int
+          }}'
+  - conditions: '{{ low is not defined and high is defined }}'
+    sequence:
+    - repeat:
+        sequence:
+        - alias: Change target temperatures
+          service: climate.set_temperature
+          data:
+            entity_id: climate.thermostat
+            target_temp_high: '{{ high }}'
+        - delay: 2
+        until: '{{ state_attr("climate.thermostat", "target_temp_high")|int == high|int
+          }}'

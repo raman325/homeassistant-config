@@ -10,26 +10,13 @@
     action:
     [
         {
-            service: climate.set_temperature
-            data:
-            {
-                entity_id: climate.thermostat
-                target_temp_high: '{{ states("input_number.away_high") }}'
-                target_temp_low: '{{ states("input_number.away_low") }}'
-            }
+            service: script.lock_down
         }
         {
-            service: lock.lock
+            service: script.set_temperature
             data:
             {
-                entity_id: lock.front_door
-            }
-        }
-        {
-            service: light.turn_off
-            data:
-            {
-                entity_id: light.foyer, light.kitchen, light.living_room
+                mode: away
             }
         }
     ]
