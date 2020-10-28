@@ -16,6 +16,7 @@ custom_components/
 google_assistant.json
 icloud/
 image/
+images/
 *.xml
 panels/
 *.conf
