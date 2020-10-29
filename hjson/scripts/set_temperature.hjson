@@ -40,6 +40,7 @@
                                         data:
                                         {
                                             entity_id: climate.thermostat
+                                            hvac_mode: heat_cool
                                             target_temp_high: '{{ states("input_number." + mode|lower + "_high") }}'
                                             target_temp_low: '{{ states("input_number." + mode|lower + "_low") }}'
                                         }
@@ -68,6 +69,7 @@
                                         data:
                                         {
                                             entity_id: climate.thermostat
+                                            hvac_mode: heat_cool
                                             target_temp_high: '{{ high }}'
                                             target_temp_low: '{{ low }}'
                                         }
@@ -96,6 +98,7 @@
                                         data:
                                         {
                                             entity_id: climate.thermostat
+                                            hvac_mode: heat_cool
                                             target_temp_low: '{{ low }}'
                                         }
                                     }
@@ -123,6 +126,7 @@
                                         data:
                                         {
                                             entity_id: climate.thermostat
+                                            hvac_mode: heat_cool
                                             target_temp_high: '{{ high }}'
                                         }
                                     }
