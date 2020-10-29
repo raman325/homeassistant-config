@@ -1,0 +1,27 @@
+id: hacs_updates_available
+alias: 'Notify: HACS updates available'
+trigger:
+  platform: numeric_state
+  entity_id: sensor.hacs
+  above: 0
+action:
+- service: notify.apprise
+  data:
+    title: '{{ states("sensor.hacs") }} updates pending in HACS'
+    message: '```{% for repo in states.sensor.hacs.attributes["repositories"] %}-
+      {{ repo }}
+
+
+      {% endfor %}```'
+    target: system
+- service: persistent_notification.create
+  data:
+    title: '{{ states("sensor.hacs") }} updates pending in HACS'
+    message: 'There are {{ states("sensor.hacs") }} updates pending in [HACS](/hacs)
+
+
+      {% for repo in states.sensor.hacs.attributes["repositories"] %}- {{ repo }}
+
+
+      {% endfor %}'
+    notification_id: hacs_update

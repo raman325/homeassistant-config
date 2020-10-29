@@ -16,7 +16,7 @@ action:
     message: "https://www.home-assistant.io/latest-release-notes/ \n {% if states(\"\
       sensor.potential_breaking_changes\")|int > 0 %}{{ states(\"sensor.potential_breaking_changes\"\
       ) }} possible breaking changes:\n```{% for item in states.sensor.potential_breaking_changes.attributes[\"\
-      changes\"] %}{{ item[\"integration\"] }}: {{ item[\"doclink\"] }}  {{ item[\"\
+      changes\"] %}- {{ item[\"integration\"] }} - {{ item[\"doclink\"] }} - {{ item[\"\
       description\"] }}\n{% endfor %}```{% else %}No breaking changes detected.{%\
       \ endif %}"
     target: system

@@ -1,0 +1,10 @@
+id: no_hacs_updates
+alias: 'Notify: HACS updates completed'
+trigger:
+  platform: state
+  entity_id: sensor.hacs
+condition: '{{ trigger.to_state.state|int == 0 }}'
+action:
+- service: persistent_notification.dismiss
+  data:
+    notification_id: hacs_update
