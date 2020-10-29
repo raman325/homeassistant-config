@@ -1,0 +1,2 @@
+client_id: !secret 'client_id_xbox'
+client_secret: !secret 'client_secret_xbox'
