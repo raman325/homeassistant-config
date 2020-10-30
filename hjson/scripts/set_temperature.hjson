@@ -57,36 +57,12 @@
                             }
                         }
                         {
-                            choose:
-                            [
-                                {
-                                    conditions: '{{ states("climate.thermostat") != old_hvac_mode }}'
-                                    sequence:
-                                    [
-                                        {
-                                            repeat:
-                                            {
-                                                sequence:
-                                                [
-                                                    {
-                                                        alias: Change thermostat mode
-                                                        service: climate.set_hvac_mode
-                                                        data:
-                                                        {
-                                                            entity_id: climate.thermostat
-                                                            hvac_mode: '{{ old_hvac_mode }}'
-                                                        }
-                                                    }
-                                                    {
-                                                        delay: 2
-                                                    }
-                                                ]
-                                                until: '{{ states("climate.thermostat") == {{ old_hvac_mode }} }}'
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
+                            alias: Change HVAC mode
+                            service: script.set_hvac_mode
+                            data:
+                            {
+                                hvac_mode: '{{ old_hvac_mode }}'
+                            }
                         }
                     ]
                 }
@@ -118,36 +94,12 @@
                             }
                         }
                         {
-                            choose:
-                            [
-                                {
-                                    conditions: '{{ states("climate.thermostat") != old_hvac_mode }}'
-                                    sequence:
-                                    [
-                                        {
-                                            repeat:
-                                            {
-                                                sequence:
-                                                [
-                                                    {
-                                                        alias: Change thermostat mode
-                                                        service: climate.set_hvac_mode
-                                                        data:
-                                                        {
-                                                            entity_id: climate.thermostat
-                                                            hvac_mode: '{{ old_hvac_mode }}'
-                                                        }
-                                                    }
-                                                    {
-                                                        delay: 2
-                                                    }
-                                                ]
-                                                until: '{{ states("climate.thermostat") == {{ old_hvac_mode }} }}'
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
+                            alias: Change HVAC mode
+                            service: script.set_hvac_mode
+                            data:
+                            {
+                                hvac_mode: '{{ old_hvac_mode }}'
+                            }
                         }
                     ]
                 }
@@ -178,36 +130,12 @@
                             }
                         }
                         {
-                            choose:
-                            [
-                                {
-                                    conditions: '{{ states("climate.thermostat") != old_hvac_mode }}'
-                                    sequence:
-                                    [
-                                        {
-                                            repeat:
-                                            {
-                                                sequence:
-                                                [
-                                                    {
-                                                        alias: Change thermostat mode
-                                                        service: climate.set_hvac_mode
-                                                        data:
-                                                        {
-                                                            entity_id: climate.thermostat
-                                                            hvac_mode: '{{ old_hvac_mode }}'
-                                                        }
-                                                    }
-                                                    {
-                                                        delay: 2
-                                                    }
-                                                ]
-                                                until: '{{ states("climate.thermostat") == {{ old_hvac_mode }} }}'
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
+                            alias: Change HVAC mode
+                            service: script.set_hvac_mode
+                            data:
+                            {
+                                hvac_mode: '{{ old_hvac_mode }}'
+                            }
                         }
                     ]
                 }
@@ -238,36 +166,12 @@
                             }
                         }
                         {
-                            choose:
-                            [
-                                {
-                                    conditions: '{{ states("climate.thermostat") != old_hvac_mode }}'
-                                    sequence:
-                                    [
-                                        {
-                                            repeat:
-                                            {
-                                                sequence:
-                                                [
-                                                    {
-                                                        alias: Change thermostat mode
-                                                        service: climate.set_hvac_mode
-                                                        data:
-                                                        {
-                                                            entity_id: climate.thermostat
-                                                            hvac_mode: '{{ old_hvac_mode }}'
-                                                        }
-                                                    }
-                                                    {
-                                                        delay: 2
-                                                    }
-                                                ]
-                                                until: '{{ states("climate.thermostat") == {{ old_hvac_mode }} }}'
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
+                            alias: Change HVAC mode
+                            service: script.set_hvac_mode
+                            data:
+                            {
+                                hvac_mode: '{{ old_hvac_mode }}'
+                            }
                         }
                     ]
                 }

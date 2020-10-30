@@ -1,0 +1,25 @@
+alias: Set HVAC Mode
+description: Set the house HVAC mode
+mode: restart
+fields:
+  hvac_mode:
+    description: Target HVAC mode to set thermostat to.
+    example: heat
+sequence:
+- condition: not
+  conditions:
+  - condition: state
+    entity_id: climate.thermostat
+    state: '{{ hvac_mode }}'
+- repeat:
+    sequence:
+    - alias: Change thermostat mode
+      service: climate.set_hvac_mode
+      data:
+        entity_id: climate.thermostat
+        hvac_mode: '{{ hvac_mode }}'
+    - delay: 2
+    until:
+    - condition: state
+      entity_id: climate.thermostat
+      state: '{{ hvac_mode }}'
