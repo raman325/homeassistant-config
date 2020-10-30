@@ -6,7 +6,7 @@
         platform: state
         entity_id: sensor.hacs
     }
-    condition: '{{ trigger.to_state.state|int == 0 }}'
+    condition: '{{ states("sensor.hacs")|int == 0 }}'
     action:
     [
         {
