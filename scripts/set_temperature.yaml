@@ -1,7 +1,5 @@
 alias: Set Temperature
-description: Set the house target temperatures using either `input_select.home_mode`
-  using the `mode` parameter or arbitrary high/low values using the `low` and `high`
-  parameters
+description: Set the house target low and high temperatures
 mode: restart
 variables:
   old_hvac_mode: '{{ states("climate.thermostat") }}'
