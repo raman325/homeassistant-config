@@ -10,15 +10,6 @@
     action:
     [
         {
-            service: notify.apprise
-            data:
-            {
-                title: '{{ states("sensor.hacs") }} updates pending in HACS'
-                message: '```{% for repo in states.sensor.hacs.attributes["repositories"] %}- {{ repo }}\n\n{% endfor %}```'
-                target: system
-            }
-        }
-        {
             service: persistent_notification.create
             data:
             {
