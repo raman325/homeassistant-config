@@ -14,14 +14,7 @@
     [
         {
             condition: not
-            conditions:
-            [
-                {
-                    condition: state
-                    entity_id: climate.thermostat
-                    state: '{{ hvac_mode }}'
-                }
-            ]
+            conditions: '{{ states("climate.thermostat") == hvac_mode }}'
         }
         {
             repeat:
@@ -41,14 +34,7 @@
                         delay: 2
                     }
                 ]
-                until:
-                [
-                    {
-                        condition: state
-                        entity_id: climate.thermostat
-                        state: '{{ hvac_mode }}'
-                    }
-                ]
+                until: '{{ states("climate.thermostat") == hvac_mode }}'
             }
         }
     ]

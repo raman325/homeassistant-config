@@ -56,14 +56,14 @@
                                 until: '{{ state_attr("climate.thermostat", "target_temp_high")|int == states("input_number." + mode|lower + "_high")|int and state_attr("climate.thermostat", "target_temp_low")|int == states("input_number." + mode|lower + "_low")|int }}'
                             }
                         }
-                        // {
-                        //     alias: Change HVAC mode
-                        //     service: script.set_hvac_mode
-                        //     data:
-                        //     {
-                        //         hvac_mode: '{{ old_hvac_mode }}'
-                        //     }
-                        // }
+                        {
+                            alias: Change HVAC mode
+                            service: script.set_hvac_mode
+                            data:
+                            {
+                                hvac_mode: '{{ old_hvac_mode }}'
+                            }
+                        }
                     ]
                 }
                 {
@@ -93,14 +93,14 @@
                                 until: '{{ state_attr("climate.thermostat", "target_temp_high")|int == high|int and state_attr("climate.thermostat", "target_temp_low")|int == low|int }}'
                             }
                         }
-                        // {
-                        //     alias: Change HVAC mode
-                        //     service: script.set_hvac_mode
-                        //     data:
-                        //     {
-                        //         hvac_mode: '{{ old_hvac_mode }}'
-                        //     }
-                        // }
+                        {
+                            alias: Change HVAC mode
+                            service: script.set_hvac_mode
+                            data:
+                            {
+                                hvac_mode: '{{ old_hvac_mode }}'
+                            }
+                        }
                     ]
                 }
                 {
@@ -129,14 +129,14 @@
                                 until: '{{ state_attr("climate.thermostat", "target_temp_low")|int == low|int }}'
                             }
                         }
-                        // {
-                        //     alias: Change HVAC mode
-                        //     service: script.set_hvac_mode
-                        //     data:
-                        //     {
-                        //         hvac_mode: '{{ old_hvac_mode }}'
-                        //     }
-                        // }
+                        {
+                            alias: Change HVAC mode
+                            service: script.set_hvac_mode
+                            data:
+                            {
+                                hvac_mode: '{{ old_hvac_mode }}'
+                            }
+                        }
                     ]
                 }
                 {
@@ -165,14 +165,14 @@
                                 until: '{{ state_attr("climate.thermostat", "target_temp_high")|int == high|int }}'
                             }
                         }
-                        // {
-                        //     alias: Change HVAC mode
-                        //     service: script.set_hvac_mode
-                        //     data:
-                        //     {
-                        //         hvac_mode: '{{ old_hvac_mode }}'
-                        //     }
-                        // }
+                        {
+                            alias: Change HVAC mode
+                            service: script.set_hvac_mode
+                            data:
+                            {
+                                hvac_mode: '{{ old_hvac_mode }}'
+                            }
+                        }
                     ]
                 }
             ]

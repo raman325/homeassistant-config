@@ -7,10 +7,7 @@ fields:
     example: heat
 sequence:
 - condition: not
-  conditions:
-  - condition: state
-    entity_id: climate.thermostat
-    state: '{{ hvac_mode }}'
+  conditions: '{{ states("climate.thermostat") == hvac_mode }}'
 - repeat:
     sequence:
     - alias: Change thermostat mode
@@ -19,7 +16,4 @@ sequence:
         entity_id: climate.thermostat
         hvac_mode: '{{ hvac_mode }}'
     - delay: 2
-    until:
-    - condition: state
-      entity_id: climate.thermostat
-      state: '{{ hvac_mode }}'
+    until: '{{ states("climate.thermostat") == hvac_mode }}'
