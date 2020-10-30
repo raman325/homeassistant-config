@@ -24,11 +24,14 @@ sequence:
     sequence:
     - repeat:
         sequence:
+        - alias: Change HVAC mode
+          service: script.set_hvac_mode
+          data:
+            hvac_mode: heat_cool
         - alias: Change target temperatures
           service: climate.set_temperature
           data:
             entity_id: climate.thermostat
-            hvac_mode: heat_cool
             target_temp_high: '{{ states("input_number." + mode|lower + "_high") }}'
             target_temp_low: '{{ states("input_number." + mode|lower + "_low") }}'
         - delay: 2
@@ -43,11 +46,14 @@ sequence:
     sequence:
     - repeat:
         sequence:
+        - alias: Change HVAC mode
+          service: script.set_hvac_mode
+          data:
+            hvac_mode: heat_cool
         - alias: Change target temperatures
           service: climate.set_temperature
           data:
             entity_id: climate.thermostat
-            hvac_mode: heat_cool
             target_temp_high: '{{ high }}'
             target_temp_low: '{{ low }}'
         - delay: 2
@@ -61,11 +67,14 @@ sequence:
     sequence:
     - repeat:
         sequence:
+        - alias: Change HVAC mode
+          service: script.set_hvac_mode
+          data:
+            hvac_mode: heat_cool
         - alias: Change target temperatures
           service: climate.set_temperature
           data:
             entity_id: climate.thermostat
-            hvac_mode: heat_cool
             target_temp_low: '{{ low }}'
         - delay: 2
         until: '{{ state_attr("climate.thermostat", "target_temp_low")|int == low|int
@@ -78,11 +87,14 @@ sequence:
     sequence:
     - repeat:
         sequence:
+        - alias: Change HVAC mode
+          service: script.set_hvac_mode
+          data:
+            hvac_mode: heat_cool
         - alias: Change target temperatures
           service: climate.set_temperature
           data:
             entity_id: climate.thermostat
-            hvac_mode: heat_cool
             target_temp_high: '{{ high }}'
         - delay: 2
         until: '{{ state_attr("climate.thermostat", "target_temp_high")|int == high|int

@@ -6,8 +6,6 @@ fields:
     description: Target HVAC mode to set thermostat to.
     example: heat
 sequence:
-- condition: not
-  conditions: '{{ states("climate.thermostat") == hvac_mode }}'
 - repeat:
     sequence:
     - alias: Change thermostat mode
