@@ -2,6 +2,10 @@
     alias: Set Temperature
     description: Set the house target temperatures using either `input_select.home_mode` using the `mode` parameter or arbitrary high/low values using the `low` and `high` parameters
     mode: restart
+    variables:
+    {
+        old_hvac_mode: '{{ states("climate.thermostat") }}'
+    }
     fields:
     {
         mode:
@@ -52,6 +56,38 @@
                                 until: '{{ state_attr("climate.thermostat", "target_temp_high")|int == states("input_number." + mode|lower + "_high")|int and state_attr("climate.thermostat", "target_temp_low")|int == states("input_number." + mode|lower + "_low")|int }}'
                             }
                         }
+                        {
+                            choose:
+                            [
+                                {
+                                    conditions: '{{ states("climate.thermostat") != old_hvac_mode }}'
+                                    sequence:
+                                    [
+                                        {
+                                            repeat:
+                                            {
+                                                sequence:
+                                                [
+                                                    {
+                                                        alias: Change thermostat mode
+                                                        service: climate.set_hvac_mode
+                                                        data:
+                                                        {
+                                                            entity_id: climate.thermostat
+                                                            hvac_mode: '{{ old_hvac_mode }}'
+                                                        }
+                                                    }
+                                                    {
+                                                        delay: 2
+                                                    }
+                                                ]
+                                                until: '{{ states("climate.thermostat") == {{ old_hvac_mode }} }}'
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
                     ]
                 }
                 {
@@ -81,6 +117,38 @@
                                 until: '{{ state_attr("climate.thermostat", "target_temp_high")|int == high|int and state_attr("climate.thermostat", "target_temp_low")|int == low|int }}'
                             }
                         }
+                        {
+                            choose:
+                            [
+                                {
+                                    conditions: '{{ states("climate.thermostat") != old_hvac_mode }}'
+                                    sequence:
+                                    [
+                                        {
+                                            repeat:
+                                            {
+                                                sequence:
+                                                [
+                                                    {
+                                                        alias: Change thermostat mode
+                                                        service: climate.set_hvac_mode
+                                                        data:
+                                                        {
+                                                            entity_id: climate.thermostat
+                                                            hvac_mode: '{{ old_hvac_mode }}'
+                                                        }
+                                                    }
+                                                    {
+                                                        delay: 2
+                                                    }
+                                                ]
+                                                until: '{{ states("climate.thermostat") == {{ old_hvac_mode }} }}'
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
                     ]
                 }
                 {
@@ -109,6 +177,38 @@
                                 until: '{{ state_attr("climate.thermostat", "target_temp_low")|int == low|int }}'
                             }
                         }
+                        {
+                            choose:
+                            [
+                                {
+                                    conditions: '{{ states("climate.thermostat") != old_hvac_mode }}'
+                                    sequence:
+                                    [
+                                        {
+                                            repeat:
+                                            {
+                                                sequence:
+                                                [
+                                                    {
+                                                        alias: Change thermostat mode
+                                                        service: climate.set_hvac_mode
+                                                        data:
+                                                        {
+                                                            entity_id: climate.thermostat
+                                                            hvac_mode: '{{ old_hvac_mode }}'
+                                                        }
+                                                    }
+                                                    {
+                                                        delay: 2
+                                                    }
+                                                ]
+                                                until: '{{ states("climate.thermostat") == {{ old_hvac_mode }} }}'
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
                     ]
                 }
                 {
@@ -136,6 +236,38 @@
                                 ]
                                 until: '{{ state_attr("climate.thermostat", "target_temp_high")|int == high|int }}'
                             }
+                        }
+                        {
+                            choose:
+                            [
+                                {
+                                    conditions: '{{ states("climate.thermostat") != old_hvac_mode }}'
+                                    sequence:
+                                    [
+                                        {
+                                            repeat:
+                                            {
+                                                sequence:
+                                                [
+                                                    {
+                                                        alias: Change thermostat mode
+                                                        service: climate.set_hvac_mode
+                                                        data:
+                                                        {
+                                                            entity_id: climate.thermostat
+                                                            hvac_mode: '{{ old_hvac_mode }}'
+                                                        }
+                                                    }
+                                                    {
+                                                        delay: 2
+                                                    }
+                                                ]
+                                                until: '{{ states("climate.thermostat") == {{ old_hvac_mode }} }}'
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }
