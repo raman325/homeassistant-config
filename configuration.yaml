@@ -1,4 +1,5 @@
 config:
+default_config:
 history:
 logbook:
 map:

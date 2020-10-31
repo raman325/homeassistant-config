@@ -1,5 +1,6 @@
 {
     config: null
+    default_config: null
     history: null
     logbook: null
     map: null
