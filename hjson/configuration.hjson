@@ -25,6 +25,13 @@
 				type: homeassistant
 			}
 		]
+        media_dirs:
+        {
+            downloads: /Downloads
+            music: /Music
+            pictures: /Pictures
+            videos: /Videos
+        }
     }
     http: !include http.yaml
     discovery: !include discovery.yaml
