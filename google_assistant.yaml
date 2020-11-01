@@ -5,10 +5,12 @@ expose_by_default: true
 secure_devices_pin: !secret 'pin_google_assistant'
 exposed_domains:
 - climate
+- group
 - input_select
 - light
 - lock
 - media_player
+- script
 - switch
 entity_config:
   climate.general_thermostat_v2_mode_2:

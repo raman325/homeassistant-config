@@ -8,10 +8,12 @@
     exposed_domains:
     [
         climate
+        group
         input_select
         light
         lock
         media_player
+        script
         switch
     ]
     entity_config:
