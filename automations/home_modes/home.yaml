@@ -5,6 +5,6 @@ trigger:
   entity_id: input_select.home_mode
   to: Home
 action:
-- service: script.set_temperature
+- service: pyscript.set_temperature
   data:
     mode: home

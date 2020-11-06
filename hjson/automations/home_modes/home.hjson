@@ -10,7 +10,7 @@
     action:
     [
         {
-            service: script.set_temperature
+            service: pyscript.set_temperature
             data:
             {
                 mode: home

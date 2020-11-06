@@ -13,7 +13,7 @@
             service: script.lock_down
         }
         {
-            service: script.set_temperature
+            service: pyscript.set_temperature
             data:
             {
                 mode: away
