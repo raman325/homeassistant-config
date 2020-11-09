@@ -93,6 +93,15 @@ def set_temperature(mode: str = None, low: float = None, high: float = None):
                     state.get(f"input_number.{mode}_high"),
                 )
                 set_hvac_mode(old_hvac_mode)
+            elif climate.thermostat == "off":
+                set_hvac_mode("heat")
+                for _ in range(0, 2):
+                    if climate.thermostat == "heat":
+                        _set_temp(state.get(f"input_number.{mode}_low"))
+                        set_hvac_mode("cool")
+                    else:
+                        _set_temp(state.get(f"input_number.{mode}_high"))
+                set_hvac_mode("off")
             else:
                 for _ in range(0, 2):
                     if climate.thermostat == "heat":
@@ -110,6 +119,15 @@ def set_temperature(mode: str = None, low: float = None, high: float = None):
             if climate.thermostat == "heat_cool":
                 _set_temp_heat_cool(low, high)
                 set_hvac_mode(old_hvac_mode)
+            elif climate.thermostat == "off":
+                set_hvac_mode("heat")
+                for _ in range(0, 2):
+                    if climate.thermostat == "heat":
+                        _set_temp(low)
+                        set_hvac_mode("cool")
+                    else:
+                        _set_temp(high)
+                set_hvac_mode("off")
             else:
                 for _ in range(0, 2):
                     if climate.thermostat == "heat":
@@ -126,6 +144,10 @@ def set_temperature(mode: str = None, low: float = None, high: float = None):
             set_hvac_mode("cool")
         elif climate.thermostat == "heat":
             _set_temp(low)
+        elif climate.thermostat == "off":
+                set_hvac_mode("heat")
+                _set_temp(low)
+                set_hvac_mode("off")
         else:
             _set_temp_heat_cool_only_one("low", low)
 
@@ -136,6 +158,10 @@ def set_temperature(mode: str = None, low: float = None, high: float = None):
             set_hvac_mode("cool")
             _set_temp(high)
             set_hvac_mode("heat")
+        elif climate.thermostat == "off":
+                set_hvac_mode("cool")
+                _set_temp(high)
+                set_hvac_mode("off")
         else:
             _set_temp_heat_cool_only_one("high", high)
 
