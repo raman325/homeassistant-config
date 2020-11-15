@@ -16,9 +16,12 @@ condition:
   - condition: state
     entity_id: binary_sensor.living_room_motion
     state: 'off'
-    for: 00:10:00
+    for: 00:20:00
 action:
-  service: input_select.select_option
+- service: input_select.select_option
   data:
     entity_id: input_select.home_mode
     option: Night
+- service: automation.turn_off
+  data:
+    entity_id: automation.routine_night
