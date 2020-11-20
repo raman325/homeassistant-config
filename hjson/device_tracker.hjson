@@ -7,21 +7,6 @@
             track_new_devices: false
         }
     }
-    // {
-    //     platform: icloud3
-    //     username: !secret user_icloud_raman
-    //     password: !secret pass_icloud_raman
-    //     account_name: raman_icloud
-    //     include_device_type: iphone
-    //     sensor_name_prefix:
-	// 	[
-	// 		ramans_iphone @ icloud_ramansiphone
-	// 	]
-    //     unit_of_measurement: mi
-    //     distance_method: waze
-    //     waze_realtime: true
-    //     waze_region: US
-    // }
     {
         platform: mqtt
         devices:
