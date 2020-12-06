@@ -33,6 +33,7 @@
             pictures: /Pictures
             videos: /Videos
         }
+        packages: !include_dir_named packages
     }
     http: !include http.yaml
     discovery: !include discovery.yaml
