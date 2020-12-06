@@ -1,10 +1,10 @@
 input_boolean:
   allow_automation_execution:
     name: Allow Automation
-    initial: 'off'
+    initial: false
   system_ready:
     name: System Ready
-    initial: 'off'
+    initial: false
 binary_sensor:
 - platform: mqtt
   name: ozw_network_status
