@@ -48,7 +48,3 @@
   name: shodan
   api_key: !secret 'api_shodan'
   query: 8.3.80.33
-- platform: zestimate
-  api_key: !secret 'api_zillow'
-  zpid:
-  - !secret 'zpid_home'
