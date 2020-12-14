@@ -113,13 +113,9 @@ def set_temperature(mode: str = None, low: float = None, high: float = None):
                 set_hvac_mode(HVAC_MODE_OFF)
             else:
                 current_mode, current_target, other_mode, other_target = (
-                    HVAC_MODE_HEAT,
-                    "low",
-                    HVAC_MODE_COOL,
-                    "high" if climate.thermostat == HVAC_MODE_HEAT else HVAC_MODE_COOL,
-                    "high",
-                    HVAC_MODE_HEAT,
-                    "low",
+                    (HVAC_MODE_HEAT, "low", HVAC_MODE_COOL, "high")
+                    if climate.thermostat == HVAC_MODE_HEAT
+                    else (HVAC_MODE_COOL, "high", HVAC_MODE_HEAT, "low")
                 )
                 _set_temp(state.get(f"input_number.{mode}_{current_target}"))
                 set_hvac_mode(other_mode)
@@ -155,13 +151,9 @@ def set_temperature(mode: str = None, low: float = None, high: float = None):
             else:
                 old_hvac_mode = climate.thermostat
                 current_mode, current_target, other_mode, other_target = (
-                    HVAC_MODE_HEAT,
-                    low,
-                    HVAC_MODE_COOL,
-                    high if climate.thermostat == HVAC_MODE_HEAT else HVAC_MODE_COOL,
-                    high,
-                    HVAC_MODE_HEAT,
-                    low,
+                    (HVAC_MODE_HEAT, low, HVAC_MODE_COOL, high)
+                    if climate.thermostat == HVAC_MODE_HEAT
+                    else (HVAC_MODE_COOL, high, HVAC_MODE_HEAT, low)
                 )
                 _set_temp(current_target)
                 set_hvac_mode(other_mode)
