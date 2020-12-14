@@ -78,4 +78,5 @@
     pyscript: !include pyscript.yaml
     spotcast: !include spotcast.yaml
     xbox: !include xbox.yaml
+    folder_watcher: !include folder_watcher.yaml
 }
