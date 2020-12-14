@@ -20,6 +20,10 @@
         external_url: !secret external_url
         internal_url: !secret internal_url
         customize: !include customize.yaml
+        allowlist_external_dirs:
+        [
+            /config/pyscript
+        ]
 		auth_providers:
 		[
 			{
