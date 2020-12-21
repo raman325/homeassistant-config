@@ -33,7 +33,7 @@ def set_hvac_mode(hvac_mode: str = None):
     num = 0
 
     while num <= 3 and climate.thermostat != hvac_mode:
-        climate.set_hvac_mode(entity_id="climate.thermostat", hvac_mode=hvac_mode)
+        climate.thermostat.set_hvac_mode(hvac_mode=hvac_mode)
         num += 1
         task.sleep(HVAC_MODE_TIMEOUT)
 
@@ -44,7 +44,7 @@ def set_hvac_mode(hvac_mode: str = None):
 def _set_temp(temp: float):
     """Set temperature when HVAC is in heat orcool mode."""
     while float(climate.thermostat.temperature) != float(temp):
-        climate.set_temperature(entity_id="climate.thermostat", temperature=float(temp))
+        climate.thermostat.set_temperature(temperature=float(temp))
         task.sleep(SET_TEMP_TIMEOUT)
 
 
@@ -53,8 +53,7 @@ def _set_temp_heat_cool(low: float, high: float):
     while float(climate.thermostat.target_temp_low) != float(low) or float(
         climate.thermostat.target_temp_high
     ) != float(high):
-        climate.set_temperature(
-            entity_id="climate.thermostat",
+        climate.thermostat.set_temperature(
             target_temp_low=float(low),
             target_temp_high=float(high),
         )
@@ -64,9 +63,7 @@ def _set_temp_heat_cool(low: float, high: float):
 def _set_temp_heat_cool_only_one(target: str, temp: float):
     """Set only one target temp when HVAC is in heat_cool mode."""
     while float(state.get(f"climate.thermostat.target_temp_{target}")) != float(temp):
-        climate.set_temperature(
-            **{"entity_id": "climate.thermostat", f"target_temp_{target}": float(temp)}
-        )
+        climate.thermostat.set_temperature(**{f"target_temp_{target}": float(temp)})
         task.sleep(SET_TEMP_TIMEOUT)
 
 

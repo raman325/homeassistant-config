@@ -10,7 +10,7 @@
     action:
     [
         {
-            service: script.lock_down
+            service: pyscript.lock_down
         }
         {
             service: pyscript.set_temperature
