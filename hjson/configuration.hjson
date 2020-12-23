@@ -30,13 +30,13 @@
 				type: homeassistant
 			}
 		]
-        media_dirs:
-        {
-            downloads: /Downloads
-            music: /Music
-            pictures: /Pictures
-            videos: /Videos
-        }
+        // media_dirs:
+        // {
+        //     downloads: /Downloads
+        //     music: /Music
+        //     pictures: /Pictures
+        //     videos: /Videos
+        // }
         packages: !include_dir_named packages
     }
     http: !include http.yaml
