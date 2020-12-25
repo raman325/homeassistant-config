@@ -67,7 +67,8 @@
     {
         platform: version
         name: available_ha_version
-        source: docker
+        source: hassio
+        image: odroid-n2
     }
 	{
 		platform: shodan
