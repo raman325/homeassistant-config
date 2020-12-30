@@ -65,7 +65,8 @@
     automation: !include automations.yaml
     "automation split": !include_dir_list automations
     scene: !include scenes.yaml
-    script: !include_dir_named scripts
+    "script split": !include_dir_named scripts
+    script: !include scripts.yaml
     zone: !include zones.yaml
     fontawesome: !include fontawesome.yaml
     python_script: null
