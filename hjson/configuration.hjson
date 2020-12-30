@@ -82,4 +82,5 @@
     spotcast: !include spotcast.yaml
     xbox: !include xbox.yaml
     folder_watcher: !include folder_watcher.yaml
+    tuya: !include tuya.yaml
 }
