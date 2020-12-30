@@ -16,3 +16,39 @@
   name: Bedroom FireTV
   host: !secret 'host_bedroom_firetv'
   adbkey: /config/android/adbkey
+- platform: universal
+  name: Living Room Caavo
+  commands:
+    turn_on:
+      service: rest_command.caavo
+      data:
+        command: turn on
+    turn_off:
+      service: rest_command.caavo
+      data:
+        command: turn off
+    select_source:
+      service: rest_command.caavo
+      data:
+        command: switch to {{ source }}
+    volume_up:
+      service: rest_command.caavo
+      data:
+        command: increase the volume
+    volume_down:
+      service: rest_command.caavo
+      data:
+        command: decrease the volume
+    media_play:
+      service: rest_command.caavo
+      data:
+        command: play
+    media_pause:
+      service: rest_command.caavo
+      data:
+        command: pause
+  attributes:
+    state: media_player.living_room_tv
+    source_list: input_select.living_room_sources|options
+    volume_level: media_player.living_room_tv|volume_level
+    is_volume_muted: media_player.living_room_tv|is_volume_muted
