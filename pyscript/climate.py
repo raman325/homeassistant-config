@@ -85,6 +85,17 @@ def set_temperature(mode: str = None, low: float = None, high: float = None):
     task.unique("set_temperature", kill_me=False)
     old_hvac_mode = climate.thermostat
 
+    # Hack to fix thermostat if it isn't reporting properly
+    try:
+        if old_hvac_mode == HVAC_MODE_HEAT_COOL:
+            _ = climate.thermostat.target_temp_high
+            _ = climate.thermostat.target_temp_low
+        elif old_hvac_mode in (HVAC_MODE_COOL, HVAC_MODE_HEAT):
+            _ = climate.thermostat.temperature
+    except AttributeError:
+        set_hvac_mode(HVAC_MODE_OFF)
+        set_hvac_mode(old_hvac_mode)
+
     if mode:
         if climate.thermostat == HVAC_MODE_HEAT_COOL:
             _set_temp_heat_cool(
