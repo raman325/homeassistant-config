@@ -1,3 +1,7 @@
+packages/keymaster
+esphome/*
+!esphome/*.yaml
+
 # Ignore folders.
 .storage
 .cloud

@@ -1,0 +1,84 @@
+substitutions:
+  device_name: sherene_electric_blanket_plug
+  friendly_name: "Sherene Electric Blanket Plug"
+
+esphome:
+  name: "${device_name}"
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "${friendly_name}"
+    password: !secret wifi_fallback_pw
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  services:
+    - service: restart
+      then:
+        - switch.turn_off: "${device_name}_switch"
+        - delay: 2s
+        - switch.turn_on: "${device_name}_switch"
+
+ota:
+  password: !secret ota
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO13
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "${friendly_name} Button"
+    id: "${device_name}_button"
+    on_press:
+      - switch.toggle: "${device_name}_switch"
+  - platform: status
+    name: "${friendly_name} Status"
+    id: "${device_name}_status"
+
+switch:
+  - platform: gpio
+    name: "${friendly_name} Switch"
+    id: "${device_name}_switch"
+    pin: GPIO15
+    on_turn_on:
+      - output.turn_on: led
+    on_turn_off:
+      - output.turn_off: led
+
+status_led:
+  pin:
+    number: GPIO0
+    inverted: yes
+
+output:
+  - platform: gpio
+    pin: GPIO2
+    inverted: true
+    id: led
+
+sensor:
+  - platform: wifi_signal
+    name: "${friendly_name} WiFi signal"
+    id: "${device_name}_wifi_signal"
+    update_interval: 60s
+  - platform: uptime
+    name: "${friendly_name} Uptime"
+    id: "${device_name}_uptime"
+    update_interval: 60s
+
+text_sensor:
+  - platform: version
+    name: "${friendly_name} ESPHome Version"
+    id: "${device_name}_esphome_version"
