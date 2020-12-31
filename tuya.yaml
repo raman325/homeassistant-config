@@ -1,3 +1,0 @@
-username: !secret 'user_tuya'
-password: !secret 'pass_tuya'
-country_code: 1
