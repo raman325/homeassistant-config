@@ -1,5 +1,10 @@
+from homeassistant.const import EVENT_HOMEASSISTANT_STARTED, STATE_ON
+
+SHERENE_BLANKET_PLUG = "switch.sherene_electric_blanket_plug"
+
+
 @service
-def preheat_bed(entity_id: str = "switch.sherene_electric_blanket_plug", minutes: float = 30):
+def preheat_bed(entity_id: str = SHERENE_BLANKET_PLUG, minutes: float = 30):
     """yaml
     description: Preheats Sherene's side of the bed by turning on the electric blanket temporarily
     fields:
@@ -17,3 +22,11 @@ def preheat_bed(entity_id: str = "switch.sherene_electric_blanket_plug", minutes
     switch.turn_on(entity_id=entity_id)
     task.sleep(minutes * 60)
     switch.turn_off(entity_id=entity_id)
+
+
+@event_trigger(EVENT_HOMEASSISTANT_STARTED)
+def turnoff_preheat_bed_on_restart():
+    """Turns blanket off if HA was restarted."""
+    entity_id = SHERENE_BLANKET_PLUG
+    if state.get(entity_id) == STATE_ON:
+        switch.turn_off(entity_id=entity_id)
