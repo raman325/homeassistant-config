@@ -13,7 +13,8 @@ action:
 - service: pyscript.set_slack_status
   data:
     token: !secret 'token_slack'
-    status_text: On a Call
+    status_text: '{{ trigger.to_state.attributes[''status''] | replace(''_'', '' '')
+      }}'
     status_emoji: ':x:'
 - service: input_boolean.turn_on
   entity_id: input_boolean.zoom_dnd_raman

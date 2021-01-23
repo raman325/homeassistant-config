@@ -21,7 +21,7 @@
             data:
             {
                 token: !secret token_slack
-                status_text: "On a Call"
+                status_text: "{{ trigger.to_state.attributes['status'] | replace('_', ' ') }}"
                 status_emoji: ":x:"
             }
         }

@@ -22,11 +22,3 @@ def preheat_bed(entity_id: str = SHERENE_BLANKET_PLUG, minutes: float = 30):
     switch.turn_on(entity_id=entity_id)
     task.sleep(minutes * 60)
     switch.turn_off(entity_id=entity_id)
-
-
-@event_trigger(EVENT_HOMEASSISTANT_STARTED)
-def turnoff_preheat_bed_on_restart():
-    """Turns blanket off if HA was restarted."""
-    entity_id = SHERENE_BLANKET_PLUG
-    if state.get(entity_id) == STATE_ON:
-        switch.turn_off(entity_id=entity_id)
