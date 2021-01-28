@@ -1,0 +1,29 @@
+{
+    name: Home
+    latitude: !secret lat_home
+    longitude: !secret long_home
+    elevation: !secret elevation_home
+    unit_system: imperial
+    time_zone: America/New_York
+    external_url: !secret external_url
+    internal_url: !secret internal_url
+    customize: !include customize.yaml
+    allowlist_external_dirs:
+    [
+        /config/pyscript
+    ]
+    auth_providers:
+    [
+        {
+            type: homeassistant
+        }
+    ]
+    // media_dirs:
+    // {
+    //     downloads: /Downloads
+    //     music: /Music
+    //     pictures: /Pictures
+    //     videos: /Videos
+    // }
+    packages: !include_dir_named packages
+}
