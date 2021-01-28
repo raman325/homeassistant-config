@@ -1,0 +1,12 @@
+id: misc_turn_off_blanket_on_time_trigger
+alias: 'Misc: Turn Off Blanket on Time Trigger'
+trigger:
+  platform: time
+  at: input_datetime.sherene_electric_blanket_plug
+condition:
+  condition: state
+  entity_id: switch.sherene_electric_blanket_plug
+  state: 'on'
+action:
+- service: switch.turn_off
+  entity_id: switch.sherene_electric_blanket_plug

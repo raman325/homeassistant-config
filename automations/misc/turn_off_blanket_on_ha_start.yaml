@@ -4,9 +4,13 @@ trigger:
   platform: homeassistant
   event: start
 condition:
-  condition: state
-  entity_id: switch.sherene_electric_blanket_plug
-  state: 'on'
+  condition: and
+  conditions:
+  - condition: state
+    entity_id: switch.sherene_electric_blanket_plug
+    state: 'on'
+  - '{{ now() | as_timestamp > strptime(states(''input_datetime.sherene_electric_blanket_plug''),
+    ''%Y-%m-%d %H:%M:%S'') | as_timestamp }}'
 action:
 - service: switch.turn_off
   entity_id: switch.sherene_electric_blanket_plug
