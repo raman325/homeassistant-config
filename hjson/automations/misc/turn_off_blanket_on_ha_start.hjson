@@ -3,8 +3,8 @@
     alias: Misc: Turn Off Blanket on HA Start
     trigger:
     {
-        platform: event
-        event_type: homeassistant_started
+        platform: homeassistant
+        event: start
     }
     condition:
     {
