@@ -1,4 +1,4 @@
-id: no_hacs_updates
+id: hacs_updates_completed
 alias: 'Notify: HACS updates completed'
 trigger:
   platform: state
