@@ -1,9 +1,9 @@
 id: hacs_updates_available
 alias: 'Notify: HACS updates available'
 trigger:
-  platform: numeric_state
+  platform: state
   entity_id: sensor.hacs
-  above: 0
+condition: '{{ states("sensor.hacs") | int > 3 }}'
 action:
 - service: persistent_notification.create
   data:
