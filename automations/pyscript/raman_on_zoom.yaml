@@ -5,10 +5,6 @@ trigger:
   entity_id: binary_sensor.zoom_raman
   from: 'off'
   to: 'on'
-condition:
-  condition: state
-  entity_id: input_boolean.zoom_dnd_raman
-  state: 'off'
 action:
 - service: pyscript.set_slack_status
   data:
@@ -19,5 +15,3 @@ action:
       status == ''In_Meeting'' %}:zoom:{% elif status == ''On_Phone_Call'' %}:phone:{%
       elif status == ''In_Calendar_Event'' %}:calendar:{% elif status == ''Presenting''
       %}:bar_chart:{% else %}:no_entry:{% endif %}'
-- service: input_boolean.turn_on
-  entity_id: input_boolean.zoom_dnd_raman

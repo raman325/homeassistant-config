@@ -7,13 +7,7 @@
         entity_id: binary_sensor.zoom_raman
         from: on
         to: off
-        for: 00:01:00
-    }
-    condition:
-    {
-        condition: state
-        entity_id: input_boolean.zoom_dnd_raman
-        state: on
+        for: 00:00:15
     }
     action:
     [
@@ -25,10 +19,6 @@
                 status_text: null
                 status_emoji: null
             }
-        }
-        {
-            service: input_boolean.turn_off
-            entity_id: input_boolean.zoom_dnd_raman
         }
     ]
 }

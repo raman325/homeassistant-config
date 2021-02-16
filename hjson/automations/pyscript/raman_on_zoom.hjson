@@ -8,12 +8,6 @@
         from: off
         to: on
     }
-    condition:
-    {
-        condition: state
-        entity_id: input_boolean.zoom_dnd_raman
-        state: off
-    }
     action:
     [
         {
@@ -24,10 +18,6 @@
                 status_text: "{{ trigger.to_state.attributes['status'] | replace('_', ' ') }}"
                 status_emoji: "{% set status = trigger.to_state.attributes['status'] %}{% if status == 'In_Meeting' %}:zoom:{% elif status == 'On_Phone_Call' %}:phone:{% elif status == 'In_Calendar_Event' %}:calendar:{% elif status == 'Presenting' %}:bar_chart:{% else %}:no_entry:{% endif %}"
             }
-        }
-        {
-            service: input_boolean.turn_on
-            entity_id: input_boolean.zoom_dnd_raman
         }
     ]
 }
