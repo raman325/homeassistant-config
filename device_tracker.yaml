@@ -1,7 +1,3 @@
-- platform: asuswrt
-  interval_seconds: 30
-  new_device_defaults:
-    track_new_devices: false
 - platform: mqtt
   devices:
     monitor_raman: monitor/monitor/raman/device_tracker

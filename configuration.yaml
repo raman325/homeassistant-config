@@ -28,7 +28,6 @@ rest_command: !include 'rest_command.yaml'
 notify: !include 'notify.yaml'
 hacs: !include 'hacs.yaml'
 breaking_changes:
-asuswrt: !include 'asuswrt.yaml'
 nzbget: !include 'nzbget.yaml'
 transmission: !include 'transmission.yaml'
 tts: !include 'tts.yaml'
