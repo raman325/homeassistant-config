@@ -2,7 +2,7 @@ from slack import WebClient
 
 
 @service
-async def set_slack_status(token: str, status_text: str, status_emoji: str) -> None:
+async def set_slack_status(token: str, status_text: str = None, status_emoji: str = None) -> None:
     """yaml
     description: Updates a user's Slack status.
     fields:
@@ -15,7 +15,6 @@ async def set_slack_status(token: str, status_text: str, status_emoji: str) -> N
         status_text:
             description: The text that appears on hover. Set to empty string to clear the status.
             example: On a Call
-            required: true
             selector:
                 text:
         status_emoji:
@@ -24,7 +23,11 @@ async def set_slack_status(token: str, status_text: str, status_emoji: str) -> N
             selector:
                 text:
     """
+    if (status_text or status_emoji) is None:
+        raise ValueError("Must provide either `status_text` or `status_emoji`")
+
     client = WebClient(token=token, run_async=True)
+    data = {"status_text": status_text, "status_emoji": status_emoji}
     await client.users_profile_set(
-        profile={"status_text": status_text, "status_emoji": status_emoji}
+        profile={key: value for key, value in data.items() if value is not None}
     )
