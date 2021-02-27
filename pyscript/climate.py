@@ -4,6 +4,7 @@ from homeassistant.components.climate import (
     HVAC_MODE_HEAT_COOL,
     HVAC_MODE_OFF,
 )
+from homeassistant.helpers import config_validation as cv
 
 MODES = [HVAC_MODE_COOL, HVAC_MODE_HEAT, HVAC_MODE_HEAT_COOL, HVAC_MODE_OFF]
 
@@ -13,13 +14,14 @@ SET_TEMP_TIMEOUT = CLIMATE_TIMEOUT
 
 
 @service
-def set_hvac_mode(hvac_mode: str = None):
+def set_hvac_mode(hvac_mode: str):
     """yaml
     description: Set the house HVAC mode
     fields:
         hvac_mode:
             description: Target HVAC mode to set thermostat to [heat, cool, heat_cool, off].
             example: heat
+            required: true
             selector:
                 select:
                     options:
@@ -222,6 +224,3 @@ def set_temperature(mode: str = None, low: float = None, high: float = None):
             set_hvac_mode(HVAC_MODE_OFF)
         else:
             _set_temp_heat_cool_only_one("high", high)
-
-    else:
-        raise ValueError("At least one parameter must be provided.")
