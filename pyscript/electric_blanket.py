@@ -13,9 +13,15 @@ def preheat_bed(entity_name: str = SHERENE_BLANKET_PLUG, minutes: float = 30):
         entity_name:
             description: Optional entity name of switch and input_datetime that controls the heat for the bed and the time when it shuts off. Defaults to example.
             example: sherene_electric_blanket_plug
+            selector:
+                text:
         minutes:
             description: Number of minutes to run the electric blanket.
             example: 30
+            selector:
+                number:
+                    min: 15
+                    max: 120
     """
 
     switch_entity = f"switch.{entity_name}"

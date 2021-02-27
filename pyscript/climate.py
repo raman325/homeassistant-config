@@ -20,6 +20,13 @@ def set_hvac_mode(hvac_mode: str = None):
         hvac_mode:
             description: Target HVAC mode to set thermostat to [heat, cool, heat_cool, off].
             example: heat
+            selector:
+                select:
+                    options:
+                        - heat
+                        - cool
+                        - heat_cool
+                        - off
     """
     task.unique("set_hvac_mode", kill_me=False)
     if hvac_mode not in MODES:
@@ -75,12 +82,26 @@ def set_temperature(mode: str = None, low: float = None, high: float = None):
         mode:
             description: Used to determine which `input_number` target temperatures to use [home, away, night]. Takes precedence over `low` and `high`.
             example: away
+            selector:
+                select:
+                    options:
+                        - home
+                        - away
+                        - night
         low:
             description: Target low temperature. Either this or `high` (or both) are required when `mode` isn't provided.
             example: 70
+            selector:
+                number:
+                    min: 60
+                    max: 80
         high:
             description: Target high temperature. Either this or `low` (or both) are required when `mode` isn't provided.
             example: 75
+            selector:
+                number:
+                    min: 60
+                    max: 80
     """
     task.unique("set_temperature", kill_me=False)
     old_hvac_mode = climate.thermostat

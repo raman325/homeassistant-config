@@ -9,12 +9,18 @@ async def set_slack_status(token: str, status_text: str, status_emoji: str) -> N
         token:
             description: OAuth Access Token obtained from your custom Slack app
             example: xoxp-xxxxxxxxxxxxx-xxxxxxxxxxxxx-xxxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            selector:
+                text:
         status_text:
             description: The text that appears on hover. Set to empty string to clear the status.
             example: On a Call
+            selector:
+                text:
         status_emoji:
             description: The code for the emoji that will appear next to your name. Set to empty string to clear the status.
             example: ":x:"
+            selector:
+                text:
     """
     client = WebClient(token=token, run_async=True)
     await client.users_profile_set(
