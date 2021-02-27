@@ -4,6 +4,7 @@ from slack import WebClient
 @service
 async def set_slack_status(token: str, status_text: str = None, status_emoji: str = None) -> None:
     """yaml
+    name: Update Slack status
     description: Updates a user's Slack status.
     fields:
         token:

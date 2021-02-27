@@ -8,6 +8,7 @@ SHERENE_BLANKET_PLUG = "sherene_electric_blanket_plug"
 @service
 def preheat_bed(entity_name: str = SHERENE_BLANKET_PLUG, minutes: float = 30):
     """yaml
+    name: Preheat the bed
     description: Preheats Sherene's side of the bed by turning on the electric blanket temporarily
     fields:
         entity_name:

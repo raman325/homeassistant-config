@@ -16,6 +16,7 @@ SET_TEMP_TIMEOUT = CLIMATE_TIMEOUT
 @service
 def set_hvac_mode(hvac_mode: str):
     """yaml
+    name: Set house HVAC mode
     description: Set the house HVAC mode
     fields:
         hvac_mode:
@@ -79,6 +80,7 @@ def _set_temp_heat_cool_only_one(target: str, temp: float):
 @service
 def set_temperature(mode: str = None, low: float = None, high: float = None):
     """yaml
+    name: Set house temperature
     description: Set the house target low and high temperatures
     fields:
         mode:
