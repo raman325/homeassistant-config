@@ -2,7 +2,9 @@ from slack import WebClient
 
 
 @service
-async def set_slack_status(token: str, status_text: str = None, status_emoji: str = None) -> None:
+async def set_slack_status(
+    token: str, status_text: str = None, status_emoji: str = None
+) -> None:
     """yaml
     name: Update Slack status
     description: Updates a user's Slack status.
@@ -26,7 +28,6 @@ async def set_slack_status(token: str, status_text: str = None, status_emoji: st
     """
 
     client = WebClient(token=token, run_async=True)
-    data = {"status_text": status_text, "status_emoji": status_emoji}
     await client.users_profile_set(
-        profile={key: value for key, value in data.items() if value is not None}
+        profile={"status_text": status_text, "status_emoji": status_emoji}
     )

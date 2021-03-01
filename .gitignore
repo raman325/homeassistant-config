@@ -148,3 +148,6 @@ ENV/
 
 # IDE settings
 .vscode/
+
+# Additional selective things to include
+!requirements*.txt

@@ -33,4 +33,7 @@ def preheat_bed(entity_name: str = SHERENE_BLANKET_PLUG, minutes: float = 30):
 
     switch_off_time = dt.now() + timedelta(minutes=minutes)
     switch.turn_on(entity_id=switch_entity)
-    input_datetime.set_datetime(entity_id=input_dt_entity, datetime=switch_off_time.strftime("%Y-%m-%d %H:%M:%S"))
+    input_datetime.set_datetime(
+        entity_id=input_dt_entity,
+        datetime=switch_off_time.strftime("%Y-%m-%d %H:%M:%S"),
+    )

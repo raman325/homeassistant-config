@@ -1,0 +1,5 @@
+black
+hjson
+homeassistant
+isort
+slack_sdk
