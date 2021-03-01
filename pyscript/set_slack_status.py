@@ -24,8 +24,6 @@ async def set_slack_status(token: str, status_text: str = None, status_emoji: st
             selector:
                 text:
     """
-    if (status_text or status_emoji) is None:
-        raise ValueError("Must provide either `status_text` or `status_emoji`")
 
     client = WebClient(token=token, run_async=True)
     data = {"status_text": status_text, "status_emoji": status_emoji}
