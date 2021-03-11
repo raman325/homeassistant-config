@@ -1,0 +1,7 @@
+[
+	{
+		platform: wake_on_lan
+		mac: "34:2F:BD:5E:3D:12"
+        name: Nintendo Switch
+	}
+]

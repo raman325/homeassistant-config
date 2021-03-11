@@ -22,6 +22,7 @@
     frontend: !include frontend.yaml
     sensor: !include sensor.yaml
     media_player: !include media_player.yaml
+    switch: !include switch.yaml
     vizio: !include vizio.yaml
     pi_hole: !include pihole.yaml
     device_tracker: !include device_tracker.yaml
@@ -54,4 +55,5 @@
     spotcast: !include spotcast.yaml
     xbox: !include xbox.yaml
     folder_watcher: !include folder_watcher.yaml
+    wake_on_lan: null
 }
