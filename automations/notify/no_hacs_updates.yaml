@@ -3,7 +3,7 @@ alias: 'Notify: HACS updates completed'
 trigger:
   platform: state
   entity_id: sensor.hacs
-condition: '{{ states("sensor.hacs")|int == 0 }}'
+condition: '{{ states("sensor.hacs") | int == 0 }}'
 action:
 - service: persistent_notification.dismiss
   data:

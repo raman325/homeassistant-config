@@ -6,7 +6,7 @@
         platform: state
         entity_id: sensor.hacs
     }
-    condition: '{{ states("sensor.hacs") | int > 3 }}'
+    condition: '{{ states("sensor.hacs") | int > 0 }}'
     action:
     [
         {
