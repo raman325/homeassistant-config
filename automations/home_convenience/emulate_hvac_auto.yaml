@@ -1,0 +1,28 @@
+id: emulate_hvac_auto
+alias: 'Home Convenience: Emulate HVAC Auto'
+trigger:
+  platform: time_pattern
+  minutes: /15
+condition:
+- condition: or
+  conditions:
+  - '{{ states(''climate.thermostat'') == ''heat'' and state_attr(''climate.thermostat'',
+    ''current_temperature'') | int > states(''input_number.'' + (states(''input_select.home_mode'')
+    | lower) + ''_high'') | int }} '
+  - '{{ states(''climate.thermostat'') == ''cool'' and state_attr(''climate.thermostat'',
+    ''current_temperature'') | int < states(''input_number.'' + (states(''input_select.home_mode'')
+    | lower) + ''_low'') | int }} '
+action:
+- choose:
+  - alias: HVAC needs to flip from heat to cool
+    conditions: '{{ states(''climate.thermostat'') == ''heat'' }}'
+    sequence:
+    - service: pyscript.set_hvac_mode
+      data:
+        hvac_mode: cool
+  - alias: HVAC needs to flip from cool to heat
+    conditions: '{{ states(''climate.thermostat'') == ''cool'' }}'
+    sequence:
+    - service: pyscript.set_hvac_mode
+      data:
+        hvac_mode: heat

@@ -1,21 +1,18 @@
 {
     id: home_mode_away
     alias: Home Mode: Away
-    trigger:
-    {
+    trigger: {
         platform: state
         entity_id: input_select.home_mode
         to: Away
     }
-    action:
-    [
+    action: [
         {
             service: pyscript.lock_down
         }
         {
             service: pyscript.set_temperature
-            data:
-            {
+            data: {
                 mode: away
             }
         }
