@@ -1,13 +1,18 @@
 [
     {
         platform: nfandroidtv
-        name: Living Room
+        name: Living Room TV
         host: !secret host_living_room_shield
     }
     {
         platform: nfandroidtv
-        name: Bedroom
+        name: Bedroom TV
         host: !secret host_bedroom_firetv
+    }
+    {
+        platform: kodi
+        name: Living Room Kodi
+        host: !secret host_living_room_shield
     }
     {
         platform: slack
