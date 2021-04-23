@@ -28,9 +28,10 @@ action:
     message: Do you want to lock it?
     data:
       tag: lock-door-after-leaving
+      action_data:
+        entity_id: lock.front_door
       actions:
       - action: lock-door
         title: Yes!
-        uri: homeassistant://call_service/lock.lock?entity_id=lock.front_door
       - action: no-action
         title: 'No'
