@@ -1,0 +1,11 @@
+id: mobile_lock_door
+alias: 'Mobile: Lock a door'
+trigger:
+  platform: event
+  event_type: mobile_app_notification_action
+  event_data:
+    action: lock-door
+action:
+  service: lock.lock
+  target:
+    entity_id: '{{ trigger.event.data.action_data.entity_id }}'

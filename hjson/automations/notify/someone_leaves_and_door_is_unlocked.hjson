@@ -1,0 +1,70 @@
+{
+    id: notify_someone_leaves_and_door_is_unlocked
+    alias: Notify: Someone leaves and door is unlocked
+    trigger:
+    {
+        platform: state
+        entity_id: person.raman, person.sherene
+        to: not_home
+        for: "00:15:00"
+    }
+    condition:
+    {
+        condition: and
+        conditions:
+        [
+            {
+                condition: state
+                entity_id: input_select.home_mode
+                state:
+                [
+                    Home
+                    Night
+                ]
+            }
+            {
+                condition: state
+                entity_id: lock.front_door
+                state: unlocked
+            }
+        ]
+    }
+    action:
+    [
+        {
+            alias: "Set variables"
+            variables:
+            {
+                device_map:
+                {
+                    "person.raman": "notify.mobile_app_ramans_iphone"
+                    "person.sherene": "notify.mobile_app_sherenes_iphone"
+                }
+            }
+        }
+        {
+            service: "{{ device_map[trigger.entity_id] }}"
+            data:
+            {
+                title: Door is still unlocked
+                message: Do you want to lock it?
+                data:
+                {
+                    tag: lock-door-after-leaving
+                    actions:
+                    [
+                        {
+                            action: "lock-door"
+                            title: "Yes!"
+                            uri: "homeassistant://call_service/lock.lock?entity_id=lock.front_door"
+                        }
+                        {
+                            action: "no-action"
+                            title: "No"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
