@@ -1,2 +1,0 @@
-name: nzbget
-host: !secret 'host_nas'

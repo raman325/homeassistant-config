@@ -28,38 +28,6 @@
         password: !secret pass_personalcapital_raman
     }
     {
-        platform: waze_travel_time
-        name: Raman Work Commute
-        origin: !secret address_home
-        destination: !secret address_work_raman
-        region: US
-        realtime: true
-    }
-    {
-        platform: waze_travel_time
-        name: Raman Home Commute
-        origin: !secret address_work_raman
-        destination: !secret address_home
-        region: US
-        realtime: true
-    }
-    {
-        platform: waze_travel_time
-        name: Sherene Work Commute
-        origin: !secret address_home
-        destination: !secret address_work_sherene
-        region: US
-        realtime: true
-    }
-    {
-        platform: waze_travel_time
-        name: Sherene Home Commute
-        origin: !secret address_work_sherene
-        destination: !secret address_home
-        region: US
-        realtime: true
-    }
-    {
         platform: version
         name: local_ha_version
         source: local

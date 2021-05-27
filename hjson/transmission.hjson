@@ -1,6 +1,0 @@
-{
-    name: transmission
-    host: !secret host_nas
-    username: !secret user_transmission
-    password: !secret pass_transmission
-}
