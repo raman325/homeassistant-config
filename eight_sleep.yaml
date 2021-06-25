@@ -1,0 +1,3 @@
+username: !secret 'user_eight_sleep'
+password: !secret 'pass_eight_sleep'
+partner: true
