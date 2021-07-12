@@ -25,3 +25,22 @@
   name: shodan
   api_key: !secret 'api_shodan'
   query: 8.3.80.33
+- platform: rest
+  name: SmartDry
+  json_attributes:
+  - active
+  - temperature
+  - humidity
+  - tempUnits
+  - shake
+  - shakecount
+  - rDate
+  - loadStart
+  - stDate
+  - LessDry
+  - Dry
+  - VeryDry
+  - tempUnits
+  resource: !secret 'url_smartdry'
+  value_template: OK
+  scan_interval: 5
