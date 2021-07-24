@@ -4,11 +4,10 @@ from homeassistant.components.climate import (
     HVAC_MODE_HEAT_COOL,
     HVAC_MODE_OFF,
 )
-from homeassistant.helpers import config_validation as cv
 
 MODES = [HVAC_MODE_COOL, HVAC_MODE_HEAT, HVAC_MODE_HEAT_COOL, HVAC_MODE_OFF]
 
-CLIMATE_TIMEOUT = 4
+CLIMATE_TIMEOUT = 10
 HVAC_MODE_TIMEOUT = CLIMATE_TIMEOUT
 SET_TEMP_TIMEOUT = CLIMATE_TIMEOUT
 

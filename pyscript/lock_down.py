@@ -4,6 +4,7 @@ LOCK_TIMEOUT = 2
 @service
 def lock_down():
     """yaml
+    name: Lock house down
     description: Lock the house down
     """
     light.turn_off(entity_id=["light.foyer", "light.kitchen", "light.living_room"])
