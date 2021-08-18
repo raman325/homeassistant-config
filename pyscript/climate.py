@@ -145,16 +145,17 @@ def set_temperature(mode: str = None, low: float = None, high: float = None):
                 _set_temp(state.get(f"input_number.{mode}_{current_target}"))
                 set_hvac_mode(other_mode)
                 _set_temp(state.get(f"input_number.{mode}_{other_target}"))
-                if other_mode == HVAC_MODE_COOL and float(
-                    climate.thermostat.current_temperature
-                ) <= float(state.get(f"input_number.{mode}_low")):
-                    set_hvac_mode(HVAC_MODE_HEAT)
-                elif other_mode == HVAC_MODE_HEAT and float(
-                    climate.thermostat.current_temperature
-                ) >= float(state.get(f"input_number.{mode}_high")):
-                    set_hvac_mode(HVAC_MODE_COOL)
-                else:
-                    log.info("Switched HVAC modes because we are way off target.")
+                set_hvac_mode(current_mode)
+                # if other_mode == HVAC_MODE_COOL and float(
+                #     climate.thermostat.current_temperature
+                # ) <= float(state.get(f"input_number.{mode}_low")):
+                #     set_hvac_mode(HVAC_MODE_HEAT)
+                # elif other_mode == HVAC_MODE_HEAT and float(
+                #     climate.thermostat.current_temperature
+                # ) >= float(state.get(f"input_number.{mode}_high")):
+                #     set_hvac_mode(HVAC_MODE_COOL)
+                # else:
+                #     log.info("Switched HVAC modes because we are way off target.")
 
     elif low and high:
         if climate.thermostat == HVAC_MODE_HEAT_COOL:
@@ -179,26 +180,28 @@ def set_temperature(mode: str = None, low: float = None, high: float = None):
                 _set_temp(current_target)
                 set_hvac_mode(other_mode)
                 _set_temp(other_target)
-                if other_mode == HVAC_MODE_COOL and float(
-                    climate.thermostat.current_temperature
-                ) <= float(low):
-                    set_hvac_mode(HVAC_MODE_HEAT)
-                elif other_mode == HVAC_MODE_HEAT and float(
-                    climate.thermostat.current_temperature
-                ) >= float(high):
-                    set_hvac_mode(HVAC_MODE_COOL)
-                else:
-                    log.info("Switched HVAC modes because we are way off target.")
+                set_hvac_mode(current_mode)
+                # if other_mode == HVAC_MODE_COOL and float(
+                #     climate.thermostat.current_temperature
+                # ) <= float(low):
+                #     set_hvac_mode(HVAC_MODE_HEAT)
+                # elif other_mode == HVAC_MODE_HEAT and float(
+                #     climate.thermostat.current_temperature
+                # ) >= float(high):
+                #     set_hvac_mode(HVAC_MODE_COOL)
+                # else:
+                #     log.info("Switched HVAC modes because we are way off target.")
 
     elif low:
         if climate.thermostat == HVAC_MODE_COOL:
             set_hvac_mode(HVAC_MODE_HEAT)
             _set_temp(low)
-            # Only switch back to cool if temperature is above the low point
-            if float(climate.thermostat.current_temperature) > float(low):
-                set_hvac_mode(HVAC_MODE_COOL)
-            else:
-                log.info("Switched HVAC modes because we are way off target.")
+            set_hvac_mode(HVAC_MODE_COOL)
+            # # Only switch back to cool if temperature is above the low point
+            # if float(climate.thermostat.current_temperature) > float(low):
+            #     set_hvac_mode(HVAC_MODE_COOL)
+            # else:
+            #     log.info("Switched HVAC modes because we are way off target.")
         elif climate.thermostat == HVAC_MODE_HEAT:
             _set_temp(low)
         elif climate.thermostat == HVAC_MODE_OFF:
@@ -214,11 +217,12 @@ def set_temperature(mode: str = None, low: float = None, high: float = None):
         elif climate.thermostat == HVAC_MODE_HEAT:
             set_hvac_mode(HVAC_MODE_COOL)
             _set_temp(high)
-            # Only switch back to heat if temperature is below the high point
-            if float(climate.thermostat.current_temperature) < float(high):
-                set_hvac_mode(HVAC_MODE_HEAT)
-            else:
-                log.info("Switched HVAC modes because we are way off target.")
+            set_hvac_mode(HVAC_MODE_HEAT)
+            # # Only switch back to heat if temperature is below the high point
+            # if float(climate.thermostat.current_temperature) < float(high):
+            #     set_hvac_mode(HVAC_MODE_HEAT)
+            # else:
+            #     log.info("Switched HVAC modes because we are way off target.")
         elif climate.thermostat == HVAC_MODE_OFF:
             set_hvac_mode(HVAC_MODE_COOL)
             _set_temp(high)
