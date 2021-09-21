@@ -9,10 +9,6 @@
         ]
     }
     {
-        platform: kodi_recently_added
-        host: !secret host_nas
-    }
-    {
         platform: radarr_upcoming_media
         host: !secret host_nas
         api_key: !secret api_radarr
