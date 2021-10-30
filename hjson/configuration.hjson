@@ -25,7 +25,6 @@
     device_tracker: !include device_tracker.yaml
     rest_command: !include rest_command.yaml
     notify: !include notify.yaml
-    hacs: !include hacs.yaml
     breaking_changes: null
     tts: !include tts.yaml
     spotify: !include spotify.yaml

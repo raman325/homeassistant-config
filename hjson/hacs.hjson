@@ -1,6 +1,0 @@
-{
-    token: !secret token_hacs
-	appdaemon: true
-	netdaemon: true
-	country: US
-}
