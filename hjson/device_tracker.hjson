@@ -5,6 +5,8 @@
         {
             monitor_raman: 'monitor/monitor/raman/device_tracker'
             monitor_sherene: 'monitor/monitor/sherene/device_tracker'
+            monitor_raman_2: 'monitor_2/monitor/raman/device_tracker'
+            monitor_sherene_2: 'monitor_2/monitor/sherene/device_tracker'
         }
 		source_type: bluetooth_le
     }
