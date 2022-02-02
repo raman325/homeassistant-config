@@ -23,17 +23,6 @@
         email: !secret email_raman
         password: !secret pass_personalcapital_raman
     }
-    {
-        platform: version
-        name: local_ha_version
-        source: local
-    }
-    {
-        platform: version
-        name: available_ha_version
-        source: hassio
-        image: odroid-n2
-    }
 	{
 		platform: shodan
 		name: shodan
