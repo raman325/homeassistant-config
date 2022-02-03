@@ -1,44 +1,4 @@
 [
-	{
-		platform: androidtv
-		name: Living Room NVIDIA Shield
-		host: !secret host_living_room_shield
-		adbkey: "/config/android/adbkey"
-        apps:
-        {
-            com.liskovsoft.videomanager: "Smart YouTube TV"
-        }
-        state_detection_rules:
-        {
-            com.liskovsoft.videomanager:
-            [
-                {
-                    standby:
-                    {
-                        wake_lock_size: 2
-                    }
-                }
-                {
-                    playing:
-                    {
-                        wake_lock_size: 3
-                    }
-                }
-                {
-                    paused:
-                    {
-                        wake_lock_size: 1
-                    }
-                }
-            ]
-        }
-	}
-    {
-        platform: androidtv 
-        name: Bedroom FireTV
-        host: !secret host_bedroom_firetv
-		adbkey: "/config/android/adbkey"
-    }
     {
         platform: universal
         name: Living Room Caavo
