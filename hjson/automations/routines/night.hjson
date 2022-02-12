@@ -1,17 +1,14 @@
 {
     id: routine_night
     alias: Routine: Night
-    trigger:
-    {
+    trigger: {
         platform: time_pattern
         minutes: /1
         hours: *
     }
-    condition:
-    {
+    condition: {
         condition: and
-        conditions:
-        [
+        conditions: [
             {
                 condition: state
                 entity_id: input_select.home_mode
@@ -30,20 +27,17 @@
             }
         ]
     }
-    action:
-    [
+    action: [
         {
             service: input_select.select_option
-            data:
-            {
+            data: {
                 entity_id: input_select.home_mode
                 option: Night
             }
         }
         {
             service: automation.turn_off
-            data:
-            {
+            data: {
                 entity_id: automation.routine_night
             }
         }

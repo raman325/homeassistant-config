@@ -1,14 +1,12 @@
 {
     id: reload_pyscript_on_change_to_folder
     alias: Reload pyscript on change to folder
-    trigger:
-    {
+    trigger: {
         platform: event
         event_type: folder_watcher
     }
     condition: '{{ trigger.event.data.folder == "/config/pyscript" }}'
-    action:
-    {
+    action: {
         service: pyscript.reload
     }
 }

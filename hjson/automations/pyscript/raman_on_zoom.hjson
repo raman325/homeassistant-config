@@ -1,19 +1,16 @@
 {
     id: notify_raman_on_zoom
     alias: Notify: Raman on Zoom
-    trigger:
-    {
+    trigger: {
         platform: state
         entity_id: binary_sensor.zoom_raman
         from: off
         to: on
     }
-    action:
-    [
+    action: [
         {
             service: pyscript.set_slack_status
-            data:
-            {
+            data: {
                 token: !secret token_slack
                 status_text: "{{ trigger.to_state.attributes['status'] | replace('_', ' ') }}"
                 status_emoji: "{% set status = trigger.to_state.attributes['status'] %}{% if status == 'In_Meeting' %}:zoom:{% elif status == 'On_Phone_Call' %}:phone:{% elif status == 'In_Calendar_Event' %}:calendar:{% elif status == 'Presenting' %}:bar_chart:{% else %}:no_entry:{% endif %}"

@@ -2,17 +2,14 @@
     id: ifttt_vacuum_control
     alias: IFTTT: Vacuum Control
     initial_state: true
-    trigger:
-    {
+    trigger: {
         platform: webhook
         webhook_id: !secret webhook_vacuum
     }
     condition: !secret webhook_auth_check
-    action:
-    {
+    action: {
         service: rest_command.ir_send
-        data_template:
-        {
+        data_template: {
             target: "{{ trigger.json.target }}"
             command: "{{ trigger.json.command }}"
         }

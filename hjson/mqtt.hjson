@@ -1,0 +1,10 @@
+{
+    birth_message: {
+        topic: "homeassisatnt/status"
+        payload: "online"
+    }
+    will_message: {
+        topic: "homeassistant/status"
+        payload: "offline"
+    }
+}

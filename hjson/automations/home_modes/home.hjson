@@ -1,18 +1,15 @@
 {
     id: home_mode_home
     alias: Home Mode: Home
-    trigger:
-    {
+    trigger: {
         platform: state
         entity_id: input_select.home_mode
         to: Home
     }
-    action:
-    [
+    action: [
         {
             service: pyscript.set_temperature
-            data:
-            {
+            data: {
                 mode: home
             }
         }

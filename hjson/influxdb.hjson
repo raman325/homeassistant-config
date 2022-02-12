@@ -6,10 +6,8 @@
     database: !secret db_influx
     default_measurement: state
     tags_attributes: friendly_name
-    exclude:
-    {
-        entities:
-        [
+    exclude: {
+        entities: [
             "sensor.available_ha_version"
             "sensor.potential_breaking_changes"
             // "sensor.icloud3_event_log"
@@ -45,8 +43,7 @@
             // "binary_sensor.updater"
             "sensor.hacs"
         ]
-        domains:
-        [
+        domains: [
             "media_player"
             "remote"
             "group"

@@ -1,23 +1,19 @@
 {
     id: routine_someone_comes_back
     alias: Routine: Someone Comes Back
-    trigger:
-    {
+    trigger: {
         platform: state
         entity_id: person.raman, person.sherene
         to: home
     }
-    condition:
-    {
+    condition: {
         condition: state
         entity_id: input_select.home_mode
         state: Away
     }
-    action:
-    {
+    action: {
         service: input_select.select_option
-        data:
-        {
+        data: {
             entity_id: input_select.home_mode
             option: Home
         }

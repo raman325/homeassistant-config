@@ -1,22 +1,18 @@
 {
     id: routine_everyone_leaves
     alias: Routine: Everyone Leaves
-    trigger:
-    {
+    trigger: {
         platform: state
         entity_id: person.raman, person.sherene
         to: not_home
         for: "00:10:00"
     }
-    condition:
-    {
+    condition: {
         condition: and
-        conditions:
-        [
+        conditions: [
             {
                 condition: state
-                entity_id:
-                [
+                entity_id: [
                     person.sherene
                     person.raman
                 ]
@@ -25,19 +21,16 @@
             {
                 condition: state
                 entity_id: input_select.home_mode
-                state:
-                [
+                state: [
                     Home
                     Night
                 ]
             }
         ]
     }
-    action:
-    {
+    action: {
         service: input_select.select_option
-        data:
-        {
+        data: {
             entity_id: input_select.home_mode
             option: Away
         }

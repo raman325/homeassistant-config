@@ -5,8 +5,7 @@
     expose_by_default: true
     secure_devices_pin: !secret pin_google_assistant
     report_state: true
-    exposed_domains:
-    [
+    exposed_domains: [
         climate
         group
         input_select
@@ -16,94 +15,71 @@
         script
         switch
     ]
-    entity_config:
-    {
-        climate.general_thermostat_v2_mode_2:
-        {
+    entity_config: {
+        climate.general_thermostat_v2_mode_2: {
             expose: false
         }
-        media_player.bathroom_google_home:
-        {
+        media_player.bathroom_google_home: {
             expose: false
         }
-        media_player.bedroom_soundbar:
-        {
+        media_player.bedroom_soundbar: {
             expose: false
         }
-        media_player.bedroom_soundbar_cast:
-        {
+        media_player.bedroom_soundbar_cast: {
             expose: false
         }
-        media_player.forked_daapd_output_bathroom_speaker:
-        {
+        media_player.forked_daapd_output_bathroom_speaker: {
             expose: false
         }
-        media_player.forked_daapd_output_computer:
-        {
+        media_player.forked_daapd_output_computer: {
             expose: false
         }
-        media_player.forked_daapd_output_kitchen_speaker:
-        {
+        media_player.forked_daapd_output_kitchen_speaker: {
             expose: false
         }
-        media_player.forked_daapd_output_shield:
-        {
+        media_player.forked_daapd_output_shield: {
             expose: false
         }
-        media_player.forked_daapd_output_bedroom_soundbar:
-        {
+        media_player.forked_daapd_output_bedroom_soundbar: {
             expose: false
         }
-        media_player.forked_daapd_server:
-        {
+        media_player.forked_daapd_server: {
             expose: false
         }
-        media_player.kitchen_google_home:
-        {
+        media_player.kitchen_google_home: {
             expose: false
         }
-        media_player.headless_kodi:
-        {
+        media_player.headless_kodi: {
             expose: false
         }
-        media_player.living_room_shieldtv_cast:
-        {
+        media_player.living_room_shieldtv_cast: {
             expose: false
         }
-        media_player.living_room_soundbar:
-        {
+        media_player.living_room_soundbar: {
             expose: false
         }
-        media_player.living_room_soundbar_cast:
-        {
+        media_player.living_room_soundbar_cast: {
             expose: false
         }
-        media_player.plex_plex_for_android_tv_shield_android_tv:
-        {
+        media_player.plex_plex_for_android_tv_shield_android_tv: {
             expose: false
         }
-        media_player.plex_plex_for_ios_ramans_iphone:
-        {
+        media_player.plex_plex_for_ios_ramans_iphone: {
             expose: false
         }
-        media_player.plex_plex_for_ios_sherenes_iphone:
-        {
+        media_player.plex_plex_for_ios_sherenes_iphone: {
             expose: false
         }
-        media_player.spotify:
-        {
+        media_player.spotify: {
             expose: false
         }
-        switch.pi_hole:
-        {
+        switch.pi_hole: {
             expose: false
         }
-        switch.transmission_switch:
-        {
+        switch.transmission_switch: {
             expose: false
         }
-        switch.transmission_turtle_mode:
-        {
+        switch.transmission_turtle_mode: {
             expose: false
         }
     }

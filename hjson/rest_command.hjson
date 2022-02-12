@@ -1,25 +1,21 @@
 {
-    ir_send:
-    {
+    ir_send: {
         url: !secret url_ir_send
         method: POST
     }
-    kodi_send:
-    {
+    kodi_send: {
         url: !secret url_kodi_send
         method: POST
         payload: '{"kodiid":"{{ kodiid }}","token":"{{ token }}"}'
         content_type:  'application/json'
     }
-    assistant_broadcast:
-    {
+    assistant_broadcast: {
         url: !secret url_assistant_relay
         method: POST
         content_type: 'application/json'
         payload: '{"command":"{{ command }}", "user":"raman", "broadcast":true}'
     }
-    caavo:
-    {
+    caavo: {
         url: !secret url_assistant_relay
         method: POST
         content_type: 'application/json'

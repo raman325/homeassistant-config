@@ -1,17 +1,14 @@
 {
     id: routine_morning
     alias: Routine: Morning
-    trigger:
-    {
+    trigger: {
         platform: state
         entity_id: binary_sensor.living_room_motion, light.living_room, light.foyer, light.kitchen
         to: on
     }
-    condition:
-    {
+    condition: {
         condition: and
-        conditions:
-        [
+        conditions: [
             {
                 condition: time
                 after: '06:00:01'
@@ -24,11 +21,9 @@
             }
         ]
     }
-    action:
-    {
+    action: {
         service: input_select.select_option
-        data:
-        {
+        data: {
             entity_id: input_select.home_mode
             option: Home
         }

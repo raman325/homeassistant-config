@@ -1,20 +1,17 @@
 {
     id: notify_raman_off_zoom
     alias: Notify: Raman off Zoom
-    trigger:
-    {
+    trigger: {
         platform: state
         entity_id: binary_sensor.zoom_raman
         from: on
         to: off
         for: 00:00:15
     }
-    action:
-    [
+    action: [
         {
             service: pyscript.set_slack_status
-            data:
-            {
+            data: {
                 token: !secret token_slack
                 status_text: null
                 status_emoji: null

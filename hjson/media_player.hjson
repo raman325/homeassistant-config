@@ -2,69 +2,51 @@
     {
         platform: universal
         name: Living Room Caavo
-        commands:
-        {
-            turn_on:
-            {
+        commands: {
+            turn_on: {
                 service: rest_command.caavo
-                data:
-                {
+                data: {
                     command: turn on
                 }
             }
-            turn_off:
-            {
+            turn_off: {
                 service: rest_command.caavo
-                data:
-                {
+                data: {
                     command: turn off
                 }
             }
-            select_source:
-            {
+            select_source: {
                 service: rest_command.caavo
-                data:
-                {
+                data: {
                     command: 'switch to {{ source }}'
                 }
             }
-            volume_up:
-            {
+            volume_up: {
                 service: rest_command.caavo
-                data:
-                {
+                data: {
                     command: increase the volume
                 }
             }
-            volume_down:
-            {
+            volume_down: {
                 service: rest_command.caavo
-                data:
-                {
+                data: {
                     command: decrease the volume
                 }
             }
-            media_play:
-            {
-
+            media_play: {
                 service: rest_command.caavo
-                data:
-                {
+                data: {
                     command: play
                 }
             }
-            media_pause:
-            {
-
+            media_pause: {
                 service: rest_command.caavo
-                data:
-                {
+                data: {
                     command: pause
                 }
             }
         }
-        attributes:
-        {
+        attributes: {
             state: media_player.living_room_tv
             source_list: input_select.living_room_sources|options
             volume_level: media_player.living_room_soundbar|volume_level

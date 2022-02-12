@@ -1,18 +1,15 @@
 {
     id: hacs_updates_completed
     alias: Notify: HACS updates completed
-    trigger:
-    {
+    trigger: {
         platform: state
         entity_id: sensor.hacs
     }
     condition: '{{ states("sensor.hacs") | int == 0 }}'
-    action:
-    [
+    action: [
         {
             service: persistent_notification.dismiss
-            data:
-            {
+            data: {
                 notification_id: hacs_update
             }
         }
