@@ -1,6 +1,6 @@
 {
     birth_message: {
-        topic: "homeassisatnt/status"
+        topic: "homeassistant/status"
         payload: "online"
     }
     will_message: {
