@@ -51,5 +51,4 @@
     folder_watcher: !include folder_watcher.yaml
     wake_on_lan: null
     eight_sleep: !include eight_sleep.yaml
-    mqtt: !include mqtt.yaml
 }
