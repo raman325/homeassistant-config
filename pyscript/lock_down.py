@@ -7,7 +7,7 @@ def lock_down():
     name: Lock house down
     description: Lock the house down
     """
-    light.turn_off(entity_id=["switch.foyer", "light.kitchen", "light.living_room"])
+    homeassistant.turn_off(entity_id=["switch.foyer", "light.kitchen", "light.living_room"])
 
     if lock.front_door == "locked":
         return
