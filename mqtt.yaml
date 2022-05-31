@@ -1,17 +1,21 @@
 device_tracker:
-- name: monitor_raman
+- name: Monitor - Raman
   state_topic: monitor/monitor/raman/device_tracker
   availability_topic: monitor/monitor/status
   source_type: bluetooth_le
-- name: monitor_sherene
+  unique_id: monitor_raman
+- name: Monitor - Sherene
   state_topic: monitor/monitor/sherene/device_tracker
   availability_topic: monitor/monitor/status
   source_type: bluetooth_le
-- name: monitor_raman_2
+  unique_id: monitor_sherene
+- name: Monitor - Raman 2
   state_topic: monitor_2/monitor/raman/device_tracker
   availability_topic: monitor_2/monitor/status
   source_type: bluetooth_le
-- name: monitor_sherene_2
+  unique_id: monitor_raman_2
+- name: Monitor - Sherene 2
   state_topic: monitor_2/monitor/sherene/device_tracker
   availability_topic: monitor_2/monitor/status
   source_type: bluetooth_le
+  unique_id: monitor_sherene_2
