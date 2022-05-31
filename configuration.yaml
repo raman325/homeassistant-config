@@ -47,3 +47,4 @@ spotcast: !include 'spotcast.yaml'
 folder_watcher: !include 'folder_watcher.yaml'
 wake_on_lan:
 eight_sleep: !include 'eight_sleep.yaml'
+mqtt: !include 'mqtt.yaml'

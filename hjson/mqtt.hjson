@@ -1,0 +1,28 @@
+{
+    device_tracker: [
+        {
+            name: monitor_raman
+            state_topic: 'monitor/monitor/raman/device_tracker'
+            availability_topic: 'monitor/monitor/status'
+            source_type: bluetooth_le
+        }
+        {
+            name: monitor_sherene
+            state_topic: 'monitor/monitor/sherene/device_tracker'
+            availability_topic: 'monitor/monitor/status'
+            source_type: bluetooth_le
+        }
+        {
+            name: monitor_raman_2
+            state_topic: 'monitor_2/monitor/raman/device_tracker'
+            availability_topic: 'monitor_2/monitor/status'
+            source_type: bluetooth_le
+        }
+        {
+            name: monitor_sherene_2
+            state_topic: 'monitor_2/monitor/sherene/device_tracker'
+            availability_topic: 'monitor_2/monitor/status'
+            source_type: bluetooth_le
+        }
+    ]
+}
