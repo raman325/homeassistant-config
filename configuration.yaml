@@ -24,7 +24,6 @@ switch: !include 'switch.yaml'
 device_tracker: !include 'device_tracker.yaml'
 rest_command: !include 'rest_command.yaml'
 notify: !include 'notify.yaml'
-breaking_changes:
 tts: !include 'tts.yaml'
 automation: !include 'automations.yaml'
 automation split: !include_dir_list 'automations'
