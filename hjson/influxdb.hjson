@@ -8,9 +8,6 @@
     tags_attributes: friendly_name
     exclude: {
         entities: [
-            "sensor.available_ha_version"
-            "sensor.potential_breaking_changes"
-            // "sensor.icloud3_event_log"
             "sensor.kodi_recently_added_movies"
             "sensor.kodi_recently_added_tv"
             "sensor.local_ha_version"
@@ -40,7 +37,6 @@
             "sensor.version"
             "sensor.radarr"
             "sensor.sonarr"
-            // "binary_sensor.updater"
             "sensor.hacs"
         ]
         domains: [
@@ -48,9 +44,7 @@
             "remote"
             "group"
             "zone"
-            "updater"
             "hacs"
-            "breaking_changes"
             "asuswrt"
             "transmission"
             "pihole"

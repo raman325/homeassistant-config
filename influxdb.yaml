@@ -7,8 +7,6 @@ default_measurement: state
 tags_attributes: friendly_name
 exclude:
   entities:
-  - sensor.available_ha_version
-  - sensor.potential_breaking_changes
   - sensor.kodi_recently_added_movies
   - sensor.kodi_recently_added_tv
   - sensor.local_ha_version
@@ -31,9 +29,7 @@ exclude:
   - remote
   - group
   - zone
-  - updater
   - hacs
-  - breaking_changes
   - asuswrt
   - transmission
   - pihole
