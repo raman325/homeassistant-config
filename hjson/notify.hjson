@@ -4,14 +4,6 @@
         name: Living Room Kodi
         host: !secret host_living_room_shield
     }
-    {
-        platform: slack
-        name: slack
-        api_key: !secret bot_token_slack
-        default_channel: !secret channel_slack
-        username: Home Assistant
-        icon: https://www.home-assistant.io/images/favicon-192x192-full.png
-    }
 	{
 		platform: apprise
 		name: apprise
