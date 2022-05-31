@@ -1,4 +1,0 @@
-{
-    client_id: !secret client_id_spotify
-    client_secret: !secret client_secret_spotify
-}

@@ -26,7 +26,6 @@ rest_command: !include 'rest_command.yaml'
 notify: !include 'notify.yaml'
 breaking_changes:
 tts: !include 'tts.yaml'
-spotify: !include 'spotify.yaml'
 automation: !include 'automations.yaml'
 automation split: !include_dir_list 'automations'
 scene: !include 'scenes.yaml'
@@ -46,7 +45,6 @@ timer:
 google_assistant: !include 'google_assistant.yaml'
 pyscript: !include 'pyscript.yaml'
 spotcast: !include 'spotcast.yaml'
-xbox: !include 'xbox.yaml'
 folder_watcher: !include 'folder_watcher.yaml'
 wake_on_lan:
 eight_sleep: !include 'eight_sleep.yaml'
