@@ -17,6 +17,7 @@ zeroconf:
 conversation:
 sun:
 lovelace:
+ffmpeg:
 frontend: !include 'frontend.yaml'
 sensor: !include 'sensor.yaml'
 media_player: !include 'media_player.yaml'

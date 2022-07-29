@@ -18,6 +18,7 @@
     conversation: null
     sun: null
     lovelace: null
+    ffmpeg: null
     frontend: !include frontend.yaml
     sensor: !include sensor.yaml
     media_player: !include media_player.yaml
