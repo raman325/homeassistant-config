@@ -1,13 +1,5 @@
 [
     {
-        platform: radarr
-        api_key: !secret api_radarr
-        host: !secret host_nas
-        monitored_conditions: [
-            upcoming
-        ]
-    }
-    {
         platform: radarr_upcoming_media
         host: !secret host_nas
         api_key: !secret api_radarr
