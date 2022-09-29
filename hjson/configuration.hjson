@@ -1,52 +1,53 @@
 {
-    config: null
-    default_config: null
-    history: null
-    logbook: null
-    map: null
-    mobile_app: null
-    system_log: null
-    system_health: null
-    recorder: !include recorder.yaml
-    influxdb: !include influxdb.yaml
-    logger: !include logger.yaml
-    homeassistant: !include homeassistant.yaml
-    http: !include http.yaml
-    discovery: !include discovery.yaml
-	ssdp: null
-	zeroconf: null
-    conversation: null
-    sun: null
-    lovelace: null
-    ffmpeg: null
-    frontend: !include frontend.yaml
-    sensor: !include sensor.yaml
-    media_player: !include media_player.yaml
-    switch: !include switch.yaml
-    device_tracker: !include device_tracker.yaml
-    rest_command: !include rest_command.yaml
-    notify: !include notify.yaml
-    tts: !include tts.yaml
     automation: !include automations.yaml
     "automation split": !include_dir_list automations
-    scene: !include scenes.yaml
-    "script split": !include_dir_named scripts
-    script: !include scripts.yaml
-    zone: !include zones.yaml
+    config: null
+    conversation: null
+    counter: null
+    default_config: null
+    device_tracker: !include device_tracker.yaml
+    discovery: !include discovery.yaml
+    ffmpeg: null
+    folder_watcher: !include folder_watcher.yaml
     fontawesome: !include fontawesome.yaml
-    python_script: null
-    zoom: !include zoom.yaml
+    frontend: !include frontend.yaml
+    google_assistant: !include google_assistant.yaml
+    history: null
+    homeassistant: !include homeassistant.yaml
+    http: !include http.yaml
+    influxdb: !include influxdb.yaml
     input_boolean: null
     input_datetime: null
     input_number: null
     input_select: null
     input_text: null
-    counter: null
-    timer: null
-    google_assistant: !include google_assistant.yaml
-    pyscript: !include pyscript.yaml
-    spotcast: !include spotcast.yaml
-    folder_watcher: !include folder_watcher.yaml
-    wake_on_lan: null
+    logbook: null
+    logger: !include logger.yaml
+    lovelace: null
+    map: null
+    media_player: !include media_player.yaml
+    mobile_app: null
     mqtt: !include mqtt.yaml
+    notify: !include notify.yaml
+    pyscript: !include pyscript.yaml
+    python_script: null
+    recorder: !include recorder.yaml
+    rest_command: !include rest_command.yaml
+    scene: !include scenes.yaml
+    script: !include scripts.yaml
+    "script split": !include_dir_named scripts
+    sensor: !include sensor.yaml
+    spotcast: !include spotcast.yaml
+	ssdp: null
+    sun: null
+    switch: !include switch.yaml
+    system_health: null
+    system_log: null
+    timer: null
+    tts: !include tts.yaml
+    wake_on_lan: null
+    winix: !include winix.yaml
+	zeroconf: null
+    zone: !include zones.yaml
+    zoom: !include zoom.yaml
 }

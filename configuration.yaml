@@ -1,50 +1,51 @@
-config:
-default_config:
-history:
-logbook:
-map:
-mobile_app:
-system_log:
-system_health:
-recorder: !include 'recorder.yaml'
-influxdb: !include 'influxdb.yaml'
-logger: !include 'logger.yaml'
-homeassistant: !include 'homeassistant.yaml'
-http: !include 'http.yaml'
-discovery: !include 'discovery.yaml'
-ssdp:
-zeroconf:
-conversation:
-sun:
-lovelace:
-ffmpeg:
-frontend: !include 'frontend.yaml'
-sensor: !include 'sensor.yaml'
-media_player: !include 'media_player.yaml'
-switch: !include 'switch.yaml'
-device_tracker: !include 'device_tracker.yaml'
-rest_command: !include 'rest_command.yaml'
-notify: !include 'notify.yaml'
-tts: !include 'tts.yaml'
 automation: !include 'automations.yaml'
 automation split: !include_dir_list 'automations'
-scene: !include 'scenes.yaml'
-script split: !include_dir_named 'scripts'
-script: !include 'scripts.yaml'
-zone: !include 'zones.yaml'
+config:
+conversation:
+counter:
+default_config:
+device_tracker: !include 'device_tracker.yaml'
+discovery: !include 'discovery.yaml'
+ffmpeg:
+folder_watcher: !include 'folder_watcher.yaml'
 fontawesome: !include 'fontawesome.yaml'
-python_script:
-zoom: !include 'zoom.yaml'
+frontend: !include 'frontend.yaml'
+google_assistant: !include 'google_assistant.yaml'
+history:
+homeassistant: !include 'homeassistant.yaml'
+http: !include 'http.yaml'
+influxdb: !include 'influxdb.yaml'
 input_boolean:
 input_datetime:
 input_number:
 input_select:
 input_text:
-counter:
-timer:
-google_assistant: !include 'google_assistant.yaml'
-pyscript: !include 'pyscript.yaml'
-spotcast: !include 'spotcast.yaml'
-folder_watcher: !include 'folder_watcher.yaml'
-wake_on_lan:
+logbook:
+logger: !include 'logger.yaml'
+lovelace:
+map:
+media_player: !include 'media_player.yaml'
+mobile_app:
 mqtt: !include 'mqtt.yaml'
+notify: !include 'notify.yaml'
+pyscript: !include 'pyscript.yaml'
+python_script:
+recorder: !include 'recorder.yaml'
+rest_command: !include 'rest_command.yaml'
+scene: !include 'scenes.yaml'
+script: !include 'scripts.yaml'
+script split: !include_dir_named 'scripts'
+sensor: !include 'sensor.yaml'
+spotcast: !include 'spotcast.yaml'
+ssdp:
+sun:
+switch: !include 'switch.yaml'
+system_health:
+system_log:
+timer:
+tts: !include 'tts.yaml'
+wake_on_lan:
+winix: !include 'winix.yaml'
+zeroconf:
+zone: !include 'zones.yaml'
+zoom: !include 'zoom.yaml'
