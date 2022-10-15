@@ -1,5 +1,5 @@
 {
-    host: !secret host_nas
+    host: !secret host_docker
     port: 8086
     username: !secret user_influx
     password: !secret pass_influx
