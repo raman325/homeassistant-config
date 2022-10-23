@@ -19,3 +19,12 @@ device_tracker:
   availability_topic: monitor_2/monitor/status
   source_type: bluetooth_le
   unique_id: monitor_sherene_2
+sensor:
+- name: Curry Plant Moisture
+  state_topic: rtl_433/9b13b3f4-rtl433/devices/Fineoffset-WH51/0d0471/moisture
+  device_class: moisture
+  icon: mdi:flower-pollen
+- name: Jasmine Plant Moisture
+  state_topic: rtl_433/9b13b3f4-rtl433/devices/Fineoffset-WH51/0d093a/moisture
+  device_class: moisture
+  icon: mdi:leaf
