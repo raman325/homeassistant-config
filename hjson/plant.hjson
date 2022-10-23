@@ -1,11 +1,11 @@
 {
-    "curry": {
+    "Curry": {
         "sensors": {
             "moisture": "sensor.curry_plant_moisture"
         },
         "min_moisture": 20
     }
-    "jasmine": {
+    "Jasmine": {
         "sensors": {
             "moisture": "sensor.jasmine_plant_moisture"
         },
