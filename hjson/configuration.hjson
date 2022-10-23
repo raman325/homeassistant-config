@@ -29,6 +29,7 @@
     mobile_app: null
     mqtt: !include mqtt.yaml
     notify: !include notify.yaml
+    plant: !include plant.yaml
     pyscript: !include pyscript.yaml
     python_script: null
     recorder: !include recorder.yaml

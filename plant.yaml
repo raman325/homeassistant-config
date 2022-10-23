@@ -1,0 +1,8 @@
+curry:
+  sensors:
+    moisture: sensor.curry_plant_moisture
+  min_moisture: 20
+jasmine:
+  sensors:
+    moisture: sensor.jasmine_plant_moisture
+  min_moisture: 20
