@@ -21,12 +21,12 @@ device_tracker:
   unique_id: monitor_sherene_2
 sensor:
 - name: Curry Plant Moisture
-  state_topic: rtl_433/docker/devices/Fineoffset-WH51/0d0471
-  value_template: '{{ value_json.moisture | int }}'
+  state_topic: rtl_433/docker/devices/Fineoffset-WH51/0d0471/moisture
+  value_template: '{{ value_json | int }}'
   device_class: moisture
   icon: mdi:flower-pollen
 - name: Jasmine Plant Moisture
-  state_topic: rtl_433/docker/devices/Fineoffset-WH51/0d093a
-  value_template: '{{ value_json.moisture | int }}'
+  state_topic: rtl_433/docker/devices/Fineoffset-WH51/0d093a/moisture
+  value_template: '{{ value_json | int }}'
   device_class: moisture
   icon: mdi:leaf
