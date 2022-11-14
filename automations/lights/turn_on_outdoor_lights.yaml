@@ -1,0 +1,15 @@
+id: turn_on_outdoor_lights
+alias: 'Lights: Turn On Outdoor Lights'
+trigger:
+- platform: sun
+  event: sunset
+- platform: homeassistant
+  event: start
+condition:
+  condition: state
+  entity_id: light.all_outdoor
+  state: 'off'
+action:
+  service: light.turn_on
+  target:
+    entity_id: light.all_outdoor

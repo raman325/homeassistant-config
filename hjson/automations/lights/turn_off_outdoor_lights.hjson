@@ -1,0 +1,25 @@
+{
+    id: turn_off_outdoor_lights
+    alias: Lights: Turn Off Outdoor Lights
+    trigger: [
+        {
+            platform: time
+            at: 23:00:00
+        }
+        {
+            platform: homeassistant
+            event: start
+        }
+    ]
+    condition: {
+        condition: state
+        entity_id: light.all_outdoor
+        state: on
+    }
+    action: {
+        service: light.turn_off
+        target: {
+            entity_id: light.all_outdoor
+        }
+    }
+}
