@@ -1,0 +1,7 @@
+[
+    {
+        host: !secret url_proxmox
+        username: !secret user_proxmox
+        password: !secret pass_proxmox
+    }
+]

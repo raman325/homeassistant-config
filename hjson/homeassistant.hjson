@@ -25,4 +25,6 @@
     //     videos: /Videos
     // }
     packages: !include_dir_named packages
+    language: "en"
+    country: "US"
 }

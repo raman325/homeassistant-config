@@ -13,3 +13,5 @@ allowlist_external_dirs:
 auth_providers:
 - type: homeassistant
 packages: !include_dir_named 'packages'
+language: en
+country: US
