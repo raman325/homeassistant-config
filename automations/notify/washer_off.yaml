@@ -17,9 +17,9 @@ action:
     title: Washer Done!
     message: Washer done
     data:
-      tag: washer-check-in
+      tag: washer-done-check-in
       action_data:
         entity_id: lock.front_door
       actions:
-      - action: check-in
+      - action: washer-done-check-in
         title: Check in
