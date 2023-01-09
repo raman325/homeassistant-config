@@ -1,7 +1,7 @@
 id: notify_washer_off
 alias: 'Notify: Washer is off'
 trigger:
-  platform: state
+  platform: numeric_state
   entity_id: sensor.washer_electric_consumption_w
   to: 0
 condition:
