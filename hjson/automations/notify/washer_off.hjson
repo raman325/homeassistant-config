@@ -1,0 +1,41 @@
+{
+    id: notify_washer_off
+    alias: Notify: Washer is off
+    trigger: {
+        platform: state
+        entity_id: sensor.washer_electric_consumption_w
+        to: 0
+    }
+    condition: {
+        condition: state
+        entity_id: input_boolean.washer
+        state: on
+    }
+    action: [
+        {
+            service: input_boolean.turn_off
+            data: {
+                entity_id: input_boolean.washer
+            }
+        }
+        {
+            service: "notify.mobile_app_ramans_iphone"
+            data: {
+                title: Washer Done!
+                message: Washer done
+                data: {
+                    tag: washer-check-in
+                    action_data: {
+                        entity_id: lock.front_door
+                    }
+                    actions: [
+                        {
+                            action: "check-in"
+                            title: "Check in"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

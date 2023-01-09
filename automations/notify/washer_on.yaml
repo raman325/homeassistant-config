@@ -1,0 +1,14 @@
+id: notify_washer_on
+alias: 'Notify: Washer is on'
+trigger:
+  platform: state
+  entity_id: sensor.washer_electric_consumption_w
+  to: 50
+condition:
+  condition: state
+  entity_id: input_boolean.washer
+  state: 'off'
+action:
+  service: input_boolean.turn_on
+  data:
+    entity_id: input_boolean.washer
