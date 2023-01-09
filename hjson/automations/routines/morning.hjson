@@ -3,12 +3,16 @@
     alias: Routine: Morning
     trigger: {
         platform: state
-        entity_id: binary_sensor.living_room_motion, light.living_room, light.foyer, light.kitchen
+        entity_id: [
+            binary_sensor.living_room_motion
+            light.living_room
+            light.foyer
+            light.kitchen
+        ]
         to: on
     }
     condition: {
-        condition: and
-        conditions: [
+        and: [
             {
                 condition: time
                 after: '06:00:01'

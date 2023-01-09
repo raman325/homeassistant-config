@@ -2,12 +2,13 @@ id: routine_everyone_leaves
 alias: 'Routine: Everyone Leaves'
 trigger:
   platform: state
-  entity_id: person.raman, person.sherene
+  entity_id:
+  - person.raman
+  - person.sherene
   to: not_home
-  for: 00:10:00
+  for: 00:05:00
 condition:
-  condition: and
-  conditions:
+  and:
   - condition: state
     entity_id:
     - person.sherene

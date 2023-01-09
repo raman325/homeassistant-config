@@ -3,13 +3,15 @@
     alias: Notify: Someone leaves and door is unlocked
     trigger: {
         platform: state
-        entity_id: person.raman, person.sherene
+        entity_id: [
+            person.raman
+            person.sherene
+        ]
         to: not_home
-        for: "00:15:00"
+        for: "00:05:00"
     }
     condition: {
-        condition: and
-        conditions: [
+        and: [
             {
                 condition: state
                 entity_id: input_select.home_mode
@@ -22,6 +24,18 @@
                 condition: state
                 entity_id: lock.front_door
                 state: unlocked
+            }
+            {
+                not: [
+                    {
+                        condition: state
+                        entity_id: [
+                            person.raman
+                            person.sherene
+                        ]
+                        state: not_home
+                    }
+                ]
             }
         ]
     }

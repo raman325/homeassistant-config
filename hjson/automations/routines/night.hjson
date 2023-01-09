@@ -7,8 +7,7 @@
         hours: *
     }
     condition: {
-        condition: and
-        conditions: [
+        and: [
             {
                 condition: state
                 entity_id: input_select.home_mode

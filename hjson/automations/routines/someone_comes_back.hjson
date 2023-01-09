@@ -3,7 +3,10 @@
     alias: Routine: Someone Comes Back
     trigger: {
         platform: state
-        entity_id: person.raman, person.sherene
+        entity_id: [
+            person.raman
+            person.sherene
+        ]
         to: home
     }
     condition: {

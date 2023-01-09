@@ -5,8 +5,7 @@ trigger:
   minutes: /1
   hours: '*'
 condition:
-  condition: and
-  conditions:
+  and:
   - condition: state
     entity_id: input_select.home_mode
     state: Home

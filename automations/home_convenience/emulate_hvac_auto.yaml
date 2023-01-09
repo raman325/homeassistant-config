@@ -4,8 +4,7 @@ trigger:
   platform: time_pattern
   minutes: /15
 condition:
-- condition: or
-  conditions:
+  or:
   - '{{ states(''climate.thermostat'') == ''heat'' and state_attr(''climate.thermostat'',
     ''current_temperature'') | int > states(''input_number.'' + (states(''input_select.home_mode'')
     | lower) + ''_high'') | int }} '

@@ -5,15 +5,12 @@
         platform: time_pattern
         minutes: "/15"
     }
-    condition: [
-        {
-            condition: or
-            conditions: [
-                "{{ states('climate.thermostat') == 'heat' and state_attr('climate.thermostat', 'current_temperature') | int > states('input_number.' + (states('input_select.home_mode') | lower) + '_high') | int }} "
-                "{{ states('climate.thermostat') == 'cool' and state_attr('climate.thermostat', 'current_temperature') | int < states('input_number.' + (states('input_select.home_mode') | lower) + '_low') | int }} "
-            ]
-        }
-    ]
+    condition: {
+        or: [
+            "{{ states('climate.thermostat') == 'heat' and state_attr('climate.thermostat', 'current_temperature') | int > states('input_number.' + (states('input_select.home_mode') | lower) + '_high') | int }} "
+            "{{ states('climate.thermostat') == 'cool' and state_attr('climate.thermostat', 'current_temperature') | int < states('input_number.' + (states('input_select.home_mode') | lower) + '_low') | int }} "
+        ]
+    }
     action: [
         {
             choose: [
