@@ -48,7 +48,7 @@ action:
     event_type: mobile_app_notification_action
     event_data:
       action: washer-done-check-in
-- action: Clear washer is done notification from all persons
+- alias: Clear washer is done notification from all persons
   repeat:
     for_each: '{{ persons }}'
     sequence:

@@ -84,7 +84,7 @@
             ]
         }
         {
-            action: Clear washer is done notification from all persons
+            alias: Clear washer is done notification from all persons
             repeat: {
                 for_each: "{{ persons }}"
                 sequence: [
