@@ -7,10 +7,12 @@ trigger:
   - person.sherene
   to: home
 condition:
+  alias: check that Home Mode is away
   condition: state
   entity_id: input_select.home_mode
   state: Away
 action:
+  alias: Set Home Mode to Home when someone comes home
   service: input_select.select_option
   data:
     entity_id: input_select.home_mode

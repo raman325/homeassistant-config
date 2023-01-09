@@ -6,6 +6,7 @@
         minutes: "/15"
     }
     condition: {
+        alias: Check that current HVAC mode is not auto and that the current temperature is outside the set range
         or: [
             "{{ states('climate.thermostat') == 'heat' and state_attr('climate.thermostat', 'current_temperature') | int > states('input_number.' + (states('input_select.home_mode') | lower) + '_high') | int }} "
             "{{ states('climate.thermostat') == 'cool' and state_attr('climate.thermostat', 'current_temperature') | int < states('input_number.' + (states('input_select.home_mode') | lower) + '_low') | int }} "
@@ -13,32 +14,20 @@
     }
     action: [
         {
-            choose: [
-                {
-                    alias: HVAC needs to flip from heat to cool
-                    conditions: "{{ states('climate.thermostat') == 'heat' }}"
-                    sequence: [
-                        {
-                            service: pyscript.set_hvac_mode
-                            data: {
-                                hvac_mode: cool
-                            }
-                        }
-                    ]
+            alias: Set variables
+            variables: {
+                mode_map: {
+                    heat: cool
+                    cool: heat
                 }
-                {
-                    alias: HVAC needs to flip from cool to heat
-                    conditions: "{{ states('climate.thermostat') == 'cool' }}"
-                    sequence: [
-                        {
-                            service: pyscript.set_hvac_mode
-                            data: {
-                                hvac_mode: heat
-                            }
-                        }
-                    ]
-                }
-            ]
+            }
+        }
+        {
+            alias: Flip HVAC mode
+            service: pyscript.set_hvac_mode
+            data: {
+                hvac_mode: "{{ node_map[states('climate.thermostat')] }}"
+            }
         }
     ]
 }

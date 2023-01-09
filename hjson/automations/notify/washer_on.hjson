@@ -7,11 +7,13 @@
         above: 50
     }
     condition: {
+        alias: check if washer input_boolean is off
         condition: state
         entity_id: input_boolean.washer
         state: off
     }
     action: {
+        alias: Turn on washer input_boolean
         service: input_boolean.turn_on
         data: {
             entity_id: input_boolean.washer

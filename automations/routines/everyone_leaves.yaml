@@ -8,6 +8,7 @@ trigger:
   to: not_home
   for: 00:05:00
 condition:
+  alias: check that all persons are not home and home mode is not away already
   and:
   - condition: state
     entity_id:
@@ -20,6 +21,7 @@ condition:
     - Home
     - Night
 action:
+  alias: Set Home Mode to Away because everyone left
   service: input_select.select_option
   data:
     entity_id: input_select.home_mode

@@ -6,6 +6,7 @@ trigger:
   webhook_id: !secret 'webhook_vacuum'
 condition: !secret 'webhook_auth_check'
 action:
+  alias: Send the appropriate IR command to the vacuum
   service: rest_command.ir_send
   data_template:
     target: '{{ trigger.json.target }}'

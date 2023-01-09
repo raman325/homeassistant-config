@@ -8,6 +8,7 @@
     condition: '{{ states("sensor.hacs") | int > 0 }}'
     action: [
         {
+            alias: Create/update persistent notification to show HACS updates
             service: persistent_notification.create
             data: {
                 title: '{{ states("sensor.hacs") }} updates pending in HACS'

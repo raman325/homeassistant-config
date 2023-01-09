@@ -5,7 +5,9 @@ trigger:
   entity_id: input_select.home_mode
   to: Away
 action:
-- service: pyscript.lock_down
-- service: pyscript.set_temperature
+- alias: lock down the house
+  service: pyscript.lock_down
+- alias: Set temperature mode to away
+  service: pyscript.set_temperature
   data:
     mode: away

@@ -5,6 +5,8 @@ trigger:
   minutes: /1
   hours: '*'
 condition:
+  alias: Check that home mode is Home, it's between midnight and 6 AM, and there has
+    been no motion in the living room for 20 minutes
   and:
   - condition: state
     entity_id: input_select.home_mode
@@ -17,10 +19,12 @@ condition:
     state: 'off'
     for: 00:20:00
 action:
-- service: input_select.select_option
+- alias: Set Home Mode to Night
+  service: input_select.select_option
   data:
     entity_id: input_select.home_mode
     option: Night
-- service: automation.turn_off
+- alias: Disable the Night Routine
+  service: automation.turn_off
   data:
     entity_id: automation.routine_night

@@ -6,7 +6,8 @@ trigger:
   from: 'off'
   to: 'on'
 action:
-- service: pyscript.set_slack_status
+- alias: Update Slack status to indicate Raman is on Zoom
+  service: pyscript.set_slack_status
   data:
     token: !secret 'token_slack'
     status_text: '{{ trigger.to_state.attributes[''status''] | replace(''_'', '' '')

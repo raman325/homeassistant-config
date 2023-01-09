@@ -8,9 +8,11 @@
     }
     action: [
         {
+            alias: lock down the house
             service: pyscript.lock_down
         }
         {
+            alias: Set temperature mode to away
             service: pyscript.set_temperature
             data: {
                 mode: away

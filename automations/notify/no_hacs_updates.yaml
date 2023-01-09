@@ -5,6 +5,7 @@ trigger:
   entity_id: sensor.hacs
 condition: '{{ states("sensor.hacs") | int == 0 }}'
 action:
-- service: persistent_notification.dismiss
+- alias: Clear persistent notification that shows HACS updates
+  service: persistent_notification.dismiss
   data:
     notification_id: hacs_update

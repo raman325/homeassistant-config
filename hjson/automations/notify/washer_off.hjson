@@ -1,40 +1,103 @@
 {
     id: notify_washer_off
     alias: Notify: Washer is off
+    mode: restart
     trigger: {
         platform: numeric_state
         entity_id: sensor.washer_electric_consumption_w
         below: 0.5
     }
     condition: {
+        alias: check if washer input_boolean is on
         condition: state
         entity_id: input_boolean.washer
         state: on
     }
     action: [
         {
+            alias: Set variables
+            variables: {
+                persons: [
+                    raman
+                    sherene
+                ]
+            }
+        }
+        {
+            alias: Turn off washer input_boolean
             service: input_boolean.turn_off
             data: {
                 entity_id: input_boolean.washer
             }
         }
         {
-            service: "notify.mobile_app_ramans_iphone"
-            data: {
-                title: Washer Done!
-                message: Washer done
-                data: {
-                    tag: washer-done-check-in
-                    action_data: {
-                        entity_id: lock.front_door
-                    }
-                    actions: [
-                        {
-                            action: "washer-done-check-in"
-                            title: "Check in"
+            action: Clear washer is done notification from all persons
+            repeat: {
+                for_each: "{{ persons }}"
+                sequence: [
+                    {
+                        service: notify.mobile_app_{{ repeat.item }}s_iphone
+                        data: {
+                            message: clear_notification
+                            data: {
+                                tag: washer-done-check-in
+                            }
                         }
-                    ]
+                    }
+                ]
+            }
+        }
+        {
+            alias: Notify all persons that the washer is done
+            repeat: {
+                for_each: "{{ persons }}"
+                sequence: [
+                    {
+                        service: notify.mobile_app_{{ repeat.item }}s_iphone
+                        data: {
+                            title: Washer Done!
+                            message: The washer is done
+                            data: {
+                                tag: washer-done-check-in
+                                actions: [
+                                    {
+                                        action: washer-done-check-in
+                                        title: Check In
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+        {
+            alias: Wait for a check in from a device before continuing
+            wait_for_trigger: [
+                {
+                    platform: event
+                    event_type: mobile_app_notification_action
+                    event_data: {
+                        action: washer-done-check-in
+                    }
                 }
+            ]
+        }
+        {
+            action: Clear washer is done notification from all persons
+            repeat: {
+                for_each: "{{ persons }}"
+                sequence: [
+                    {
+                        service: notify.mobile_app_{{ repeat.item }}s_iphone
+                        data: {
+                            message: clear_notification
+                            data: {
+                                tag: washer-done-check-in
+                            }
+                        }
+                    }
+                ]
             }
         }
     ]

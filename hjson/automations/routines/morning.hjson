@@ -12,6 +12,7 @@
         to: on
     }
     condition: {
+        alias: Check that the home mode is currently night and its after 6 AM
         and: [
             {
                 condition: time
@@ -26,6 +27,7 @@
         ]
     }
     action: {
+        alias: Set Home Mode to Home
         service: input_select.select_option
         data: {
             entity_id: input_select.home_mode

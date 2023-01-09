@@ -10,6 +10,7 @@
     }
     action: [
         {
+            alias: Update Slack status to indicate Raman is off Zoom
             service: pyscript.set_slack_status
             data: {
                 token: !secret token_slack

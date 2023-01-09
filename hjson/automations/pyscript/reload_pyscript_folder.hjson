@@ -7,6 +7,7 @@
     }
     condition: '{{ trigger.event.data.folder == "/config/pyscript" }}'
     action: {
+        alias: Reload pyscript modules
         service: pyscript.reload
     }
 }

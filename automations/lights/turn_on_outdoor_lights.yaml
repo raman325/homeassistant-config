@@ -6,9 +6,16 @@ trigger:
 - platform: homeassistant
   event: start
 condition:
+- alias: Front Porch Light is Off
   condition: state
   entity_id: light.front_porch_light
   state: 'off'
+- alias: time is between sunset and 11 PM
+  and:
+  - condition: time
+    before: '23:00:00'
+  - condition: sun
+    after: sunset
 action:
   service: light.turn_on
   target:

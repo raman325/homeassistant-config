@@ -8,6 +8,7 @@
     condition: '{{ states("sensor.hacs") | int == 0 }}'
     action: [
         {
+            alias: Clear persistent notification that shows HACS updates
             service: persistent_notification.dismiss
             data: {
                 notification_id: hacs_update

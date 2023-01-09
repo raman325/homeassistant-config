@@ -6,6 +6,7 @@
         at: 00:00:00
     }
     action: {
+        alias: Enable night routine
         service: automation.turn_on
         data: {
             entity_id: automation.routine_night

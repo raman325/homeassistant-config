@@ -10,6 +10,7 @@ condition: '{% set curr_ver = states("sensor.local_ha_version").split(".") %}{% 
   new_ver[0]|int == curr_ver[0]|int and new_ver[1]|int == curr_ver[1]|int and new_ver[2]|int
   > curr_ver[2]|int) }}'
 action:
+  alias: Notify Slack that a new HA version is available
   service: notify.apprise
   data:
     title: New HA version {{ states("sensor.available_ha_version") }} available

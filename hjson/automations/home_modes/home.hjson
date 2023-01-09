@@ -8,6 +8,7 @@
     }
     action: [
         {
+            alias: Set temperature mode to home
             service: pyscript.set_temperature
             data: {
                 mode: home

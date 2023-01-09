@@ -9,6 +9,7 @@
         }
     }
     action: {
+        alias: Lock the door specified in the notification
         service: lock.lock
         target: {
             entity_id: "{{ trigger.event.data.action_data.entity_id }}"

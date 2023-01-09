@@ -8,6 +8,8 @@ trigger:
   to: not_home
   for: 00:05:00
 condition:
+  alias: check that home mode is not away, front door is unlocked, and only one person
+    left the house
   and:
   - condition: state
     entity_id: input_select.home_mode
@@ -24,12 +26,8 @@ condition:
       - person.sherene
       state: not_home
 action:
-- alias: Set variables
-  variables:
-    device_map:
-      person.raman: notify.mobile_app_ramans_iphone
-      person.sherene: notify.mobile_app_sherenes_iphone
-- service: '{{ device_map[trigger.entity_id] }}'
+- alias: Notify the person who left that the door is still unlocked
+  service: notify.mobile_app_{{ trigger.entity_id.split('.')[1] }}s_iphone
   data:
     title: Door is still unlocked
     message: Do you want to lock it?
