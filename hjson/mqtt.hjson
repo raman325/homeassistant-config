@@ -36,6 +36,7 @@
             value_template: '{{ value_json | int }}'
             device_class: moisture
             icon: mdi:flower-pollen
+            unit_of_measurement: "%"
         }
         {
             name: Jasmine Plant Moisture
@@ -43,6 +44,7 @@
             value_template: '{{ value_json | int }}'
             device_class: moisture
             icon: mdi:leaf
+            unit_of_measurement: "%"
         }
     ]
 }
