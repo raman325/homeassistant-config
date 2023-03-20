@@ -3,10 +3,15 @@ alias: 'Notify: HA Update Available'
 trigger:
   platform: state
   entity_id: sensor.available_ha_version
-condition: '{% set curr_ver = states("sensor.local_ha_version").split(".") %}{% set
-  new_ver = states("sensor.available_ha_version").split(".") %}{{ (new_ver|count !=
-  curr_ver|count) or new_ver[0]|int > curr_ver[0]|int or (new_ver|count > 1 and new_ver[0]|int
-  == curr_ver[0]|int and new_ver[1]|int > curr_ver[1]|int) or (new_ver|count > 2 and
+condition:
+- not:
+    condition: state
+    entity_id: sensor.available_ha_version
+    state: unavailable
+- '{% set curr_ver = states("sensor.local_ha_version").split(".") %}{% set new_ver
+  = states("sensor.available_ha_version").split(".") %}{{ (new_ver|count != curr_ver|count)
+  or new_ver[0]|int > curr_ver[0]|int or (new_ver|count > 1 and new_ver[0]|int ==
+  curr_ver[0]|int and new_ver[1]|int > curr_ver[1]|int) or (new_ver|count > 2 and
   new_ver[0]|int == curr_ver[0]|int and new_ver[1]|int == curr_ver[1]|int and new_ver[2]|int
   > curr_ver[2]|int) }}'
 action:
