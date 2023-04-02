@@ -9,5 +9,3 @@
     - sensor.*_humidity
     - sensor.*_illuminance
     - sensor.*_motion
-    exclude_domains:
-    - media_player
