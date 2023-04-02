@@ -2,6 +2,7 @@
     filter: {
         exclude_entity_globs: [
             media_player.owntone_*
+            media_player.viziocastaudio*
         ]
     }
 }
