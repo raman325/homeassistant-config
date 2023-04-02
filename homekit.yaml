@@ -1,4 +1,3 @@
 filter:
-  exclude_entity_globs:
-  - media_player.owntone_*
-  - media_player.viziocastaudio*
+  exclude_domains:
+  - media_player
