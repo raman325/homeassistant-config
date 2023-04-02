@@ -9,3 +9,9 @@
     - sensor.*_humidity
     - sensor.*_illuminance
     - sensor.*_motion
+    exclude_entity_globs:
+    - sensor.*_air_temperature
+    - sensor.*_door
+    - sensor.*_humidity
+    - sensor.*_illuminance
+    - sensor.*_motion
