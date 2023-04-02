@@ -1,0 +1,7 @@
+{
+    filter: {
+        exclude_entity_globs: [
+            media_player.owntone_*
+        ]
+    }
+}

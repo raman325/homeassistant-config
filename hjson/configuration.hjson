@@ -15,6 +15,7 @@
     google_assistant: !include google_assistant.yaml
     history: null
     homeassistant: !include homeassistant.yaml
+    homekit: !include homekit.yaml
     http: !include http.yaml
     influxdb: !include influxdb.yaml
     input_boolean: null
