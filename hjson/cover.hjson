@@ -1,0 +1,68 @@
+[
+  {
+    "platform": "template",
+    "covers": {
+      "front_door": {
+        "device_class": "garage",
+        "friendly_name": "Front Door",
+        "value_template": "{% if is_state('lock.front_door', 'locked') %}closed{% elif is_state('lock.front_door', 'unlocked') %}open{% else %}{{ states('lock.front_door') }}{% endif %}",
+        "open_cover": {
+          "service": "lock.unlock",
+          "data": {
+            "entity_id": "lock.front_door"
+          }
+        },
+        "close_cover": {
+          "service": "lock.lock",
+          "data": {
+            "entity_id": "lock.front_door"
+          }
+        }
+      }
+    }
+  },
+  {
+    "platform": "template",
+    "covers": {
+      "back_door": {
+        "device_class": "garage",
+        "friendly_name": "Back Door",
+        "value_template": "{% if is_state('lock.back_door', 'locked') %}closed{% elif is_state('lock.back_door', 'unlocked') %}open{% else %}{{ states('lock.back_door') }}{% endif %}",
+        "open_cover": {
+          "service": "lock.unlock",
+          "data": {
+            "entity_id": "lock.back_door"
+          }
+        },
+        "close_cover": {
+          "service": "lock.lock",
+          "data": {
+            "entity_id": "lock.back_door"
+          }
+        }
+      }
+    }
+  },
+  {
+    "platform": "template",
+    "covers": {
+      "basement_door": {
+        "device_class": "garage",
+        "friendly_name": "Basement Door",
+        "value_template": "{% if is_state('lock.basement_door', 'locked') %}closed{% elif is_state('lock.basement_door', 'unlocked') %}open{% else %}{{ states('lock.basement_door') }}{% endif %}",
+        "open_cover": {
+          "service": "lock.unlock",
+          "data": {
+            "entity_id": "lock.basement_door"
+          }
+        },
+        "close_cover": {
+          "service": "lock.lock",
+          "data": {
+            "entity_id": "lock.basement_door"
+          }
+        }
+      }
+    }
+  }
+]

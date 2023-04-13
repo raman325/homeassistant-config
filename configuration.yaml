@@ -4,6 +4,7 @@ automation split: !include_dir_list 'automations'
 config:
 conversation:
 counter:
+cover: !include 'cover.yaml'
 default_config:
 device_tracker: !include 'device_tracker.yaml'
 discovery: !include 'discovery.yaml'

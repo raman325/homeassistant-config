@@ -1,6 +1,7 @@
 - filter:
     include_domains:
     - climate
+    - cover
     - light
     - lock
     include_entity_globs:

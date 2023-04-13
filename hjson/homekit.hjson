@@ -3,6 +3,7 @@
         filter: {
             include_domains: [
                 climate
+                cover
                 light
                 lock
             ]
