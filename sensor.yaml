@@ -11,3 +11,6 @@
   name: shodan
   api_key: !secret 'api_shodan'
   query: 8.3.80.33
+- platform: waste_collection_schedule
+  name: Trash Collection
+  add_days_to: true

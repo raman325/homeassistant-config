@@ -1,0 +1,11 @@
+sources:
+- name: static
+  args:
+    type: Trash and Recycling
+    frequency: WEEKLY
+    weekdays: TH
+  customize:
+  - type: Trash
+    icon: mdi:trash-can
+  - type: Recycling
+    icon: mdi:recycle

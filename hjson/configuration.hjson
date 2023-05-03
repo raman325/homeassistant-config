@@ -51,6 +51,7 @@
     timer: null
     tts: !include tts.yaml
     wake_on_lan: null
+    waste_collection_schedule: !include waste_collection_schedule.yaml
     winix: !include winix.yaml
 	zeroconf: null
     zone: !include zones.yaml
