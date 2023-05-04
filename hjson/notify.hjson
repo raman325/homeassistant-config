@@ -1,9 +1,4 @@
 [
-    {
-        platform: kodi
-        name: Living Room Kodi
-        host: !secret host_living_room_shield
-    }
 	{
 		platform: apprise
 		name: apprise
