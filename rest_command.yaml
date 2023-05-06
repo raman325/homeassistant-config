@@ -11,8 +11,3 @@ assistant_broadcast:
   method: POST
   content_type: application/json
   payload: '{"command":"{{ command }}", "user":"raman", "broadcast":true}'
-caavo:
-  url: !secret 'url_assistant_relay'
-  method: POST
-  content_type: application/json
-  payload: '{"command":"tell caavo to {{ command }}", "user":"raman"}'
