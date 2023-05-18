@@ -1,2 +1,0 @@
-username: !secret 'email_raman'
-password: !secret 'pass_winix'
