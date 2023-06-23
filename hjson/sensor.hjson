@@ -25,4 +25,20 @@
         name: Trash Collection
         add_days_to: true
     }
+    {
+        platform: gtfs_rt
+        trip_update_url: 'https://api.wmata.com/gtfs/bus-gtfsrt-tripupdates.pb'
+        vehicle_position_url: 'https://api.wmata.com/gtfs/bus-gtfsrt-vehiclepositions.pb'
+        headers: {
+            api_key: !secret api_wmata
+        }
+        departures:
+        [
+            {
+                name: To Office
+                route: !secret wmata_route_office
+                stopid: !secret wmata_stop_office
+            }
+        ]
+    }
 ]
