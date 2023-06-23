@@ -3,12 +3,12 @@
   longitude: !secret 'long_home'
   radius: 25
   icon: mdi:star-outline
-- name: Raman Work
+- name: AWS
   latitude: !secret 'lat_work_raman'
   longitude: !secret 'long_work_raman'
   radius: 150
   icon: mdi:aws
-- name: Sherene Work
+- name: Vital Voices
   latitude: !secret 'lat_work_sherene'
   longitude: !secret 'long_work_sherene'
   radius: 55
