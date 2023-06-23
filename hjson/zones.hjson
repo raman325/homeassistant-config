@@ -7,14 +7,14 @@
         icon: fas:heart
     }
     {
-        name: Cvent
+        name: Raman Work
         latitude: !secret lat_work_raman
         longitude: !secret long_work_raman
         radius: 150
         icon: fas:laptop-code
     }
     {
-        name: Washingtonian
+        name: Sherene Work
         latitude: !secret lat_work_sherene
         longitude: !secret long_work_sherene
         radius: 55
