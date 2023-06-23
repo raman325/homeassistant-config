@@ -20,10 +20,10 @@
   headers:
     api_key: !secret 'api_wmata'
   departures:
-  - name: To Office (16th)
+  - name: From Home to VV via 16th
     route: !secret 'wmata_route_office_16'
     stopid: !secret 'wmata_stop_office_16'
-  - name: To Office (14th)
+  - name: From Home to VV via 14th
     routes:
     - !secret 'wmata_route_office_14_1'
     - !secret 'wmata_route_office_14_2'
