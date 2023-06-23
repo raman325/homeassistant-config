@@ -4,20 +4,20 @@
         latitude: !secret lat_home
         longitude: !secret long_home
         radius: 25
-        icon: fas:heart
+        icon: mdi:star-outline
     }
     {
         name: Raman Work
         latitude: !secret lat_work_raman
         longitude: !secret long_work_raman
         radius: 150
-        icon: fas:laptop-code
+        icon: mdi:aws
     }
     {
         name: Sherene Work
         latitude: !secret lat_work_sherene
         longitude: !secret long_work_sherene
         radius: 55
-        icon: fas:book-open
+        icon: mdi:bullhorn-variant-outline
     }
 ]
