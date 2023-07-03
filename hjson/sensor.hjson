@@ -36,41 +36,41 @@
         [
             {
                 name: Sherene from Home to Office via 16th (local)
-                route: !secret wmata_route_sherene_office_16
-                stopid: !secret wmata_stop_sherene_home_16
+                routes: !secret wmata_route_sherene_office_16
+                stop_id: !secret wmata_stop_sherene_home_16
             }
             {
                 name: Sherene from Home to Office via 16th (express)
-                route: !secret wmata_route_sherene_office_16_express
-                stopid: !secret wmata_stop_sherene_home_16_express
+                routes: !secret wmata_route_sherene_office_16_express
+                stop_id: !secret wmata_stop_sherene_home_16_express
             }
             {
                 name: Sherene from Home to Office via 14th
-                route:
+                routes:
                 [
                     !secret wmata_route_sherene_office_14_1
                     !secret wmata_route_sherene_office_14_2
                 ]
-                stopid: !secret wmata_stop_sherene_home_14
+                stop_id: !secret wmata_stop_sherene_home_14
             }
             {
                 name: Sherene from Office to Home via 16th (local)
-                route: !secret wmata_route_sherene_office_16
-                stopid: !secret wmata_stop_sherene_office_16
+                routes: !secret wmata_route_sherene_office_16
+                stop_id: !secret wmata_stop_sherene_office_16
             }
             {
                 name: Sherene from Office to Home via 16th (express)
-                route: !secret wmata_route_sherene_office_16_express
-                stopid: !secret wmata_stop_sherene_office_16_express
+                routes: !secret wmata_route_sherene_office_16_express
+                stop_id: !secret wmata_stop_sherene_office_16_express
             }
             {
                 name: Sherene from Office to Home via 14th
-                route:
+                routes:
                 [
                     !secret wmata_route_sherene_office_14_1
                     !secret wmata_route_sherene_office_14_2
                 ]
-                stopid: !secret wmata_stop_sherene_office_14
+                stop_id: !secret wmata_stop_sherene_office_14
             }
         ]
     }
