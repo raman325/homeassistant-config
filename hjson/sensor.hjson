@@ -46,7 +46,7 @@
             }
             {
                 name: Sherene from Home to Office via 14th
-                routes:
+                route:
                 [
                     !secret wmata_route_sherene_office_14_1
                     !secret wmata_route_sherene_office_14_2
@@ -65,7 +65,7 @@
             }
             {
                 name: Sherene from Office to Home via 14th
-                routes:
+                route:
                 [
                     !secret wmata_route_sherene_office_14_1
                     !secret wmata_route_sherene_office_14_2

@@ -27,7 +27,7 @@
     route: !secret 'wmata_route_sherene_office_16_express'
     stopid: !secret 'wmata_stop_sherene_home_16_express'
   - name: Sherene from Home to Office via 14th
-    routes:
+    route:
     - !secret 'wmata_route_sherene_office_14_1'
     - !secret 'wmata_route_sherene_office_14_2'
     stopid: !secret 'wmata_stop_sherene_home_14'
@@ -38,7 +38,7 @@
     route: !secret 'wmata_route_sherene_office_16_express'
     stopid: !secret 'wmata_stop_sherene_office_16_express'
   - name: Sherene from Office to Home via 14th
-    routes:
+    route:
     - !secret 'wmata_route_sherene_office_14_1'
     - !secret 'wmata_route_sherene_office_14_2'
     stopid: !secret 'wmata_stop_sherene_office_14'
