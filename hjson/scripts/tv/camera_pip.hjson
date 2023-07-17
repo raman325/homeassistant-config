@@ -3,17 +3,17 @@
     mode: single
     variables: {
         _camera_url_lookup: {
-            doorbell: !secret 'url_camera_doorbell'
-            front: !secret 'url_camera_front'
-            side: !secret 'url_camera_side'
-            rear: !secret 'url_camera_rear'
+            doorbell: !secret url_camera_doorbell
+            front: !secret url_camera_front
+            side: !secret url_camera_side
+            rear: !secret url_camera_rear
         }
-        _ha_url: !secret 'external_url'
+        _ha_url: !secret external_url
         _link_id: "{% for _ in range(40) %}{{ range(10)|random }}{% endfor %}"
         _tv_ip_lookup: {
-            living_room: !secret 'host_living_room_tv'
-            master_bedroom: !secret 'host_master_bedroom_shield'
-            raman_office: ! secret 'host_raman_office_shield'
+            living_room: !secret host_living_room_tv
+            master_bedroom: !secret host_master_bedroom_shield
+            raman_office: ! secret host_raman_office_shield
         }
     }
     fields: {
