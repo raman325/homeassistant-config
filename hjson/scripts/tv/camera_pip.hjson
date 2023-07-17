@@ -2,12 +2,6 @@
     alias: Display Camera as PIP on TV
     mode: single
     variables: {
-        _camera_url_lookup: {
-            doorbell: !secret url_camera_doorbell
-            front: !secret url_camera_front
-            side: !secret url_camera_side
-            rear: !secret url_camera_rear
-        }
         _ha_url: !secret external_url
         _link_id: "{% for _ in range(40) %}{{ range(10)|random }}{% endfor %}"
         _tv_ip_lookup: {
@@ -62,7 +56,7 @@
             service: webrtc.create_link
             data: {
                 link_id: "{{ _link_id }}"
-                url: "{{ _camera_url_lookup[camera_name.replace(' ', '_').lower()] }}"
+                entity: "camera.{{ camera_name.replace(' ', '_').lower() }}"
                 open_limit: 1
                 time_to_live: 60
             }
