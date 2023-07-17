@@ -209,7 +209,11 @@ def convertHjsonToYaml(path_to_hjson="hjson/", path_to_yaml="./"):
             os.makedirs(basePath)
 
         with open(srcFile, "r") as src:
-            config = hjson.loads(src.read(), object_pairs_hook=decode_ha)
+            try:
+                config = hjson.loads(src.read(), object_pairs_hook=decode_ha)
+            except Exception as err:
+                print("Can't parse file: " + srcFile)
+                exit(1)
 
             with open(destFile, "w") as dest:
                 newYAML = yaml.safe_dump(

@@ -1,0 +1,41 @@
+{
+    alias: Display Camera as PIP on TV
+    mode: single
+    variables: {
+        _camera_url_lookup: {
+            doorbell: !secret 'camera_url_doorbell'
+            front: !secret 'camera_url_front'
+            side: !secret 'camera_url_side'
+            rear: !secret 'camera_url_rear'
+        }
+        _ha_url: !secret 'external_url'
+        _link_id: "{% for _ in range(40) %}{{ range(10)|random }}{% endfor %}"
+        _tv_ip_lookup: {
+            living_room: !secret 'host_living_room_tv'
+            master_bedroom: !secret 'host_master_bedroom_shield'
+            raman_office: ! secret 'host_raman_office_shield'
+        }
+    }
+    sequence: [
+        {
+            service: webrtc.create_link
+            data: {
+                link_id: "{{ _link_id }}"
+                url: "{{ _camera_url_lookup[camera_name.replace(' ', '_').lower()] }}"
+                open_limit: 1
+                time_to_live: 60
+            }
+        }
+        {
+            service: rest_command.pipup_url_on_tv
+            data: {
+                title: "{{ camera_name.replace('_', ' ').title() }} Camera"
+                message: "{{ message }}"
+                width: 640
+                height: 480
+                media_url: "{{ _ha_url }}/webrtc/embed?url={{ _link_id }}"
+                target_tv: "{{ _tv_ip_lookup[tv_room.replace(' ', '_').lower()] }}"
+            }
+        }
+    ]
+}
