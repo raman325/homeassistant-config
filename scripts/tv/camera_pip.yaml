@@ -12,6 +12,35 @@ variables:
     living_room: !secret '''host_living_room_tv'''
     master_bedroom: !secret '''host_master_bedroom_shield'''
     raman_office: '! secret ''host_raman_office_shield'''
+fields:
+  camera_name:
+    description: Camera to stream to TV.
+    example: Doorbell
+    required: true
+    selector:
+      select:
+        options:
+        - Doorbell
+        - Front
+        - Side
+        - Rear
+  tv_room:
+    description: Room TV is in.
+    example: Doorbell
+    required: true
+    selector:
+      select:
+        options:
+        - Living Room
+        - Master Bedroom
+        - Raman Office
+  message:
+    description: The message to send
+    example: Someone is at the door
+    required: true
+    selector:
+      text:
+        type: text
 sequence:
 - service: webrtc.create_link
   data:
