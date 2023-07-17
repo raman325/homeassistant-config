@@ -3,10 +3,10 @@
     mode: single
     variables: {
         _camera_url_lookup: {
-            doorbell: !secret 'camera_url_doorbell'
-            front: !secret 'camera_url_front'
-            side: !secret 'camera_url_side'
-            rear: !secret 'camera_url_rear'
+            doorbell: !secret 'url_camera_doorbell'
+            front: !secret 'url_camera_front'
+            side: !secret 'url_camera_side'
+            rear: !secret 'url_camera_rear'
         }
         _ha_url: !secret 'external_url'
         _link_id: "{% for _ in range(40) %}{{ range(10)|random }}{% endfor %}"
