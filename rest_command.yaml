@@ -17,38 +17,26 @@ pipup_image_on_tv:
   verify_ssl: false
   method: post
   timeout: 20
-  payload:
-    duration: '{{ duration | default(20) }}'
-    position: '{{ position | default(0) }}'
-    title: '{{ title | default('''') }}'
-    titleColor: '{{ titleColor | default(''#50BFF2'') }}'
-    titleSize: '{{ titleSize | default(10) }}'
-    message: '{{ message }}'
-    messageColor: '{{ messageColor | default(''#fbf5f5'') }}'
-    messageSize: '{{ messageSize | default(14) }}'
-    backgroundColor: '{{ backgroundColor | default(''#0f0e0e'') }}'
-    media:
-      image:
-        uri: '{{ media_url }}'
-        width: '{{ width | default(640) }}'
+  payload: "{\n\"duration\": \"{{ duration | default(20) }}\",\n\"position\": \"{{\
+    \ position | default(0) }}\",\n\"title\": \"{{ title | default('') }}\",\n\"titleColor\"\
+    : \"{{ titleColor | default('#50BFF2') }}\",\n\"titleSize\": \"{{ titleSize |\
+    \ default(10) }}\",\n\"message\": \"{{ message }}\",\n\"messageColor\": \"{{ messageColor\
+    \ | default('#fbf5f5') }}\",\n\"messageSize\": \"{{ messageSize | default(14)\
+    \ }}\",\n\"backgroundColor\": \"{{ backgroundColor | default('#0f0e0e') }}\",\n\
+    \"media\": { \n\"image\": {\n   \"uri\": \"{{ media_url }}\",\n   \"width\": \"\
+    {{ width | default(640) }}\"\n}\n}\n}"
 pipup_url_on_tv:
   url: http://{{ target_tv }}:7979/notify
   content_type: application/json
   verify_ssl: false
   method: post
   timeout: 20
-  payload:
-    duration: '{{ duration | default(20) }}'
-    position: '{{ position | default(0) }}'
-    title: '{{ title | default('''') }}'
-    titleColor: '{{ titleColor | default(''#50BFF2'') }}'
-    titleSize: '{{ titleSize | default(10) }}'
-    message: '{{ message }}'
-    messageColor: '{{ messageColor | default(''#fbf5f5'') }}'
-    messageSize: '{{ messageSize | default(14) }}'
-    backgroundColor: '{{ backgroundColor | default(''#0f0e0e'') }}'
-    media:
-      web:
-        uri: '{{ media_url }}'
-        width: '{{ width | default(640) }}'
-        height: '{{ height | default(480) }}'
+  payload: "{\n\"duration\": \"{{ duration | default(20) }}\",\n\"position\": \"{{\
+    \ position | default(0) }}\",\n\"title\": \"{{ title | default('') }}\",\n\"titleColor\"\
+    : \"{{ titleColor | default('#50BFF2') }}\",\n\"titleSize\": \"{{ titleSize |\
+    \ default(10) }}\",\n\"message\": \"{{ message }}\",\n\"messageColor\": \"{{ messageColor\
+    \ | default('#fbf5f5') }}\",\n\"messageSize\": \"{{ messageSize | default(14)\
+    \ }}\",\n\"backgroundColor\": \"{{ backgroundColor | default('#0f0e0e') }}\",\n\
+    \"media\": {\n\"web\": {\n   \"uri\": \"{{ media_url }}\", \n   \"width\": \"\
+    {{ width | default(640) }}\",\n   \"height\": \"{{ height | default(480) }}\"\n\
+    }\n}\n}"

@@ -16,16 +16,15 @@
         payload: '{"command":"{{ command }}", "user":"raman", "broadcast":true}'
     }
     pipup_image_on_tv: {
-        # Use Pipup to display image notifications on Android TV devices.
         url: "http://{{ target_tv }}:7979/notify"
         content_type: "application/json"
         verify_ssl: false
         method: "post"
         timeout: 20
-        payload: {
+        payload: '''{
             "duration": "{{ duration | default(20) }}",
             "position": "{{ position | default(0) }}",
-            "title": "{{ title | default(\'\') }}",
+            "title": "{{ title | default('') }}",
             "titleColor": "{{ titleColor | default('#50BFF2') }}",
             "titleSize": "{{ titleSize | default(10) }}",
             "message": "{{ message }}",
@@ -38,7 +37,7 @@
                     "width": "{{ width | default(640) }}"
                 }
             }
-        }
+        }'''
     }
     pipup_url_on_tv: {
         url: "http://{{ target_tv }}:7979/notify"
@@ -46,23 +45,23 @@
         verify_ssl: false
         method: "post"
         timeout: 20
-        payload: {
-            duration: "{{ duration | default(20) }}",
-            position: "{{ position | default(0) }}",
-            title: "{{ title | default('') }}",
-            titleColor: "{{ titleColor | default('#50BFF2') }}",
-            titleSize: "{{ titleSize | default(10) }}",
-            message: "{{ message }}",
-            messageColor: "{{ messageColor | default('#fbf5f5') }}",
-            messageSize: "{{ messageSize | default(14) }}",
-            backgroundColor: "{{ backgroundColor | default('#0f0e0e') }}",
-            media: {
-                web: {
-                    uri: "{{ media_url }}", 
-                    width: "{{ width | default(640) }}",
-                    height: "{{ height | default(480) }}"
+        payload: '''{
+            "duration": "{{ duration | default(20) }}",
+            "position": "{{ position | default(0) }}",
+            "title": "{{ title | default('') }}",
+            "titleColor": "{{ titleColor | default('#50BFF2') }}",
+            "titleSize": "{{ titleSize | default(10) }}",
+            "message": "{{ message }}",
+            "messageColor": "{{ messageColor | default('#fbf5f5') }}",
+            "messageSize": "{{ messageSize | default(14) }}",
+            "backgroundColor": "{{ backgroundColor | default('#0f0e0e') }}",
+            "media": {
+                "web": {
+                    "uri": "{{ media_url }}", 
+                    "width": "{{ width | default(640) }}",
+                    "height": "{{ height | default(480) }}"
                 }
             }
-        }
+        }'''
     }
 }
