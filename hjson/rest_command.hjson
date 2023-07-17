@@ -34,7 +34,8 @@
             "media": { 
                 "image": {
                     "uri": "{{ media_url }}",
-                    "width": "{{ width | default(640) }}"
+                    "width": "{{ width | default(640) }}",
+                    "height": "{{ height | default(480) }}"
                 }
             }
         }'''

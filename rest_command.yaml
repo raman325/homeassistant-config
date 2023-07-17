@@ -24,7 +24,8 @@ pipup_image_on_tv:
     \ | default('#fbf5f5') }}\",\n\"messageSize\": \"{{ messageSize | default(14)\
     \ }}\",\n\"backgroundColor\": \"{{ backgroundColor | default('#0f0e0e') }}\",\n\
     \"media\": { \n\"image\": {\n   \"uri\": \"{{ media_url }}\",\n   \"width\": \"\
-    {{ width | default(640) }}\"\n}\n}\n}"
+    {{ width | default(640) }}\",\n   \"height\": \"{{ height | default(480) }}\"\n\
+    }\n}\n}"
 pipup_url_on_tv:
   url: http://{{ target_tv }}:7979/notify
   content_type: application/json
