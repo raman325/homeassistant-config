@@ -35,17 +35,17 @@
         departures:
         [
             {
-                name: Sherene from Home to Office via 16th (local)
+                name: 16th (local) Home to Office
                 routes: !secret wmata_route_sherene_office_16
                 stop_id: !secret wmata_stop_sherene_home_16
             }
             {
-                name: Sherene from Home to Office via 16th (express)
+                name: 16th (express) Home to Office
                 routes: !secret wmata_route_sherene_office_16_express
                 stop_id: !secret wmata_stop_sherene_home_16_express
             }
             {
-                name: Sherene from Home to Office via 14th
+                name: 14th Home to Office
                 routes:
                 [
                     !secret wmata_route_sherene_office_14_1
@@ -54,17 +54,17 @@
                 stop_id: !secret wmata_stop_sherene_home_14
             }
             {
-                name: Sherene from Office to Home via 16th (local)
+                name: 16th (local) Office to Home
                 routes: !secret wmata_route_sherene_office_16
                 stop_id: !secret wmata_stop_sherene_office_16
             }
             {
-                name: Sherene from Office to Home via 16th (express)
+                name: 16th (express) Office to Home
                 routes: !secret wmata_route_sherene_office_16_express
                 stop_id: !secret wmata_stop_sherene_office_16_express
             }
             {
-                name: Sherene from Office to Home via 14th
+                name: 14th Office to Home
                 routes:
                 [
                     !secret wmata_route_sherene_office_14_1
