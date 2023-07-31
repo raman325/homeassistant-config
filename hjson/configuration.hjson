@@ -8,7 +8,6 @@
     cover: !include cover.yaml
     default_config: null
     device_tracker: !include device_tracker.yaml
-    discovery: !include discovery.yaml
     ffmpeg: null
     folder_watcher: !include folder_watcher.yaml
     fontawesome: !include fontawesome.yaml
