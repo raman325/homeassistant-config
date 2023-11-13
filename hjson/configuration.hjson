@@ -10,7 +10,7 @@
     device_tracker: !include device_tracker.yaml
     ffmpeg: null
     folder_watcher: !include folder_watcher.yaml
-    fontawesome: !include fontawesome.yaml
+    fontawesome: null
     frontend: !include frontend.yaml
     google_assistant: !include google_assistant.yaml
     history: null
