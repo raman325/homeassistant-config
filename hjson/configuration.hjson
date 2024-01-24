@@ -23,6 +23,7 @@
     input_number: null
     input_select: null
     input_text: null
+    ios: null
     logbook: null
     logger: !include logger.yaml
     lovelace: null

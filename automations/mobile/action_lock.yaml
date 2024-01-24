@@ -1,0 +1,13 @@
+id: mobile_action_lock
+alias: 'Mobile Action: Toggle Lock'
+initial_state: true
+trigger:
+- platform: event
+  event_type: ios.action_fired
+condition: '{{ len(trigger.event.data.actionName.split(''.'')) == 2 and trigger.event.data.actionName.split(''.'')[0]
+  == ''lock'' }}'
+action:
+  alias: Lock the door specified in the notification
+  service: script.lock_or_unlock_door
+  data:
+    action: '{{ trigger.event.data.actionName }}'

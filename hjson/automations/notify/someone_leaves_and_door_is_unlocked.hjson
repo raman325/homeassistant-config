@@ -45,7 +45,7 @@
             alias: Notify the person who left that the door is still unlocked
             service: "notify.mobile_app_{{ trigger.entity_id.split('.')[1] }}s_iphone"
             data: {
-                title: Door is still unlocked
+                title: Front door is still unlocked
                 message: Do you want to lock it?
                 data: {
                     tag: lock-door-after-leaving

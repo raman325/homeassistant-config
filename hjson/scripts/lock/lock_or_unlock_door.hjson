@@ -1,0 +1,69 @@
+{
+    alias: Lock or Unlock a Door
+    mode: single
+    icon: mdi:door
+    fields: {
+        lock_entity_id: {
+            description: Entity ID of lock to lock or unlock
+            example: lock.front_door
+            required: true
+            selector: {
+                entity: {
+                    filter: [
+                        {
+                            domain: lock
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    sequence: [
+        {
+            choose: [
+                {
+                    conditions: [
+                        {
+                            condition: state
+                            entity_id: "{{ lock_entity_id }}"
+                            state: locked
+                        }
+                    ]
+                    sequence: [
+                        {
+                            service: lock.unlock
+                            target: {
+                                entity_id: "{{ lock_entity_id }}"
+                            }
+                        }
+                    ]
+                }
+                {
+                    conditions: [
+                        {
+                            condition: state
+                            entity_id: "{{ lock_entity_id }}"
+                            state: unlocked
+                        }
+                    ]
+                    sequence: [
+                        {
+                            service: lock.lock
+                            target: {
+                                entity_id: "{{ lock_entity_id }}"
+                            }
+                        }
+                    ]
+                }
+            ]
+            default: [
+                {
+                    service: notify.persistent_notification
+                    data:
+                        title: "Lock is in unknown state"
+                        message: "{{ lock_entity_id.split('.')[1].replace('_', ' ').title() }} is in an unknown state"
+                }
+            ]
+        }
+    ]
+}

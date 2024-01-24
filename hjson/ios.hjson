@@ -1,0 +1,52 @@
+{
+    actions: [
+        {
+            name: NightMode
+            background_color: "#000000"
+            label: {
+                text: "Night Mode"
+                color: "#074510"
+            }
+            icon: {
+                icon: sleep
+                color: "#ffffff"
+            }
+        }
+        {
+            name: WakeUp
+            background_color: "#000000"
+            label: {
+                text: "Wake Up"
+                color: "#074510"
+            }
+            icon: {
+                icon: coffee
+                color: "#ffffff"
+            }
+        }
+        {
+            name: lock.back_door
+            background_color: "#000000"
+            label: {
+                text: "Lock/Unlock Back Door"
+                color: "#074510"
+            }
+            icon: {
+                icon: door
+                color: "#ffffff"
+            }
+        }
+        {
+            name: lock.front_door
+            background_color: "#000000"
+            label: {
+                text: "Lock/Unlock Front Door"
+                color: "#074510"
+            }
+            icon: {
+                icon: door
+                color: "#ffffff"
+            }
+        }
+    ]
+}
