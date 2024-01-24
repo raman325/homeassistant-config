@@ -22,12 +22,9 @@
         {
             choose: [
                 {
-                    // conditions: [
-                    //     {
-                    //         condition: "{{ states(lock_entity_id) == 'locked' }}"
-                    //     }
-                    // ]
-                    condition: "{{ states(lock_entity_id) == 'locked' }}"
+                    conditions: [
+                        "{{ states(lock_entity_id) == 'locked' }}"
+                    ]
                     sequence: [
                         {
                             service: lock.unlock
@@ -40,12 +37,12 @@
                 {
                     // conditions: [
                     //     {
-                    //         condition: state
-                    //         entity_id: "{{ lock_entity_id }}"
-                    //         state: unlocked
+                    //         condition: "{{ states(lock_entity_id) == 'unlocked' }}"
                     //     }
                     // ]
-                    condition: "{{ states(lock_entity_id) == 'unlocked' }}"
+                    conditions: [
+                        "{{ states(lock_entity_id) == 'unlocked' }}"
+                    ]
                     sequence: [
                         {
                             service: lock.lock

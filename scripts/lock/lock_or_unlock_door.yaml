@@ -12,12 +12,14 @@ fields:
         - domain: lock
 sequence:
 - choose:
-  - condition: '{{ states(lock_entity_id) == ''locked'' }}'
+  - conditions:
+    - '{{ states(lock_entity_id) == ''locked'' }}'
     sequence:
     - service: lock.unlock
       target:
         entity_id: '{{ lock_entity_id }}'
-  - condition: '{{ states(lock_entity_id) == ''unlocked'' }}'
+  - conditions:
+    - '{{ states(lock_entity_id) == ''unlocked'' }}'
     sequence:
     - service: lock.lock
       target:
