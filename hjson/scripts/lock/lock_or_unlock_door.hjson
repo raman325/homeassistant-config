@@ -35,11 +35,6 @@
                     ]
                 }
                 {
-                    // conditions: [
-                    //     {
-                    //         condition: "{{ states(lock_entity_id) == 'unlocked' }}"
-                    //     }
-                    // ]
                     conditions: [
                         "{{ states(lock_entity_id) == 'unlocked' }}"
                     ]
@@ -56,9 +51,10 @@
             default: [
                 {
                     service: notify.persistent_notification
-                    data:
+                    data: {
                         title: "Lock is in unknown state"
                         message: "{{ lock_entity_id.split('.')[1].replace('_', ' ').title() }} is in an unknown state"
+                    }
                 }
             ]
         }

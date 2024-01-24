@@ -26,6 +26,7 @@ sequence:
         entity_id: '{{ lock_entity_id }}'
   default:
   - service: notify.persistent_notification
-    data: 'title: "Lock is in unknown state"'
-    message: '{{ lock_entity_id.split(''.'')[1].replace(''_'', '' '').title() }} is
-      in an unknown state'
+    data:
+      title: Lock is in unknown state
+      message: '{{ lock_entity_id.split(''.'')[1].replace(''_'', '' '').title() }}
+        is in an unknown state'
