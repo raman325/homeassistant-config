@@ -28,5 +28,5 @@ sequence:
   - service: notify.persistent_notification
     data:
       title: Lock is in unknown state
-      message: '{{ lock_entity_id.split(''.'')[1].replace(''_'', '' '').title() }}
-        is in an unknown state'
+      message: '{{ device_attr(lock_entity_id, ''name'') }} is in an unknown state:
+        ''{{ states(lock_entity_id) }}'''
