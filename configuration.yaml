@@ -22,7 +22,7 @@ input_datetime:
 input_number:
 input_select:
 input_text:
-ios:
+ios: !include 'ios.yaml'
 logbook:
 logger: !include 'logger.yaml'
 lovelace:
