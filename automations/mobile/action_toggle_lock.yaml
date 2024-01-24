@@ -10,4 +10,4 @@ action:
   alias: Lock the door specified in the notification
   service: script.lock_or_unlock_door
   data:
-    action: '{{ trigger.event.data.actionName }}'
+    lock_entity_id: '{{ trigger.event.data.actionName }}'
