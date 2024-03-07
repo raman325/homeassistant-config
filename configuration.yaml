@@ -53,4 +53,3 @@ wake_on_lan:
 waste_collection_schedule: !include 'waste_collection_schedule.yaml'
 zeroconf:
 zone: !include 'zones.yaml'
-zoom: !include 'zoom.yaml'

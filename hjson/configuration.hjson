@@ -54,5 +54,4 @@
     waste_collection_schedule: !include waste_collection_schedule.yaml
 	zeroconf: null
     zone: !include zones.yaml
-    zoom: !include zoom.yaml
 }
