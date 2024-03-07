@@ -30,6 +30,7 @@ map:
 mobile_app:
 mqtt: !include 'mqtt.yaml'
 notify: !include 'notify.yaml'
+panel_iframe: !include 'panel_iframe.yaml'
 plant: !include 'plant.yaml'
 proxmoxve: !include 'proxmoxve.yaml'
 pyscript: !include 'pyscript.yaml'

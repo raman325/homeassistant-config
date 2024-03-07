@@ -1,0 +1,7 @@
+{
+    bao: {
+        name: !secret name_bao
+        url: !secret url_bao
+        icon: !secret icon_bao
+    }
+}
