@@ -26,7 +26,6 @@ ios: !include 'ios.yaml'
 logbook:
 logger: !include 'logger.yaml'
 lovelace:
-map:
 mobile_app:
 mqtt: !include 'mqtt.yaml'
 notify: !include 'notify.yaml'

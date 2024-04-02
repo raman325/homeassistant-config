@@ -27,7 +27,6 @@
     logbook: null
     logger: !include logger.yaml
     lovelace: null
-    map: null
     mobile_app: null
     mqtt: !include mqtt.yaml
     notify: !include notify.yaml
