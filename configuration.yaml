@@ -50,4 +50,5 @@ tts: !include 'tts.yaml'
 wake_on_lan:
 waste_collection_schedule: !include 'waste_collection_schedule.yaml'
 zeroconf:
+zha: !include 'zha.yaml'
 zone: !include 'zones.yaml'

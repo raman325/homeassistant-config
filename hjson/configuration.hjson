@@ -51,5 +51,6 @@
     wake_on_lan: null
     waste_collection_schedule: !include waste_collection_schedule.yaml
 	zeroconf: null
+    zha: !include zha.yaml
     zone: !include zones.yaml
 }
