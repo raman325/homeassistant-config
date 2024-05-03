@@ -8,7 +8,6 @@ cover: !include 'cover.yaml'
 default_config:
 device_tracker: !include 'device_tracker.yaml'
 ffmpeg:
-folder_watcher: !include 'folder_watcher.yaml'
 fontawesome:
 frontend: !include 'frontend.yaml'
 google_assistant: !include 'google_assistant.yaml'
