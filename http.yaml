@@ -1,8 +1,14 @@
+cors_allowed_origins:
+- https://raman-gupta.com
+- https://rmngpt.com
+- https://cast.raman-gupta.com
 use_x_forwarded_for: true
 trusted_proxies:
 - 127.0.0.1
 - 192.168.0.11
 - 192.168.0.1
 - 192.168.0.9
+- 172.17.0.0/16
+- 172.18.0.0/16
 ip_ban_enabled: true
 login_attempts_threshold: 10
