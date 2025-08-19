@@ -5,7 +5,6 @@
     config: null
     conversation: null
     counter: null
-    cover: !include cover.yaml
     default_config: null
     device_tracker: !include device_tracker.yaml
     ffmpeg: null
