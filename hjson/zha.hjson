@@ -1,11 +1,21 @@
 {
-    "zigpy_config": {
-        "ota": [
-            type: "ikea_provider"
-            type: "ledvance_provider"
-            type: "salus_provider"
-            type: "inovelli_provider"
-            type: "thirdreality_provider"
-        ]
-    }
+  "zigpy_config": {
+    "ota": [
+      {
+        "type": "ikea_provider"
+      },
+      {
+        "type": "ledvance_provider"
+      },
+      {
+        "type": "salus_provider"
+      },
+      {
+        "type": "inovelli_provider"
+      },
+      {
+        "type": "thirdreality_provider"
+      }
+    ]
+  }
 }
