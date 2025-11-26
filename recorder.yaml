@@ -1,2 +1,2 @@
-purge_keep_days: 180
+purge_keep_days: 120
 db_url: !secret 'recorder_conn_str'
