@@ -3,19 +3,22 @@
     "ota": {
       "extra_providers": [
         {
-          "type": "ikea_provider"
+          "type": "ikea"
         }
         {
-          "type": "ledvance_provider"
+          "type": "ledvance"
         }
         {
-          "type": "salus_provider"
+          "type": "salus"
         }
         {
-          "type": "inovelli_provider"
+          "type": "sonoff"
         }
         {
-          "type": "thirdreality_provider"
+          "type": "inovelli"
+        }
+        {
+          "type": "thirdreality"
         }
       ]
     }

@@ -1,8 +1,9 @@
 zigpy_config:
   ota:
     extra_providers:
-    - type: ikea_provider
-    - type: ledvance_provider
-    - type: salus_provider
-    - type: inovelli_provider
-    - type: thirdreality_provider
+    - type: ikea
+    - type: ledvance
+    - type: salus
+    - type: sonoff
+    - type: inovelli
+    - type: thirdreality
