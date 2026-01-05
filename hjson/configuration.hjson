@@ -1,5 +1,6 @@
 {
     alexa: !include alexa.yaml
+    analytics: !include analytics.yaml
     automation: !include automations.yaml
     "automation split": !include_dir_list automations
     config: null
@@ -51,4 +52,5 @@
 	zeroconf: null
     zha: !include zha.yaml
     zone: !include zones.yaml
+    zoom: !include zoom.yaml
 }

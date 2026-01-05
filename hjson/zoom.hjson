@@ -1,0 +1,5 @@
+{
+    client_id: !secret client_id_zoom
+    client_secret: !secret client_secret_zoom
+    verification_token: !secret secret_token_zoom
+}
