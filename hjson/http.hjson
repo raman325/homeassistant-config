@@ -15,6 +15,6 @@
         172.17.0.0/16
         172.18.0.0/16
     ]
-    // ip_ban_enabled: true
+    ip_ban_enabled: false
     login_attempts_threshold: 10
 }
