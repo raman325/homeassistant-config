@@ -15,7 +15,6 @@ history:
 homeassistant: !include 'homeassistant.yaml'
 homekit: !include 'homekit.yaml'
 http: !include 'http.yaml'
-influxdb: !include 'influxdb.yaml'
 input_boolean:
 input_datetime:
 input_number:
