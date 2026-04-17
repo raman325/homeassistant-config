@@ -1,0 +1,21 @@
+{
+    id: notify_garage_door_left_open
+    alias: Notify: Garage door left open
+    trigger: {
+        platform: state
+        entity_id: cover.garage_door
+        to: open
+        for: "00:15:00"
+    }
+    action: {
+        alias: Notify both phones that the garage door has been open for 15 minutes
+        service: notify.household
+        data: {
+            title: Garage door left open
+            message: The garage door has been open for 15 minutes
+            data: {
+                tag: garage-door-left-open
+            }
+        }
+    }
+}

@@ -1,3 +1,8 @@
 - platform: apprise
   name: apprise
   config: /config/apprise.yaml
+- platform: group
+  name: household
+  services:
+  - service: mobile_app_ramans_iphone
+  - service: mobile_app_sherenes_iphone

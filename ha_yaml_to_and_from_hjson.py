@@ -226,6 +226,22 @@ def convertHjsonToYaml(path_to_hjson="hjson/", path_to_yaml="./"):
                 dest.close()
             src.close()
 
+    # Remove orphaned YAML files that no longer have a corresponding hjson source
+    yamlFiles = findFiles(path_to_yaml, "yaml")
+    for yamlFile in yamlFiles:
+        expectedHjson = (
+            path_to_hjson
+            + convertFileName(yamlFile, "yaml", "hjson")[len(path_to_yaml) :]
+        )
+        if not os.path.exists(expectedHjson):
+            print("Removing orphaned YAML: " + yamlFile)
+            os.remove(yamlFile)
+            # Remove empty parent directories
+            parentDir = os.path.dirname(yamlFile)
+            while parentDir != path_to_yaml and not os.listdir(parentDir):
+                os.rmdir(parentDir)
+                parentDir = os.path.dirname(parentDir)
+
 
 # add constructor and representer for every tag that HA uses
 for o in tag_obj_list:

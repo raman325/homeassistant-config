@@ -1,0 +1,31 @@
+{
+    id: notify_leak_detected
+    alias: Notify: Leak detected
+    trigger: {
+        platform: state
+        entity_id: [
+            binary_sensor.leak_sensor_moisture
+            binary_sensor.leak_sensor_moisture_2
+            binary_sensor.leak_sensor_moisture_3
+        ]
+        to: on
+    }
+    action: {
+        alias: Send critical notification to both phones about the leak
+        service: notify.household
+        data: {
+            title: Water leak detected!
+            message: "{{ trigger.to_state.name }} detected water!"
+            data: {
+                push: {
+                    sound: {
+                        name: default
+                        critical: 1
+                        volume: 1.0
+                    }
+                }
+                tag: leak-detected
+            }
+        }
+    }
+}

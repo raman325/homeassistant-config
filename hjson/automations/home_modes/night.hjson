@@ -12,10 +12,13 @@
             service: pyscript.lock_down
         }
         {
-            alias: Set temperature mode to night
-            service: pyscript.set_temperature
+            alias: Set temperature based on night mode thresholds
+            service: climate.set_temperature
+            target: {
+                entity_id: climate.thermostat
+            }
             data: {
-                mode: night
+                temperature: "{% if states('climate.thermostat') == 'heat' %}{{ states('input_number.night_low') }}{% else %}{{ states('input_number.night_high') }}{% endif %}"
             }
         }
     ]

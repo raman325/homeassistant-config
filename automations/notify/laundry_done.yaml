@@ -1,0 +1,30 @@
+id: notify_laundry_done
+alias: 'Notify: Laundry done or error'
+trigger:
+- platform: state
+  entity_id:
+  - sensor.washer_current_status
+  - sensor.pedestal_washer_current_status
+  - sensor.dryer_current_status
+  to: end
+  id: done
+- platform: state
+  entity_id:
+  - sensor.washer_current_status
+  - sensor.pedestal_washer_current_status
+  - sensor.dryer_current_status
+  to: error
+  id: error
+action:
+  alias: Notify both phones about laundry status
+  service: notify.household
+  data:
+    title: '{% if trigger.id == ''error'' %}{{ trigger.to_state.name | replace(''
+      Current status'', '''') }} error!{% else %}{{ trigger.to_state.name | replace(''
+      Current status'', '''') }} done!{% endif %}'
+    message: '{% if trigger.id == ''error'' %}The {{ trigger.to_state.name | replace(''
+      Current status'', '''') | lower }} encountered an error. Check on it.{% else
+      %}The {{ trigger.to_state.name | replace('' Current status'', '''') | lower
+      }} has finished its cycle.{% endif %}'
+    data:
+      tag: laundry-{{ trigger.entity_id }}

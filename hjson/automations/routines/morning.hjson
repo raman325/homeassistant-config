@@ -4,9 +4,9 @@
     trigger: {
         platform: state
         entity_id: [
-            binary_sensor.living_room_motion
+            binary_sensor.living_room_occupancy_occupancy
             light.living_room
-            light.foyer
+            light.1st_floor_hallway
             light.kitchen
         ]
         to: on
