@@ -226,21 +226,36 @@ def convertHjsonToYaml(path_to_hjson="hjson/", path_to_yaml="./"):
                 dest.close()
             src.close()
 
-    # Remove orphaned YAML files that no longer have a corresponding hjson source
-    yamlFiles = findFiles(path_to_yaml, "yaml")
-    for yamlFile in yamlFiles:
-        expectedHjson = (
-            path_to_hjson
-            + convertFileName(yamlFile, "yaml", "hjson")[len(path_to_yaml) :]
+    # Remove orphaned YAML files that no longer have a corresponding hjson source.
+    # Build set of expected YAML paths from hjson sources, then check all YAML files
+    # in the same directory tree for orphans.
+    expectedYaml = set()
+    for hjsonFile in srcFiles:
+        expectedYaml.add(
+            path_to_yaml
+            + convertFileName(hjsonFile, "hjson", "yaml")[len(path_to_hjson) :]
         )
-        if not os.path.exists(expectedHjson):
-            print("Removing orphaned YAML: " + yamlFile)
-            os.remove(yamlFile)
-            # Remove empty parent directories
-            parentDir = os.path.dirname(yamlFile)
-            while parentDir != path_to_yaml and not os.listdir(parentDir):
-                os.rmdir(parentDir)
-                parentDir = os.path.dirname(parentDir)
+
+    # Only scan directories that the hjson tree maps to (not .venv, etc.)
+    hjsonDirs = set(os.path.dirname(f) for f in srcFiles)
+    yamlDirsToScan = set(
+        path_to_yaml + d[len(path_to_hjson) :] for d in hjsonDirs
+    )
+
+    for yamlDir in yamlDirsToScan:
+        if not os.path.isdir(yamlDir):
+            continue
+        for file in os.listdir(yamlDir):
+            if file.endswith(".yaml"):
+                yamlFile = os.path.join(yamlDir, file)
+                if yamlFile not in expectedYaml:
+                    print("Removing orphaned YAML: " + yamlFile)
+                    os.remove(yamlFile)
+
+    # Clean up empty directories
+    for yamlDir in sorted(yamlDirsToScan, key=len, reverse=True):
+        if os.path.isdir(yamlDir) and not os.listdir(yamlDir):
+            os.rmdir(yamlDir)
 
 
 # add constructor and representer for every tag that HA uses
