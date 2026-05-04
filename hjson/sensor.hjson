@@ -26,40 +26,42 @@
         [
             {
                 name: 16th (local) Home to Office
-                routes: !secret wmata_route_sherene_office_16
+                route: !secret wmata_route_sherene_office_16
                 stop_id: !secret wmata_stop_sherene_home_16
             }
             {
                 name: 16th (express) Home to Office
-                routes: !secret wmata_route_sherene_office_16_express
+                route: !secret wmata_route_sherene_office_16_express
                 stop_id: !secret wmata_stop_sherene_home_16_express
             }
             {
-                name: 14th Home to Office
-                routes:
-                [
-                    !secret wmata_route_sherene_office_14_1
-                    !secret wmata_route_sherene_office_14_2
-                ]
+                name: 14th Home to Office 1
+                route: !secret wmata_route_sherene_office_14_1
+                stop_id: !secret wmata_stop_sherene_home_14
+            }
+            {
+                name: 14th Home to Office 2
+                route: !secret wmata_route_sherene_office_14_2
                 stop_id: !secret wmata_stop_sherene_home_14
             }
             {
                 name: 16th (local) Office to Home
-                routes: !secret wmata_route_sherene_office_16
+                route: !secret wmata_route_sherene_office_16
                 stop_id: !secret wmata_stop_sherene_office_16
             }
             {
                 name: 16th (express) Office to Home
-                routes: !secret wmata_route_sherene_office_16_express
+                route: !secret wmata_route_sherene_office_16_express
                 stop_id: !secret wmata_stop_sherene_office_16_express
             }
             {
-                name: 14th Office to Home
-                routes:
-                [
-                    !secret wmata_route_sherene_office_14_1
-                    !secret wmata_route_sherene_office_14_2
-                ]
+                name: 14th Office to Home 1
+                route: !secret wmata_route_sherene_office_14_1
+                stop_id: !secret wmata_stop_sherene_office_14
+            }
+            {
+                name: 14th Office to Home 2
+                route: !secret wmata_route_sherene_office_14_2
                 stop_id: !secret wmata_stop_sherene_office_14
             }
         ]
