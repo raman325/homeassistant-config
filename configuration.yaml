@@ -14,7 +14,6 @@ google_assistant: !include 'google_assistant.yaml'
 history:
 homeassistant: !include 'homeassistant.yaml'
 homekit: !include 'homekit.yaml'
-http: !include 'http.yaml'
 input_boolean:
 input_datetime:
 input_number:

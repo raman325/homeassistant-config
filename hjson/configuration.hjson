@@ -15,7 +15,6 @@
     history: null
     homeassistant: !include homeassistant.yaml
     homekit: !include homekit.yaml
-    http: !include http.yaml
     input_boolean: null
     input_datetime: null
     input_number: null
