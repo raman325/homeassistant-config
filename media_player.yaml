@@ -1,0 +1,50 @@
+- platform: universal
+  name: Office Entertainment
+  unique_id: raman_office_entertainment
+  device_class: tv
+  children:
+  - media_player.plex_plex_for_android_tv_shield_android_tv_3
+  - media_player.raman_office_shield_2
+  - media_player.raman_office_shield
+  - media_player.raman_office_tv
+  active_child_template: "{% if is_state('media_player.raman_office_tv', 'off')\n\
+    or not is_state_attr('media_player.raman_office_tv', 'source', 'SHIELD') %}\n\
+    media_player.raman_office_tv\n{% elif states('media_player.plex_plex_for_android_tv_shield_android_tv_3')\n\
+    in ['playing', 'paused']\nand is_state_attr('media_player.raman_office_shield_remote',\n\
+    \    'app_id', 'com.plexapp.android') %}\nmedia_player.plex_plex_for_android_tv_shield_android_tv_3\n\
+    {% elif states('media_player.raman_office_shield_2')\nin ['playing', 'paused',\
+    \ 'buffering'] %}\nmedia_player.raman_office_shield_2\n{% else %}\nmedia_player.raman_office_shield\n\
+    {% endif %}"
+  commands:
+    turn_on:
+      action: media_player.turn_on
+      target:
+        entity_id: media_player.raman_office_tv
+    turn_off:
+      action: media_player.turn_off
+      target:
+        entity_id: media_player.raman_office_tv
+    volume_up:
+      action: media_player.volume_up
+      target:
+        entity_id: media_player.raman_office_tv
+    volume_down:
+      action: media_player.volume_down
+      target:
+        entity_id: media_player.raman_office_tv
+    volume_mute:
+      action: media_player.volume_mute
+      target:
+        entity_id: media_player.raman_office_tv
+      data:
+        is_volume_muted: '{{ is_volume_muted }}'
+    select_source:
+      action: media_player.select_source
+      target:
+        entity_id: media_player.raman_office_tv
+      data:
+        source: '{{ source }}'
+  attributes:
+    state: media_player.raman_office_tv
+    source: media_player.raman_office_tv|source
+    source_list: media_player.raman_office_tv|source_list

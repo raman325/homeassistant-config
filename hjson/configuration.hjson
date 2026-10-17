@@ -24,6 +24,7 @@
     logbook: null
     logger: !include logger.yaml
     lovelace: null
+    media_player: !include media_player.yaml
     mobile_app: null
     mqtt: !include mqtt.yaml
     notify: !include notify.yaml
